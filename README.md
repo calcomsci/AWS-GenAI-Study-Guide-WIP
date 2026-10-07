@@ -11,5 +11,6 @@ https://skillbuilder.aws/learning-plan/9VXVGYT38G/exam-prep-plan-aws-certified-g
 If you want a mobile app to help you prepare for the AWS AIP-C01 exam, I suggest you download the app below:
 
 iOS: https://apps.apple.com/us/app/aws-ai-developer-exam-prep/id6760701090
+
 Android: https://play.google.com/store/apps/details?id=com.techprep.awsgenai&pli=1
 
