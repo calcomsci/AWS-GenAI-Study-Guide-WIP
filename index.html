@@ -812,22 +812,93 @@
       <header class="page-header">
         <div>
           <p class="eyebrow">AWS Generative AI Developer - Professional / AIP-C01</p>
-          <h1>The No Magic Wands Litmus Test</h1>
+          <h1>AWS GenAI Services Reference</h1>
         </div>
         <div class="page-number">Page 7<br />07 / 09</div>
       </header>
-      <div class="content full-width">
-        <section class="section">
-          <h2><span>21</span> Codified Automation vs. Fictional Platform Magic</h2>
-          <p>Use this test when an answer promises hands-off behavior: <strong>Is the behavior a documented service capability, and what inputs, rules, thresholds, or application code make it happen?</strong> AWS services automate many tasks, but automation has a defined scope. A configured managed feature is real; unsupported claims that a service infers business policy or guarantees an outcome are not.</p>
-
-          <div class="fact"><strong>🟢 Green flag:</strong> The answer names a supported capability, its required configuration, inputs, rules, or evaluation criteria, and the boundary of what it automates.</div>
-          <div class="warning"><strong>🔴 Red flag:</strong> The answer implies that a service infers business policy, writes custom logic, or guarantees outcomes without a defined feature or conditions.</div>
-          <p>Words such as <em>automatically</em> and <em>natively</em> are prompts to verify the service behavior, not proof that an answer is wrong. Use the matrix on page 8 for the concrete scenario-to-service comparisons.</p>
-          <div class="formula">Check the capability, the configuration, and the boundary. Managed automation is valid when the service actually supports it.</div>
-        </section>
+      <div class="content">
+        <div class="column">
+          <section class="section">
+            <h2><span>21</span> Core GenAI Services</h2>
+            <table>
+              <thead><tr><th>Service</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Amazon Bedrock</strong></td><td>Fully managed service to access foundation models (FMs) from Amazon, Anthropic, Meta, Cohere, and others via API. Provides <code>InvokeModel</code>, <code>Converse</code>, streaming, and batch inference — no infrastructure to manage.</td></tr>
+                <tr><td><strong>Bedrock Agents</strong></td><td>Orchestrate multi-step, stateful tasks by combining FM reasoning with action groups (Lambda functions) and Knowledge Bases. Agents plan, invoke tools, and return results autonomously. Enable <code>enableTrace: true</code> for step-by-step diagnostics.</td></tr>
+                <tr><td><strong>Bedrock Data Automation</strong></td><td>Extract structured output (text, key-value pairs, tables) from documents, images, and media using FM-powered pipelines for downstream processing.</td></tr>
+                <tr><td><strong>Bedrock Guardrails</strong></td><td>Configurable content filters applied to FM inputs and outputs: denied topics, sensitive-information redaction (PII/regex), prompt-attack detection, contextual grounding checks, and word filters. Works with Bedrock, SageMaker, and custom models.</td></tr>
+                <tr><td><strong>Bedrock Knowledge Bases</strong></td><td>Managed RAG pipeline: ingest documents from S3, automatically chunk, embed, and index them into a vector store, then retrieve relevant context at query time to ground FM responses in private data.</td></tr>
+                <tr><td><strong>Bedrock Model Evaluation</strong></td><td>Run automated or human evaluations against FMs using built-in or custom metrics on your datasets. Compare model quality (accuracy, toxicity, robustness) before production deployment.</td></tr>
+                <tr><td><strong>Bedrock Prompt Management</strong></td><td>Centrally author, version, and manage prompt templates with dynamic variables. Create prompt variants per model/use case and deploy via prompt ARNs — decouples prompt engineering from application code.</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="section">
+            <h2><span>22</span> Model Training &amp; Hosting</h2>
+            <table>
+              <thead><tr><th>Service</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Amazon ECR</strong></td><td>Managed container registry for storing Docker images used by SageMaker training jobs and inference endpoints — the standard path for custom model containers.</td></tr>
+                <tr><td><strong>Amazon SageMaker AI</strong></td><td>Build, train, and deploy custom ML/FM models at scale. Supports notebook development, distributed training, and multiple inference modes: Real-Time, Async (payloads up to 1 GB, scale-to-zero), Serverless, and Batch Transform.</td></tr>
+                <tr><td><strong>Bedrock Custom Models</strong></td><td>Fine-tune or continue pre-training supported Bedrock FMs on your labeled data without managing infrastructure. Produces a custom model invocable through the same Bedrock APIs.</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="section">
+            <h2><span>23</span> Vector &amp; Data Stores</h2>
+            <table>
+              <thead><tr><th>Service</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Amazon DynamoDB</strong></td><td>Serverless key-value/document database. Common for session state (keyed by <code>sessionId</code>), conversation history, and metadata lookups in GenAI applications — not for vector search.</td></tr>
+                <tr><td><strong>Amazon Neptune Analytics</strong></td><td>Graph analytics engine for relationship-rich data. Combines graph traversals with vector similarity for GraphRAG — finding related entities/documents via structural connections.</td></tr>
+                <tr><td><strong>Amazon OpenSearch Service / Serverless</strong></td><td>Distributed search and analytics engine with native k-NN vector search (HNSW). Serverless auto-scales via OCUs. Primary choice for hybrid keyword + semantic retrieval in RAG.</td></tr>
+                <tr><td><strong>Amazon S3</strong></td><td>Object storage for documents, datasets, model artifacts, logs, and evaluation results. Source for Knowledge Base ingestion, SageMaker training data, and Model Invocation Log storage.</td></tr>
+                <tr><td><strong>Aurora PostgreSQL (pgvector)</strong></td><td>Relational database with the <code>pgvector</code> extension for vector similarity search alongside SQL transactions — ideal when relational and vector queries coexist.</td></tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+        <div class="column">
+          <section class="section">
+            <h2><span>24</span> Orchestration &amp; Compute</h2>
+            <table>
+              <thead><tr><th>Service</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Amazon API Gateway</strong></td><td>Managed API front door. <strong>WebSocket API</strong> enables real-time token streaming from Bedrock. <strong>REST API</strong> buffers full responses (no streaming). Provides request validation, throttling, and auth integration.</td></tr>
+                <tr><td><strong>Amazon EventBridge</strong></td><td>Serverless event bus that routes events from AWS services, SaaS, and custom apps to targets via rules. Useful for event-driven GenAI workflows triggered by state changes.</td></tr>
+                <tr><td><strong>Amazon Kinesis Data Streams</strong></td><td>Real-time streaming data ingestion at scale. Feeds Lambda or other consumers for near-real-time GenAI processing of high-throughput event data (e.g., clickstreams, IoT).</td></tr>
+                <tr><td><strong>Amazon SNS</strong></td><td>Pub/sub messaging service for fan-out notifications. Pushes messages to multiple subscribers (Lambda, SQS, email, HTTP) — common for alerting on model evaluation results or pipeline completions.</td></tr>
+                <tr><td><strong>Amazon SQS</strong></td><td>Fully managed message queue for decoupling and buffering. Provides durable, at-least-once delivery with dead-letter queues — use between S3 events and Lambda for backpressure-safe ingestion pipelines.</td></tr>
+                <tr><td><strong>AWS Lambda</strong></td><td>Serverless compute that runs code in response to events (API calls, S3 uploads, SQS messages). Executes Bedrock API calls, preprocessing, and action-group logic for Agents. 15-min max timeout.</td></tr>
+                <tr><td><strong>AWS Step Functions</strong></td><td>Visual workflow orchestrator for multi-step, long-running processes. Coordinates Lambda, Bedrock, and SageMaker calls with retries, error handling, branching, parallel execution, and circuit-breaker patterns.</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="section">
+            <h2><span>25</span> Observability &amp; Security</h2>
+            <table>
+              <thead><tr><th>Service</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Amazon CloudWatch</strong></td><td>Metrics, alarms, and dashboards for all AWS services. Track Bedrock invocation counts, latency (TTFT), <code>ThrottlingException</code> rates, and token usage. Set alarms on anomalies.</td></tr>
+                <tr><td><strong>Amazon CloudWatch Logs</strong></td><td>Centralized log storage and querying. One of the <strong>two supported destinations for Bedrock Model Invocation Logging</strong> — captures request/response bodies and metadata for debugging and auditing.</td></tr>
+                <tr><td><strong>AWS CloudTrail</strong></td><td>Records <em>control-plane</em> API calls (e.g., <code>CreateKnowledgeBase</code>, <code>StartIngestionJob</code>). Provides governance and audit trail — does <strong>not</strong> capture data-plane inference payloads or document processing failures.</td></tr>
+                <tr><td><strong>AWS IAM</strong></td><td>Identity and access management for all AWS resources. Controls who/what can invoke Bedrock models, access Knowledge Bases, read S3 data, or execute Lambda functions via fine-grained policies.</td></tr>
+                <tr><td><strong>AWS KMS</strong></td><td>Managed encryption key service. Encrypts data at rest in S3 buckets, DynamoDB tables, OpenSearch indexes, and SageMaker volumes — essential for data protection compliance.</td></tr>
+                <tr><td><strong>AWS PrivateLink</strong></td><td>Private connectivity from your VPC to supported AWS services via interface VPC endpoints — keeps traffic off the public internet. Pair with endpoint policies and security groups.</td></tr>
+                <tr><td><strong>AWS X-Ray</strong></td><td>Distributed tracing across Lambda, API Gateway, and downstream services. Visualizes end-to-end request flow, identifies latency bottlenecks in GenAI pipelines.</td></tr>
+                <tr><td><strong>Bedrock Model Invocation Logging</strong></td><td>Logs full inference request/response payloads (prompts, completions, images, metadata) to <strong>Amazon S3</strong> and/or <strong>CloudWatch Logs</strong> — the only two supported destinations. Essential for root-cause diagnostics, compliance, and quality analysis.</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="section">
+            <h2><span>26</span> Codified Automation vs. Magic</h2>
+            <p>Use this litmus test when an answer promises hands-off behavior: <strong>name the documented capability, the required configuration, and the boundary of what it automates.</strong></p>
+            <div class="fact"><strong>🟢 Green flag:</strong> Supported capability + configuration + boundary of automation.</div>
+            <div class="warning"><strong>🔴 Red flag:</strong> Service infers business policy or guarantees outcomes without a defined feature.</div>
+          </section>
+        </div>
       </div>
-      <footer class="footer"><span>Verify capability + configuration + boundary</span><span>AIP-C01 / 07</span></footer>
+      <footer class="footer"><span>Know every service's primary purpose, inputs, and limits</span><span>AIP-C01 / 07</span></footer>
     </main>
 
     <main class="page">
@@ -840,7 +911,7 @@
       </header>
       <div class="content full-width">
         <section class="section">
-          <h2><span>22</span> Scenario Triggers: Green Flags vs. Red Flags</h2>
+          <h2><span>27</span> Scenario Triggers: Green Flags vs. Red Flags</h2>
           <p>Map the constraint to a capability, then check fit, configuration, and tradeoffs. A red flag is a mismatch for the stated scenario, not a universal ban on a service.</p>
           <table>
             <thead>
@@ -944,7 +1015,7 @@
       <div class="content">
         <div class="column">
           <section class="section">
-            <h2><span>23</span> The Intuitive Elimination Framework</h2>
+            <h2><span>28</span> The Intuitive Elimination Framework</h2>
             <p><strong>Engineering judgment gets you to the final two; AWS feature knowledge selects the winner.</strong> Common sense is a powerful filter, not a substitute for knowing documented service capabilities, limits, and configuration boundaries. <em>(No internet or AI tools are available during the exam — trust the mental model you built.)</em></p>
 
             <div class="fact">
@@ -976,7 +1047,7 @@
 
         <div class="column">
           <section class="section">
-            <h2><span>24</span> Single-Select vs. Multi-Select Strategy</h2>
+            <h2><span>29</span> Single-Select vs. Multi-Select Strategy</h2>
 
             <h3>4-Choice Questions (Single-Select)</h3>
             <p>One option must satisfy the full requirement end-to-end. If two answers remain plausible, compare them against the Requirement Matrix and perform the Proof-of-Fit check. The winner is the one whose documented primary purpose matches the binding constraint with the fewest unstated dependencies.</p>
@@ -1007,7 +1078,7 @@
           </section>
 
           <section class="section">
-            <h2><span>25</span> Absolute-Language Verification</h2>
+            <h2><span>30</span> Absolute-Language Verification</h2>
             <p>Words such as <strong>always</strong>, <strong>never</strong>, <strong>immediately</strong>, <strong>solely</strong>, and <strong>automatically</strong> are prompts to verify a service boundary — not instant disqualifiers.</p>
             <ul>
               <li>Eliminate the option when the claim conflicts with the requirements or documented behavior.</li>
