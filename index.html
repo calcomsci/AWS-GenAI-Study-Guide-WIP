@@ -382,7 +382,7 @@
   </div>
   <div class="last-updated-bar">
     <span class="last-updated-badge">Last Updated</span>
-    <span class="last-updated-text"><strong>November 1, 2026</strong> • Calibrated with Official AWS Skill Builder Item Diagnostics, Embedding Drift &amp; 4-Tier Operational Overhead Hierarchy</span>
+    <span class="last-updated-text"><strong>November 6, 2026</strong> • Calibrated with Universal 50/50 Tie-Breaker Rules &amp; 4-Tier Operational Overhead Hierarchy</span>
   </div>
   <div class="nav-tabs">
     <button class="tab-btn active" onclick="filterTab('all', this)">All Sections</button>
@@ -406,25 +406,25 @@
     <h2>1. Exam Strategy, Pacing & The "Cut the Crap" (75/25) Methodology</h2>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 01</span> Top-Down Exam Strategy &amp; Logic Gates</div>
-      <h3>"Cut the Crap" &amp; The 50/50 Forensic Tie-Breaker Protocol</h3>
-            <p><strong>The Real Exam Dynamic:</strong> On official AWS AIP-C01 questions, candidates can quickly purge 2 obvious distractors (50%), but frequently find themselves in a grueling <strong>50/50 hesitation between the final two plausible options</strong> (e.g., B vs C). Both seem to explain the symptom at a high level. Breaking this hesitation requires <em>forensic telemetry tie-breaking</em> rather than guessing.</p>
+      <h3>"Cut the Crap" &amp; The 50/50 Tie-Breaker Protocol</h3>
+            <p><strong>The Real Exam Dynamic:</strong> On official AWS AIP-C01 questions, candidates can quickly purge 2 obvious distractors (50%), but frequently face a <strong>50/50 hesitation between the final two plausible options</strong>. Both finalists are usually technically valid AWS architectures on paper. Breaking this hesitation requires evaluating <em>constraint fit, architectural boundaries, and requirement completeness</em> rather than guessing.</p>
             <ul>
-              <li><strong>Step 1 (Reverse-Read):</strong> Read the final sentence first to lock onto the exact operational constraint (cost, latency, least overhead, governance, or root-cause diagnosis).</li>
-              <li><strong>Step 2 (The Fast 50% Purge):</strong> Spot the 2 obvious poison pills immediately—options with wrong architectural layers, non-existent APIs, or inverted metrics (e.g., tweaking temperature to fix missing search results, or claiming IAM is missing when invocations succeeded).</li>
-              <li><strong>Step 3 (The 50/50 Forensic Tie-Breaker):</strong> When down to the final two (the Winner vs. the Near-Miss Mirror Distractor), apply the <strong>Three Golden Tie-Breaker Rules</strong> below.</li>
+              <li><strong>Step 1 (Reverse-Read):</strong> Read the final sentence first to lock onto the exact binding constraint (least operational overhead, cost optimization, latency, governance/compliance, or root-cause diagnosis).</li>
+              <li><strong>Step 2 (The Fast 50% Purge):</strong> Eliminate the 2 obvious poison pills immediately—options operating at the wrong architectural layer, relying on fabricated service capabilities, or optimizing for the opposite tradeoff.</li>
+              <li><strong>Step 3 (The 50/50 Tie-Breaker):</strong> When down to the final two (the Winner vs. the Near-Miss Distractor), apply the <strong>Three Golden Rules</strong> below.</li>
             </ul>
 
             <div class="fact">
-              <span class="label">Golden Rule 1: Clean Telemetry = Semantic/Model Failure (NOT Infrastructure)</span>
-              If the scenario stem states <strong>CloudWatch shows zero errors</strong>, <strong>X-Ray confirms successful 200 OK invocation</strong>, and <strong>OpenSearch/DB cluster is healthy with normal latency</strong>, immediately <strong>ELIMINATE data deletion, cluster crashes, and IAM failures</strong>. If documents were deleted in OpenSearch, queries would error out or logs would report index/document anomalies. When telemetry is 100% green but the app returns "no relevant information found", the failure is in the <em>mathematical/semantic space</em> (e.g., <strong>Embedding Drift</strong> across model versions).
+              <span class="label">Golden Rule 1: Optimize for the Binding Constraint (Managed-First by Default)</span>
+              In a 50/50 split, both options usually <em>can</em> work—so stop asking "Is this possible?" and ask <strong>"Which option directly satisfies the final sentence's primary constraint?"</strong> Unless the stem explicitly forces custom infrastructure (e.g., custom model weights not supported on Bedrock, payloads/timeouts exceeding serverless limits, or specialized GPU runtime control), <strong>native managed capabilities (Amazon Bedrock features + serverless glue)</strong> always beat custom containers, EC2 clusters, or bespoke code on operational overhead and agility.
             </div>
             <div class="fact">
-              <span class="label">Golden Rule 2: Scope-of-Change Boundary</span>
-              If the stem states "After a recent code update to the Lambda function...", the root cause MUST be tied to what a Lambda deployment actually changes (e.g., updated model ID, payload structure, or embedding version). A code deployment to Lambda does <em>not</em> delete document embeddings from an independent OpenSearch cluster.
+              <span class="label">Golden Rule 2: Match the Architectural Layer &amp; Failure Domain</span>
+              Every GenAI requirement or failure lives in a specific layer: <strong>Data/Ingestion, Retrieval/Indexing, Model/Generation, Orchestration/State, or Security/Infrastructure</strong>. Never select a solution from one layer to fix a problem in another. Infrastructure and IAM failures surface as explicit API/system errors (4xx/5xx, timeouts, access denied), whereas healthy telemetry with poor outputs points to the semantic/application layer (retrieval quality, prompt design, model selection, or data drift). Similarly, tune retrieval mechanisms to fix missing context, and tune prompts, inference parameters, or Guardrails to control generation behavior.
             </div>
             <div class="warning">
-              <span class="label">Golden Rule 3: Retrieval Failure vs. Generation Failure</span>
-              <strong>Retrieval failures</strong> ("no relevant information found", missing citations, empty context chunks) are caused by embedding drift, chunking mismatches, or vector distance thresholds. <strong>Generation failures</strong> (hallucination, creative tangents, poor formatting) are caused by temperature, top-p, or system prompt wording. <em>Never pick a generation parameter (temperature) to fix a retrieval problem.</em>
+              <span class="label">Golden Rule 3: 100% Requirement Coverage with Zero Unstated Magic</span>
+              The winning answer must satisfy <strong>every mandatory qualifier</strong> in the scenario (e.g., <em>real-time vs. asynchronous, multi-turn state, regulatory isolation, zero-downtime migration</em>) using documented AWS behavior. Eliminate the finalist that solves the headline problem while violating a secondary constraint, or that assumes a service "automatically" infers business logic, enforces safety, or transforms data without the required native feature and configuration.
             </div>
 
             <h3>Pacing &amp; Stamina Protocol (180 Mins / 75 Qs)</h3>
