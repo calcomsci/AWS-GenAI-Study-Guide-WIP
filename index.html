@@ -414,17 +414,19 @@
               <li><strong>Step 3 (The 50/50 Tie-Breaker):</strong> When down to the final two (the Winner vs. the Near-Miss Distractor), apply the <strong>Three Golden Rules</strong> below.</li>
             </ul>
 
-            <div class="fact">
-              <span class="label">Golden Rule 1: Optimize for the Binding Constraint (Managed-First by Default)</span>
-              In a 50/50 split, both options usually <em>can</em> work—so stop asking "Is this possible?" and ask <strong>"Which option directly satisfies the final sentence's primary constraint?"</strong> Unless the stem explicitly forces custom infrastructure (e.g., custom model weights not supported on Bedrock, payloads/timeouts exceeding serverless limits, or specialized GPU runtime control), <strong>native managed capabilities (Amazon Bedrock features + serverless glue)</strong> always beat custom containers, EC2 clusters, or bespoke code on operational overhead and agility.
-            </div>
-            <div class="fact">
-              <span class="label">Golden Rule 2: Match the Architectural Layer &amp; Failure Domain</span>
-              Every GenAI requirement or failure lives in a specific layer: <strong>Data/Ingestion, Retrieval/Indexing, Model/Generation, Orchestration/State, or Security/Infrastructure</strong>. Never select a solution from one layer to fix a problem in another. Infrastructure and IAM failures surface as explicit API/system errors (4xx/5xx, timeouts, access denied), whereas healthy telemetry with poor outputs points to the semantic/application layer (retrieval quality, prompt design, model selection, or data drift). Similarly, tune retrieval mechanisms to fix missing context, and tune prompts, inference parameters, or Guardrails to control generation behavior.
-            </div>
-            <div class="fact">
-              <span class="label">Golden Rule 3: 100% Requirement Coverage with Zero Unstated Magic</span>
-              The winning answer must satisfy <strong>every mandatory qualifier</strong> in the scenario (e.g., <em>real-time vs. asynchronous, multi-turn state, regulatory isolation, zero-downtime migration</em>) using documented AWS behavior. Eliminate the finalist that solves the headline problem while violating a secondary constraint, or that assumes a service "automatically" infers business logic, enforces safety, or transforms data without the required native feature and configuration.
+            <div class="golden-rules">
+              <aside class="fact">
+                <span class="label">Golden Rule 1: Optimize for the Binding Constraint (Managed-First by Default)</span>
+                In a 50/50 split, both options usually <em>can</em> work—so stop asking "Is this possible?" and ask <strong>"Which option directly satisfies the final sentence's primary constraint?"</strong> Unless the stem explicitly forces custom infrastructure (e.g., custom model weights not supported on Bedrock, payloads/timeouts exceeding serverless limits, or specialized GPU runtime control), <strong>native managed capabilities (Amazon Bedrock features + serverless glue)</strong> always beat custom containers, EC2 clusters, or bespoke code on operational overhead and agility.
+              </aside>
+              <aside class="fact">
+                <span class="label">Golden Rule 2: Match the Architectural Layer &amp; Failure Domain</span>
+                Every GenAI requirement or failure lives in a specific layer: <strong>Data/Ingestion, Retrieval/Indexing, Model/Generation, Orchestration/State, or Security/Infrastructure</strong>. Never select a solution from one layer to fix a problem in another. Infrastructure and IAM failures surface as explicit API/system errors (4xx/5xx, timeouts, access denied), whereas healthy telemetry with poor outputs points to the semantic/application layer (retrieval quality, prompt design, model selection, or data drift). Similarly, tune retrieval mechanisms to fix missing context, and tune prompts, inference parameters, or Guardrails to control generation behavior.
+              </aside>
+              <aside class="fact">
+                <span class="label">Golden Rule 3: 100% Requirement Coverage with Zero Unstated Magic</span>
+                The winning answer must satisfy <strong>every mandatory qualifier</strong> in the scenario (e.g., <em>real-time vs. asynchronous, multi-turn state, regulatory isolation, zero-downtime migration</em>) using documented AWS behavior. Eliminate the finalist that solves the headline problem while violating a secondary constraint, or that assumes a service "automatically" infers business logic, enforces safety, or transforms data without the required native feature and configuration.
+              </aside>
             </div>
 
             <h3>Pacing &amp; Stamina Protocol (180 Mins / 75 Qs)</h3>
