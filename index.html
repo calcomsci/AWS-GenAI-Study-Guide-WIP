@@ -374,7 +374,7 @@
   <div class="header-inner">
     <div>
       <h1>AWS Certified Generative AI Developer — Professional (AIP-C01)</h1>
-      <div class="subtitle">Complete Master Study Guide & Architecture Reference • Instant Search • "Cut the Crap" (75/25) Method</div>
+      <div class="subtitle">Complete Master Study Guide &amp; Architecture Reference • Instant Search • "Cut the Crap" (75/25) Answer Elimination Method</div>
     </div>
     <div class="controls">
       <input type="text" id="searchInput" placeholder="Search concepts, services, distractors, answer pairs..." />
@@ -388,10 +388,10 @@
     <button class="tab-btn active" onclick="filterTab('all', this)">All Sections</button>
     <button class="tab-btn" onclick="filterTab('strategy', this)">1. Exam Strategy</button>
     <button class="tab-btn" onclick="filterTab('pairing', this)">2. Pairing Techniques</button>
-    <button class="tab-btn" onclick="filterTab('rag', this)">3. Blueprint & RAG</button>
-    <button class="tab-btn" onclick="filterTab('bedrock', this)">4. Bedrock & FMs</button>
+    <button class="tab-btn" onclick="filterTab('rag', this)">3. Blueprint &amp; RAG</button>
+    <button class="tab-btn" onclick="filterTab('bedrock', this)">4. Bedrock &amp; FMs</button>
     <button class="tab-btn" onclick="filterTab('orchestration', this)">5. Orchestration</button>
-    <button class="tab-btn" onclick="filterTab('security', this)">6. Security & Observability</button>
+    <button class="tab-btn" onclick="filterTab('security', this)">6. Security &amp; Observability</button>
     <button class="tab-btn" onclick="filterTab('cost', this)">7. Cost Optimization</button>
     <button class="tab-btn" onclick="filterTab('services', this)">8. Services Reference</button>
     <button class="tab-btn" onclick="filterTab('matrix', this)">9. Elimination Tables</button>
@@ -401,13 +401,13 @@
 
 <main>
 
-  <!-- ==================== TAB: 1. Exam Strategy, Pacing & The "Cut the Crap" (75/25) Method ==================== -->
+  <!-- ==================== TAB: 1. Exam Strategy, Pacing & The "Cut the Crap" (75/25) Answer Elimination Method ==================== -->
   <section data-section="strategy" class="searchable-section">
-    <h2>1. Exam Strategy, Pacing &amp; The "Cut the Crap" (75/25) Method</h2>
+    <h2>1. Exam Strategy, Pacing &amp; The "Cut the Crap" (75/25) Answer Elimination Method</h2>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 01</span> Exam Strategy &amp; Core Rules</div>
-      <h3>"Cut the Crap" &amp; The 50/50 Tie-Breaker</h3>
-            <p><strong>The Real Exam Dynamic:</strong> On official AWS AIP-C01 questions, candidates can quickly purge 2 obvious distractors (50%), but frequently face a <strong>50/50 hesitation between the final two plausible options</strong>. Both finalists are usually technically valid AWS architectures on paper. Breaking this hesitation requires evaluating <em>constraint fit, architectural boundaries, and requirement completeness</em> rather than guessing.</p>
+      <h3>"Cut the Crap" (75/25) Answer Elimination Method &amp; The 50/50 Tie-Breaker</h3>
+            <p><strong>What "Cut the Crap" (75/25) Means:</strong> In a 4-choice AWS AIP-C01 question, <strong>75% of the answers (3 out of 4) are wrong answers (distractors)</strong> meant to distract you, and <strong>25% (1 out of 4) is the right answer</strong>. "Cut the Crap" means eliminating the nonsense to find that 1 correct answer. Candidates can usually cut 2 obvious distractors right away (50%), leaving a <strong>50/50 hesitation between the final two plausible options</strong>—both of which look like valid AWS architectures on paper. Breaking that 50/50 tie requires checking <em>constraint fit, architectural boundaries, and requirement completeness</em> rather than guessing.</p>
             <ul>
               <li><strong>Step 1 (Reverse-Read):</strong> Read the final sentence first to lock onto the exact binding constraint (least operational overhead, cost optimization, latency, governance/compliance, or root-cause diagnosis).</li>
               <li><strong>Step 2 (The Fast 50% Purge):</strong> Eliminate the 2 obvious distractors immediately—options operating at the wrong architectural layer, relying on fabricated service capabilities, or optimizing for the opposite tradeoff.</li>
@@ -1441,13 +1441,13 @@
     </div>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 42</span> Master Keyword &amp; Distractor Elimination Table</div>
-      <p>The "Cut the Crap" (75/25) elimination reference: Identify the binding operational constraint in the final sentence, lock onto the target AWS mechanism, and eliminate distractors.</p>
+      <p><strong>The "Cut the Crap" (75/25) Answer Elimination Method:</strong> In a 4-choice question, 75% of the answers (3 out of 4) are wrong answers/distractors and 25% (1 out of 4) is the right answer. Identify the binding operational constraint in the final sentence, lock onto the target AWS mechanism (the 25%), and eliminate the distractors (the 75%).</p>
           <table>
             <thead>
         <tr>
           <th>Question Constraint / Trigger Phrase</th>
-          <th>🟢 Green Flags (25% Target Winner)</th>
-          <th>🔴 Red Flags / Distractors (75% Crap to Cut Immediately)</th>
+          <th>🟢 Green Flags (25% Right Answer)</th>
+          <th>🔴 Red Flags / Distractors (75% Wrong Answers to Cut)</th>
         </tr>
       </thead>
       <tbody>
