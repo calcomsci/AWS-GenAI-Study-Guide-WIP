@@ -382,7 +382,7 @@
   </div>
   <div class="last-updated-bar">
     <span class="last-updated-badge">Last Updated</span>
-    <span class="last-updated-text"><strong>November 8, 2026</strong> • Updated with Universal 50/50 Tie-Breaker Rules &amp; 4-Tier Operational Overhead Ranking</span>
+    <span class="last-updated-text"><strong>November 8, 2026</strong> • Updated with the "Cut the Crap" Answer Elimination Method &amp; 4-Tier Operational Overhead Ranking</span>
   </div>
   <div class="nav-tabs">
     <button class="tab-btn active" onclick="filterTab('all', this)">All Sections</button>
@@ -406,18 +406,18 @@
     <h2>1. Exam Strategy, Pacing &amp; The "Cut the Crap" Answer Elimination Method</h2>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 01</span> Exam Strategy &amp; Core Rules</div>
-      <h3>"Cut the Crap" Answer Elimination Method &amp; The 50/50 Tie-Breaker</h3>
-            <p><strong>What "Cut the Crap" Means:</strong> Every AWS AIP-C01 question surrounds the right answer(s) with <strong>3 wrong answers (distractors)</strong> meant to throw you off—whether it is a standard 4-choice question (<strong>1 right answer, 3 distractors</strong>) or a 5-choice "Select TWO" question (<strong>2 right answers, 3 distractors</strong>). "Cut the Crap" means eliminating the nonsense to isolate the right answer(s). Candidates can usually cut the obvious distractors right away, leaving a <strong>final hesitation between two plausible options</strong>—both of which look like valid AWS architectures on paper. Breaking that tie requires checking <em>constraint fit, architectural boundaries, and requirement completeness</em> rather than guessing.</p>
+      <h3>"Cut the Crap" Answer Elimination Method</h3>
+            <p><strong>What "Cut the Crap" Means:</strong> Every AWS AIP-C01 question surrounds the right answer(s) with <strong>3 wrong answers (distractors)</strong> meant to throw you off—whether it is a standard 4-choice question (<strong>1 right answer, 3 distractors</strong>) or a 5-choice "Select TWO" question (<strong>2 right answers, 3 distractors</strong>). "Cut the Crap" means eliminating <strong>all 3 distractors</strong> so you can be decisive about picking the right answer(s) without second-guessing yourself—by checking <em>constraint fit, architectural boundaries, and requirement completeness</em>.</p>
             <ul>
               <li><strong>Step 1 (Reverse-Read):</strong> Read the final sentence first to lock onto the exact binding constraint (least operational overhead, cost optimization, latency, governance/compliance, or root-cause diagnosis) and check whether you are picking 1 or 2 answers.</li>
-              <li><strong>Step 2 (Fast Distractor Purge):</strong> Eliminate the obvious distractors immediately—options operating at the wrong architectural layer, relying on fabricated service capabilities, or optimizing for the opposite tradeoff.</li>
-              <li><strong>Step 3 (The Tie-Breaker):</strong> When down to the final two competing options (the Winner vs. the Near-Miss Distractor), apply the <strong>Three Golden Rules</strong> below.</li>
+              <li><strong>Step 2 (Cut the Obvious Distractors):</strong> Eliminate the obvious distractors immediately—options operating at the wrong architectural layer, relying on fabricated service capabilities, or optimizing for the opposite tradeoff.</li>
+              <li><strong>Step 3 (Cut the Final Distractor Decisively):</strong> Apply the <strong>Three Golden Rules</strong> below to expose the subtle flaw in the remaining near-miss distractor so you eliminate all 3 wrong answers and lock onto the winner with certainty.</li>
             </ul>
 
             <div class="golden-rules">
               <aside class="fact">
                 <span class="label">Golden Rule 1: Optimize for the Binding Constraint (Managed-First by Default)</span>
-                In a 50/50 split, both options usually <em>can</em> work—so stop asking "Is this possible?" and ask <strong>"Which option directly satisfies the final sentence's primary constraint?"</strong> Unless the stem explicitly forces custom infrastructure (e.g., custom model weights not supported on Bedrock, payloads/timeouts exceeding serverless limits, or specialized GPU runtime control), <strong>native managed capabilities (Amazon Bedrock features + serverless glue)</strong> always beat custom containers, EC2 clusters, or custom code on operational overhead and agility.
+                When two options look like they <em>can</em> work on paper, stop asking "Is this possible?" and ask <strong>"Which option directly satisfies the final sentence's primary constraint?"</strong> Unless the stem explicitly forces custom infrastructure (e.g., custom model weights not supported on Bedrock, payloads/timeouts exceeding serverless limits, or specialized GPU runtime control), <strong>native managed capabilities (Amazon Bedrock features + serverless glue)</strong> always beat custom containers, EC2 clusters, or custom code on operational overhead and agility.
               </aside>
               <aside class="fact">
                 <span class="label">Golden Rule 2: Match the Architectural Layer &amp; Failure Domain</span>
@@ -425,9 +425,13 @@
               </aside>
               <aside class="fact">
                 <span class="label">Golden Rule 3: 100% Requirement Coverage with Zero Unstated Magic</span>
-                The winning answer must satisfy <strong>every mandatory qualifier</strong> in the scenario (e.g., <em>real-time vs. asynchronous, multi-turn state, regulatory isolation, zero-downtime migration</em>) using documented AWS behavior. Eliminate the finalist that solves the headline problem while violating a secondary constraint, or that assumes a service "automatically" infers business logic, enforces safety, or transforms data without the required native feature and configuration.
+                The winning answer must satisfy <strong>every mandatory qualifier</strong> in the scenario (e.g., <em>real-time vs. asynchronous, multi-turn state, regulatory isolation, zero-downtime migration</em>) using documented AWS behavior. Eliminate any option that solves the headline problem while violating a secondary constraint, or that assumes a service "automatically" infers business logic, enforces safety, or transforms data without the required native feature and configuration.
               </aside>
             </div>
+
+            <p style="font-size: 0.85rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 0.65rem; margin-top: 0.75rem;">
+              <strong>* Author's Footnote (Why the "50/50 Elimination Method" is Deprecated):</strong> While the <em>50/50 elimination method</em> was an earlier crutch I used and works reasonably well at first glance, <strong>it is now deprecated by the author and you are discouraged from using it</strong>. "50/50" implies you only remove <strong>2 of the wrong answers</strong> in a 4-choice question, which leaves you hesitating between two plausible-looking answers when only 1 is actually right. Instead of stopping at a 50/50 guess, use the <em>"Cut the Crap" Answer Elimination Method</em> to eliminate <strong>all 3 distractors</strong> and decisively pick the right answer.
+            </p>
 
             <h3>Pacing &amp; Stamina Plan (180 Mins / 75 Qs)</h3>
             <ul>
@@ -443,12 +447,12 @@
               <li><strong>The Ephemeral Compute Law:</strong> AWS Lambda is strictly stateless. Never store multi-turn chat history or large custom model weights in Lambda memory or <code>/tmp</code>.</li>
               <li><strong>Diagnostics-First Law:</strong> Root-cause inspection (SageMaker Clarify audit, Guardrail Tracing, X-Ray, Logs Insights) must <em>always precede</em> remediation (retraining, threshold changes).</li>
               <li><strong>Custom Model Rule:</strong> Custom fine-tuned model weights require <strong>SageMaker Endpoints + ECR</strong> or <strong>Bedrock Provisioned Throughput (Model Units)</strong>—never Bedrock On-Demand.</li>
-              <li><strong>50/50 Purge Filter:</strong> Default to native Bedrock or serverless options when the requirement is least operational overhead or lowest cost. Do not eliminate ECS/EKS/GPU cluster patterns outright when the requirement explicitly calls for strict latency, guaranteed throughput, pre-warmed inference, or specialized runtime control.</li>
+              <li><strong>Managed-First Filter:</strong> Default to native Bedrock or serverless options when the requirement is least operational overhead or lowest cost. Do not eliminate ECS/EKS/GPU cluster patterns outright when the requirement explicitly calls for strict latency, guaranteed throughput, pre-warmed inference, or specialized runtime control.</li>
             </ul>
     </div>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 02</span> The Intuitive Elimination Guide</div>
-      <p><strong>Engineering judgment gets you to the final two; AWS feature knowledge selects the winner.</strong> Common sense is a powerful filter, not a substitute for knowing documented service capabilities, limits, and configuration boundaries. <em>(No internet or AI tools are available during the exam — trust the mental model you built.)</em></p>
+      <p><strong>Engineering judgment cuts the obvious distractors; AWS feature knowledge eliminates the final near-miss distractor so you can decisively select the winner.</strong> Common sense is a powerful filter, not a substitute for knowing documented service capabilities, limits, and configuration boundaries. <em>(No internet or AI tools are available during the exam — trust the mental model you built.)</em></p>
 
             <div class="fact">
               <span class="label">Core Principle</span>
@@ -647,8 +651,8 @@
               </tr>
               <tr>
                 <td><strong>C. The document embeddings in OpenSearch were deleted during the update.</strong></td>
-                <td><strong>The 50/50 Hesitation Trap:</strong> If embeddings were deleted, OpenSearch would throw index/document errors or query failures in CloudWatch. The stem explicitly confirms <em>zero errors, healthy cluster, and normal query latency</em>—proving documents are still being retrieved, but their similarity scores are ineffective. Furthermore, updating Lambda code does not touch OpenSearch data.</td>
-                <td>&#10007; <strong>Eliminate (Disproven by Telemetry)</strong>: Clean logs and healthy cluster disprove data deletion.</td>
+                <td><strong>Near-Miss Distractor Trap:</strong> If embeddings were deleted, OpenSearch would throw index/document errors or query failures in CloudWatch. The stem explicitly confirms <em>zero errors, healthy cluster, and normal query latency</em>—proving documents are still being retrieved, but their similarity scores are ineffective. Furthermore, updating Lambda code does not touch OpenSearch data.</td>
+                <td>&#10007; <strong>Distractor (Disproven by Telemetry)</strong>: Clean logs and healthy cluster disprove data deletion.</td>
               </tr>
               <tr>
                 <td><strong>D. The Lambda IAM role is missing bedrock:InvokeModel permission.</strong></td>
@@ -657,7 +661,7 @@
               </tr>
             </tbody>
           </table>
-          <div class="formula"><strong>The 50/50 Tie-Breaker Takeaway (B vs C):</strong> Both B and C explain "no results found." To break the tie, read the telemetry: Clean CloudWatch + Healthy Cluster + Normal Latency = Infrastructure and data are intact (C is false). The failure is in the vector space (B is true).</div>
+          <div class="formula"><strong>Decisive Distractor Elimination Takeaway (B vs C):</strong> Both B and C sound like they could explain "no results found," so don't stop at a 50/50 guess—read the telemetry to eliminate C outright: Clean CloudWatch + Healthy Cluster + Normal Latency = Infrastructure and data are intact (C is a distractor). The failure is in the vector space (B is the right answer).</div>
 
           <h3>Worked Architecture Case Study: "Real-Time Web Editor Suggestions with LEAST Operational Overhead" (Official Skill Builder Question 3)</h3>
           <p><strong>Scenario Stem:</strong> Journalists need a web-based article editor that provides real-time analysis of content upon clicking "analyze". Articles have content category metadata (news, sports, editorial) to route to appropriate Bedrock models. Must enforce style guide rules and stream suggested revisions in real time through the editor interface with <em>LEAST operational overhead</em>.</p>
