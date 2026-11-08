@@ -422,7 +422,7 @@
               <span class="label">Golden Rule 2: Match the Architectural Layer &amp; Failure Domain</span>
               Every GenAI requirement or failure lives in a specific layer: <strong>Data/Ingestion, Retrieval/Indexing, Model/Generation, Orchestration/State, or Security/Infrastructure</strong>. Never select a solution from one layer to fix a problem in another. Infrastructure and IAM failures surface as explicit API/system errors (4xx/5xx, timeouts, access denied), whereas healthy telemetry with poor outputs points to the semantic/application layer (retrieval quality, prompt design, model selection, or data drift). Similarly, tune retrieval mechanisms to fix missing context, and tune prompts, inference parameters, or Guardrails to control generation behavior.
             </div>
-            <div class="warning">
+            <div class="fact">
               <span class="label">Golden Rule 3: 100% Requirement Coverage with Zero Unstated Magic</span>
               The winning answer must satisfy <strong>every mandatory qualifier</strong> in the scenario (e.g., <em>real-time vs. asynchronous, multi-turn state, regulatory isolation, zero-downtime migration</em>) using documented AWS behavior. Eliminate the finalist that solves the headline problem while violating a secondary constraint, or that assumes a service "automatically" infers business logic, enforces safety, or transforms data without the required native feature and configuration.
             </div>
@@ -445,7 +445,7 @@
             </ul>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 31</span> The Intuitive Elimination Framework</div>
+      <div class="topic-title"><span>Topic 02</span> The Intuitive Elimination Framework</div>
       <p><strong>Engineering judgment gets you to the final two; AWS feature knowledge selects the winner.</strong> Common sense is a powerful filter, not a substitute for knowing documented service capabilities, limits, and configuration boundaries. <em>(No internet or AI tools are available during the exam — trust the mental model you built.)</em></p>
 
             <div class="fact">
@@ -474,7 +474,7 @@
             </ul>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 32</span> Single-Select Strategy (4-Choice Questions)</div>
+      <div class="topic-title"><span>Topic 03</span> Single-Select Strategy (4-Choice Questions)</div>
       <p>One option must satisfy the full requirement end-to-end. If two answers remain plausible, compare them against the Requirement Matrix and perform the Proof-of-Fit check. The winner is the one whose documented primary purpose matches the binding constraint with the fewest unstated dependencies.</p>
             <div class="fact">
               <span class="label">Single-Select Tie-Breaker</span>
@@ -524,7 +524,7 @@
             <p>When a question asks which Bedrock, AgentCore, SageMaker, Guardrails, or CloudWatch <em>feature</em> provides a behavior, expect a named managed capability. Do not substitute a reasonable DIY architecture unless the managed feature cannot meet the requirement. Learn lifecycle distinctions: online vs. on-demand evaluation; knowledge-base ingestion logs vs. model invocation logs vs. CloudTrail; Prompt Management vs. prompt caching vs. response caching.</p>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 33</span> Absolute-Language Verification</div>
+      <div class="topic-title"><span>Topic 04</span> Absolute-Language Verification</div>
       <p>Words such as <strong>always</strong>, <strong>never</strong>, <strong>immediately</strong>, <strong>solely</strong>, and <strong>automatically</strong> are prompts to verify a service boundary — not instant disqualifiers.</p>
             <ul>
               <li>Eliminate the option when the claim conflicts with the requirements or documented behavior.</li>
@@ -540,7 +540,7 @@
   <section data-section="pairing" class="searchable-section">
     <h2>2. Pairing Techniques &amp; Multi-Select Mastery (Pick Two / Pick Three)</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 34</span> Multi-Select Mastery &amp; Advanced Pairing Techniques (Pick Two / Pick Three)</div>
+      <div class="topic-title"><span>Topic 05</span> Multi-Select Mastery &amp; Advanced Pairing Techniques (Pick Two / Pick Three)</div>
       <div class="fact">
             <span class="label">The Mathematical Reality &amp; Double-Trap</span>
             <strong>5-choice "Select Two" questions have 10 possible pairs (<code>C(5,2) = 10</code>).</strong> Guessing blind yields only a 10% chance (vs. 25% on single-select), and AWS awards <strong>zero partial credit</strong>. AWS intentionally includes options that are individually true statements about AWS, but only solve <em>half</em> the scenario or duplicate the other selected answer. A senior engineer must pair two complementary capabilities that jointly satisfy every scenario constraint without functional overlap.
@@ -695,7 +695,7 @@
   <section data-section="rag" class="searchable-section">
     <h2>3. AIP-C01 Blueprint Domains, 7-Step RAG Pipeline & Vector Tuning</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 02</span> Official Domain Breakdown</div>
+      <div class="topic-title"><span>Topic 06</span> Official Domain Breakdown</div>
       <table>
               <thead>
                 <tr>
@@ -734,7 +734,7 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 03</span> End-to-End RAG Pipeline</div>
+      <div class="topic-title"><span>Topic 07</span> End-to-End RAG Pipeline</div>
       <ol>
               <li><strong>Step 1 • Ingress: Query Transformation:</strong> Client sends natural language query via API Gateway. Optional query decomposition or rewriting occurs for multi-turn context.</li>
               <li><strong>Step 2 • Vectorization: Query Embedding:</strong> Query string is passed to the exact same embedding model used during ingestion (e.g., Titan Text Embeddings V2) to generate a high-dimensional dense vector.</li>
@@ -747,7 +747,7 @@
             <div class="fact"><span class="label">Inference flow</span>From prompt initiation to final answer: user prompt enters the application &gt; request validation and auth &gt; prompt/context assembly &gt; retrieval and reranking &gt; model invocation &gt; guardrails and safety checks &gt; token streaming or final response &gt; observability and logging.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 04</span> Pipeline Validation &amp; Defense-in-Depth</div>
+      <div class="topic-title"><span>Topic 08</span> Pipeline Validation &amp; Defense-in-Depth</div>
       <ul>
               <li><strong>Input:</strong> Validate identity, size, schema, and allowed operations.</li>
               <li><strong>Application:</strong> Apply deterministic business rules and sanitize payloads.</li>
@@ -756,7 +756,7 @@
             </ul>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 05</span> Vector Store Mechanics &amp; Performance Tuning</div>
+      <div class="topic-title"><span>Topic 09</span> Vector Store Mechanics &amp; Performance Tuning</div>
       <p>Vector databases store dense embeddings for semantic search. Understanding how they index and scale is critical for troubleshooting retrieval latency:</p>
             <ul>
               <li><strong>HNSW vs. Flat (Brute Force):</strong> HNSW (Hierarchical Navigable Small World) builds multi-layer graphs for Approximate Nearest Neighbor (ANN) search with logarithmic time complexity: <code>O(log N)</code>. Flat index performs exhaustive distance comparison across every vector in <code>O(N)</code> time. Always use HNSW at scale; Flat guarantees 100% recall for tiny datasets (&lt;10k), but search latency explodes linearly as the index grows.</li>
@@ -768,7 +768,7 @@
             <div class="formula">OpenSearch degraded search as index grows → Raise refresh interval (fewer segments/HNSW graphs); eliminate shard/replica tuning on Serverless (managed by OCUs).</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 07</span> Prompting, RAG &amp; Vector Storage</div>
+      <div class="topic-title"><span>Topic 10</span> Prompting, RAG &amp; Vector Storage</div>
       <h3>Hybrid search / duplicate results</h3>
             <div class="fact"><strong>🟢 Target:</strong> Combine keyword and vector retrieval, deduplicate by document ID or normalized content, and merge relevance scores before reranking.</div>
             <div class="warning"><strong>🔴 Eliminate:</strong> Treating keyword and vector results as separate final answer sets or disabling keyword search entirely when the requirement is hybrid retrieval.</div>
@@ -800,7 +800,7 @@
             <div class="fact"><span class="label">S3 prompt-template governance</span>When S3 Versioning is enabled, teams can retain and restore previous versions of stored template objects.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 09</span> Data Preparation</div>
+      <div class="topic-title"><span>Topic 11</span> Data Preparation</div>
       <p>Quality data improves both retrieval and customization. Remove duplicates, resolve encoding problems, preserve useful structure, and document provenance.</p>
             <ol>
               <li>Collect data with a permitted business purpose.</li>
@@ -811,7 +811,7 @@
             </ol>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 15</span> Retrieval Choice</div>
+      <div class="topic-title"><span>Topic 12</span> Retrieval Choice</div>
       <table>
               <thead><tr><th>Signal</th><th>Choice</th></tr></thead>
               <tbody>
@@ -829,7 +829,7 @@
   <section data-section="bedrock" class="searchable-section">
     <h2>4. Foundation Models, Amazon Bedrock & Prompt Engineering</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 01</span> Generative AI Basics</div>
+      <div class="topic-title"><span>Topic 13</span> Generative AI Basics</div>
       <p><strong>Generative AI</strong> creates new content such as text, images, audio, code, and synthetic data from learned patterns. A foundation model is a large, general-purpose model trained on broad data and adapted to many downstream tasks.</p>
             <div class="fact"><span class="label">Remember</span>Model output is probabilistic. A fluent response is not automatically factual, current, or safe.</div>
             <h3>Common model tasks</h3>
@@ -842,7 +842,7 @@
             </ul>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 02</span> Foundation Model Workflow</div>
+      <div class="topic-title"><span>Topic 14</span> Foundation Model Workflow</div>
       <table>
               <thead>
                 <tr><th>Stage</th><th>Purpose</th></tr>
@@ -857,7 +857,7 @@
             <p><strong>Parameters</strong> are learned numerical values. More parameters can increase capability, but does not guarantee better results for every task.</p>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 03</span> Prompt Engineering</div>
+      <div class="topic-title"><span>Topic 15</span> Prompt Engineering</div>
       <p>A strong prompt gives the model a clear task, relevant context, constraints, and an output format. Put instructions where they are easy to distinguish from untrusted input.</p>
             <div class="formula">Task + Context + Constraints + Examples + Output format</div>
             <ul>
@@ -868,7 +868,7 @@
             </ul>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 04</span> Amazon Bedrock</div>
+      <div class="topic-title"><span>Topic 16</span> Amazon Bedrock</div>
       <p><strong>Amazon Bedrock</strong> is a fully managed service for building generative AI applications with foundation models from multiple providers through a unified API. It supports model choice, experimentation, customization, agents, guardrails, and knowledge bases.</p>
             <table>
               <thead>
@@ -885,7 +885,7 @@
             <div class="warning"><span class="label">Exam cue</span>Bedrock is the application platform. SageMaker is the broader ML platform for building, training, tuning, and deploying custom models with more control.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 05</span> RAG vs. Fine-Tuning</div>
+      <div class="topic-title"><span>Topic 17</span> RAG vs. Fine-Tuning</div>
       <table>
               <thead>
                 <tr><th>Approach</th><th>Best fit</th><th>Tradeoff</th></tr>
@@ -902,7 +902,7 @@
             <div class="fact"><span class="label">Reduce vector search scope</span>When a RAG system has a very large document set, narrowing the search space with metadata filters or hierarchical indexes before similarity search often reduces latency much more than simply adjusting the number of retrieved chunks. Search a smaller relevant subset first; only then run vector similarity on that candidate set.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 06</span> Quick Recall</div>
+      <div class="topic-title"><span>Topic 18</span> Quick Recall</div>
       <ul class="checklist">
               <li>Define the business task.</li>
               <li>Choose a model by quality, cost, and latency.</li>
@@ -920,7 +920,7 @@
   <section data-section="orchestration" class="searchable-section">
     <h2>5. State Management, Agent Patterns & Production Workflows</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 06</span> State Management &amp; Integration</div>
+      <div class="topic-title"><span>Topic 19</span> State Management &amp; Integration</div>
       <h3>Stateless compute / Simple independent lookups</h3>
             <div class="fact"><strong>🟢 Target:</strong> AWS Lambda, Raw Bedrock InvokeModel API, and Stateless MCP servers.</div>
             <div class="warning"><strong>🔴 Eliminate:</strong> Provisioning persistent EC2 instances or attempting to persist session context in Lambda memory.</div>
@@ -938,7 +938,7 @@
             <div class="warning"><strong>🔴 Eliminate:</strong> Route 53 Multi-Region failover and Bedrock Cross-Region Inference.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 14</span> Choose the Abstraction</div>
+      <div class="topic-title"><span>Topic 20</span> Choose the Abstraction</div>
       <table>
               <thead><tr><th>Question wording</th><th>Likely direction</th></tr></thead>
               <tbody>
@@ -953,7 +953,7 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 16</span> Agentic Application Patterns</div>
+      <div class="topic-title"><span>Topic 21</span> Agentic Application Patterns</div>
       <ul>
               <li><strong>ReAct:</strong> reasoning, acting through a tool, observing the result, and repeating as needed.</li>
               <li><strong>Bedrock Agents:</strong> managed agent behavior with action groups and knowledge sources.</li>
@@ -964,7 +964,7 @@
             <div class="warning"><span class="label">Do not confuse</span>ReAct is a general reasoning-and-action pattern. Step Functions and Bedrock Agents are AWS implementation choices that may orchestrate agentic behavior.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 17</span> Real-Time Streaming Architectures &amp; Front-Door Mechanics</div>
+      <div class="topic-title"><span>Topic 22</span> Real-Time Streaming Architectures &amp; Front-Door Mechanics</div>
       <p>Interactive GenAI applications (e.g., live text editors, real-time code completion, chat widgets) require streaming tokens as they are generated to achieve low Time to First Token (TTFT). Understanding the exact networking and buffering rules of AWS ingress services is essential to avoid distractor traps:</p>
       <table>
         <thead>
@@ -1008,7 +1008,7 @@
       </div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 11</span> Production Pattern</div>
+      <div class="topic-title"><span>Topic 23</span> Production Pattern</div>
       <p><strong>Request -&gt; Validate -&gt; Retrieve -&gt; Generate -&gt; Guard -&gt; Observe</strong></p>
             <ul>
               <li>Validate identity, input size, content type, and allowed operation.</li>
@@ -1024,7 +1024,7 @@
   <section data-section="security" class="searchable-section">
     <h2>6. Four-Pillar Observability, Security, Guardrails & Evaluation</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 08</span> Safety, Security &amp; Networking</div>
+      <div class="topic-title"><span>Topic 24</span> Safety, Security &amp; Networking</div>
       <h3>Cross-Region Inference / compliance boundaries</h3>
             <div class="fact"><strong>🟢 Target:</strong> Same-region inference for regulated workloads, or use explicit regional controls and networking patterns when data residency is required.</div>
             <div class="warning"><strong>🔴 Eliminate:</strong> Treating Cross-Region Inference as compliant by default. Data can traverse regions and be subject to different regulatory requirements.</div>
@@ -1039,7 +1039,7 @@
             <div class="warning"><strong>🔴 Eliminate:</strong> Assuming S3 CRR automatically anonymizes PII in transit or strips encryption.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 09</span> Testing, Evaluation &amp; Observability</div>
+      <div class="topic-title"><span>Topic 25</span> Testing, Evaluation &amp; Observability</div>
       <h3>Enterprise monitoring &amp; full observability architecture</h3>
             <div class="fact"><strong>🟢 Target:</strong> The Four-Pillar Observability Stack consisting of CloudWatch metrics, AWS X-Ray tracing, Bedrock Model Invocation Logging, and Amazon Managed Grafana.</div>
             <div class="warning"><strong>🔴 Eliminate:</strong> Isolated CloudWatch metrics alone and weekly/batch log polling cadences.</div>
@@ -1054,7 +1054,7 @@
             <div class="warning"><strong>🔴 Eliminate:</strong> Claims that coverage applies to text while precision applies to images, execution speed pipeline claims, and custom prompt requirements.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 19</span> The 4-Pillar Observability Diagnostic Matrix</div>
+      <div class="topic-title"><span>Topic 26</span> The 4-Pillar Observability Diagnostic Matrix</div>
       <table>
               <thead>
                 <tr>
@@ -1088,7 +1088,7 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 21</span> Domain 5: Scenario-Based Observability &amp; Root-Cause Troubleshooting Matrix</div>
+      <div class="topic-title"><span>Topic 27</span> Domain 5: Scenario-Based Observability &amp; Root-Cause Troubleshooting Matrix</div>
       <p>AIP-C01 tests your ability to diagnose GenAI pipeline failures from <strong>telemetry signatures</strong> (CloudWatch, X-Ray, Vector DB health). Use this matrix to match the observed symptom to its true root cause and instantly eliminate distractors:</p>
       <table>
         <thead>
@@ -1147,7 +1147,7 @@
       </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 20</span> Security, PII, Guardrails &amp; RAG Evaluation</div>
+      <div class="topic-title"><span>Topic 28</span> Security, PII, Guardrails &amp; RAG Evaluation</div>
       <ul>
               <li><strong>Bidirectional PII Defense:</strong> Use <strong>Amazon Comprehend (<code>DetectPiiEntities</code>)</strong> for pre-processing/scrubbing text before ingestion or model invocation; use <strong>Bedrock Guardrails Sensitive Information Filters</strong> to redact/mask PII in model outputs. (Use <strong>Amazon Rekognition</strong> for images).</li>
               <li><strong>Prompt Attack Detection:</strong> Bedrock Guardrails semantic filters detect and block jailbreaks, prompt injections, and role-playing bypasses.</li>
@@ -1164,7 +1164,7 @@
             </ul>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 07</span> Responsible AI</div>
+      <div class="topic-title"><span>Topic 29</span> Responsible AI</div>
       <p>Responsible AI means designing, deploying, and operating AI systems with fairness, explainability, privacy, security, safety, and accountability in mind. Responsibility spans the full lifecycle, not only the model.</p>
             <table>
               <thead><tr><th>Risk</th><th>Practical control</th></tr></thead>
@@ -1178,7 +1178,7 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 08</span> Security Fundamentals</div>
+      <div class="topic-title"><span>Topic 30</span> Security Fundamentals</div>
       <ul>
               <li><strong>Identity:</strong> use IAM roles, least privilege, short-lived credentials, and resource policies.</li>
               <li><strong>Data protection:</strong> encrypt in transit and at rest; use AWS KMS for key management where appropriate.</li>
@@ -1194,7 +1194,7 @@
             <div class="fact"><span class="label">Managed service reduces ops burden</span>For operational questions, favor the managed service when the requirement is to reduce patching, scaling, capacity management, and availability work. Bedrock and similar managed services shift infrastructure operations to AWS, which is why the “lower operational burden” answer is usually the correct common-sense choice.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 10</span> Evaluation &amp; Metrics</div>
+      <div class="topic-title"><span>Topic 31</span> Evaluation &amp; Metrics</div>
       <p>Evaluate the whole system, not just the base model. Include task quality, safety, latency, cost, and user outcomes.</p>
             <table>
               <thead><tr><th>Dimension</th><th>Questions to ask</th></tr></thead>
@@ -1221,7 +1221,7 @@
   <section data-section="cost" class="searchable-section">
     <h2>7. Cost Optimization, Caching & Performance Signals</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 10</span> Cost Optimization</div>
+      <div class="topic-title"><span>Topic 32</span> Cost Optimization</div>
       <h3>Predictable queries / Reduce time to first token</h3>
             <div class="fact"><strong>🟢 Target:</strong> Pre-compute responses for common, predictable queries and serve them from an application-level response cache before invoking the Bedrock foundation model. A cache hit avoids model inference, reducing time to first token, latency, and token charges.</div>
             <div class="warning"><strong>🔴 Eliminate:</strong> Increasing temperature, adding more few-shot examples, or assuming the InvokeModel API is inherently faster than the Converse API.</div>
@@ -1234,7 +1234,7 @@
             <div class="warning"><strong>🔴 Eliminate:</strong> Idle dedicated instances like SageMaker multi-GPU endpoints, Flagship over-provisioning, and full raw document injection.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 17</span> Performance &amp; Cost Signals</div>
+      <div class="topic-title"><span>Topic 33</span> Performance &amp; Cost Signals</div>
       <table>
               <thead><tr><th>Signal</th><th>Target</th></tr></thead>
               <tbody>
@@ -1252,7 +1252,7 @@
   <section data-section="services" class="searchable-section">
     <h2>8. AWS GenAI Services Deep Reference & Architecture Map</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 23</span> Core GenAI Services</div>
+      <div class="topic-title"><span>Topic 34</span> Core GenAI Services</div>
       <table>
               <thead><tr><th>Service</th><th>What it does</th></tr></thead>
               <tbody>
@@ -1267,7 +1267,7 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 24</span> Model Training &amp; Hosting</div>
+      <div class="topic-title"><span>Topic 35</span> Model Training &amp; Hosting</div>
       <table>
               <thead><tr><th>Service</th><th>What it does</th></tr></thead>
               <tbody>
@@ -1278,7 +1278,7 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 25</span> Vector &amp; Data Stores</div>
+      <div class="topic-title"><span>Topic 36</span> Vector &amp; Data Stores</div>
       <table>
               <thead><tr><th>Service</th><th>What it does</th></tr></thead>
               <tbody>
@@ -1291,7 +1291,7 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 26</span> Orchestration &amp; Compute</div>
+      <div class="topic-title"><span>Topic 37</span> Orchestration &amp; Compute</div>
       <table>
               <thead><tr><th>Service</th><th>What it does</th></tr></thead>
               <tbody>
@@ -1306,7 +1306,7 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 27</span> Observability &amp; Security</div>
+      <div class="topic-title"><span>Topic 38</span> Observability &amp; Security</div>
       <table>
               <thead><tr><th>Service</th><th>What it does</th></tr></thead>
               <tbody>
@@ -1322,13 +1322,13 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 28</span> Codified Automation vs. Magic</div>
+      <div class="topic-title"><span>Topic 39</span> Codified Automation vs. Magic</div>
       <p>Use this litmus test when an answer promises hands-off behavior: <strong>name the documented capability, the required configuration, and the boundary of what it automates.</strong></p>
             <div class="fact"><strong>🟢 Green flag:</strong> Supported capability + configuration + boundary of automation.</div>
             <div class="warning"><strong>🔴 Red flag:</strong> Service infers business policy or guarantees outcomes without a defined feature.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 12</span> Service Map</div>
+      <div class="topic-title"><span>Topic 40</span> Service Map</div>
       <table>
               <thead><tr><th>AWS service</th><th>Think of it as...</th></tr></thead>
               <tbody>
@@ -1347,7 +1347,7 @@
   <section data-section="matrix" class="searchable-section">
     <h2>9. Master Keyword & 'Poison Pill' Elimination Matrices</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 29</span> Scenario Triggers: Architecture &amp; Operational Green Flags vs. Red Flags</div>
+      <div class="topic-title"><span>Topic 41</span> Scenario Triggers: Architecture &amp; Operational Green Flags vs. Red Flags</div>
       <p>Map the constraint to a capability, then check fit, configuration, and tradeoffs. A red flag is a mismatch for the stated scenario, not a universal ban on a service.</p>
           <table>
             <thead>
@@ -1438,7 +1438,7 @@
           <div class="formula">Decision rule: verify capability + configuration + workload fit. Treat “automatically,” “natively,” and “for every model” as claims to check, not automatic disqualifiers.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 30</span> Master Keyword &amp; "Poison Pill" Elimination Matrix</div>
+      <div class="topic-title"><span>Topic 42</span> Master Keyword &amp; "Poison Pill" Elimination Matrix</div>
       <p>The "Cut the Crap" (75/25) elimination reference: Identify the binding operational constraint in the final sentence, lock onto the target AWS mechanism, and purge distractors containing factual or mechanical lies.</p>
           <table>
             <thead>
@@ -1558,7 +1558,7 @@
   <section data-section="heuristics" class="searchable-section">
     <h2>10. Rapid Keyword Decision Sheet, One-Line Heuristics & Master Checklist</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 18</span> Input, Retrieval, Output</div>
+      <div class="topic-title"><span>Topic 43</span> Input, Retrieval, Output</div>
       <table>
               <thead><tr><th>Stage</th><th>Primary concern</th></tr></thead>
               <tbody>
@@ -1571,7 +1571,7 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 21</span> One-Line Exam Heuristics</div>
+      <div class="topic-title"><span>Topic 44</span> One-Line Exam Heuristics</div>
       <div class="formula">Graph relationships + vectors → GraphRAG / Neptune Analytics.</div>
             <div class="formula">Embedding similarity + ANN → vector index / HNSW.</div>
             <div class="formula">OpenSearch degraded search as index grows → Raise refresh interval (fewer segments/HNSW graphs); eliminate shard/replica tuning on Serverless (managed by OCUs).</div>
@@ -1586,7 +1586,7 @@
             <div class="formula">Retrieval failure (missing docs) vs. Generation failure (hallucinations/randomness) → Temperature affects generation only, NEVER retrieval.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 13</span> Exam Checklist</div>
+      <div class="topic-title"><span>Topic 45</span> Exam Checklist</div>
       <ul class="checklist">
               <li>Managed or custom model?</li>
               <li>What data is sensitive?</li>
@@ -1599,7 +1599,7 @@
             <div class="fact"><span class="label">Routing logic rule</span>Model cascading only works when the routing classifier reliably distinguishes simple queries from complex ones. If the classifier cannot separate them, it falls back to the larger model and the cost-saving routing logic is broken.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 22</span> Final Pass</div>
+      <div class="topic-title"><span>Topic 46</span> Final Pass</div>
       <ol>
               <li>Read the final sentence and identify the constraint.</li>
               <li>Classify the workload: model, retrieval, state, security, cost, or operations.</li>
