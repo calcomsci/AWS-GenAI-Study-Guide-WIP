@@ -374,24 +374,24 @@
   <div class="header-inner">
     <div>
       <h1>AWS Certified Generative AI Developer — Professional (AIP-C01)</h1>
-      <div class="subtitle">Complete Study Guide &amp; Reference • Instant Search • "Cut the Crap" (75/25) Method</div>
+      <div class="subtitle">Complete Master Study Guide & Architecture Reference • Instant Search • "Cut the Crap" (75/25) Method</div>
     </div>
     <div class="controls">
-      <input type="text" id="searchInput" placeholder="Search concepts, services, traps, answer pairs..." />
+      <input type="text" id="searchInput" placeholder="Search concepts, services, distractors, answer pairs..." />
     </div>
   </div>
   <div class="last-updated-bar">
     <span class="last-updated-badge">Last Updated</span>
-    <span class="last-updated-text"><strong>November 8, 2026</strong> • Updated with 50/50 Tie-Breaker Rules &amp; 4-Tier Overhead Ranking</span>
+    <span class="last-updated-text"><strong>November 8, 2026</strong> • Updated with Universal 50/50 Tie-Breaker Rules &amp; 4-Tier Operational Overhead Ranking</span>
   </div>
   <div class="nav-tabs">
     <button class="tab-btn active" onclick="filterTab('all', this)">All Sections</button>
     <button class="tab-btn" onclick="filterTab('strategy', this)">1. Exam Strategy</button>
-    <button class="tab-btn" onclick="filterTab('pairing', this)">2. Pairing Answers</button>
-    <button class="tab-btn" onclick="filterTab('rag', this)">3. Blueprint &amp; RAG</button>
-    <button class="tab-btn" onclick="filterTab('bedrock', this)">4. Bedrock &amp; FMs</button>
+    <button class="tab-btn" onclick="filterTab('pairing', this)">2. Pairing Techniques</button>
+    <button class="tab-btn" onclick="filterTab('rag', this)">3. Blueprint & RAG</button>
+    <button class="tab-btn" onclick="filterTab('bedrock', this)">4. Bedrock & FMs</button>
     <button class="tab-btn" onclick="filterTab('orchestration', this)">5. Orchestration</button>
-    <button class="tab-btn" onclick="filterTab('security', this)">6. Security &amp; Monitoring</button>
+    <button class="tab-btn" onclick="filterTab('security', this)">6. Security & Observability</button>
     <button class="tab-btn" onclick="filterTab('cost', this)">7. Cost Optimization</button>
     <button class="tab-btn" onclick="filterTab('services', this)">8. Services Reference</button>
     <button class="tab-btn" onclick="filterTab('matrix', this)">9. Elimination Tables</button>
@@ -407,295 +407,295 @@
     <div class="topic-card">
       <div class="topic-title"><span>Topic 01</span> Exam Strategy &amp; Core Rules</div>
       <h3>"Cut the Crap" &amp; The 50/50 Tie-Breaker</h3>
-            <p><strong>How the Exam Works:</strong> On official AWS AIP-C01 questions, you can usually cut 2 obvious wrong answers right away (50%), leaving a <strong>50/50 choice between the final two believable options</strong>. Both finalists usually look like valid AWS setups on paper. Picking the winner comes down to checking <em>the main constraint, the right layer of the stack, and whether every requirement is actually met</em> rather than guessing.</p>
+            <p><strong>The Real Exam Dynamic:</strong> On official AWS AIP-C01 questions, candidates can quickly purge 2 obvious distractors (50%), but frequently face a <strong>50/50 hesitation between the final two plausible options</strong>. Both finalists are usually technically valid AWS architectures on paper. Breaking this hesitation requires evaluating <em>constraint fit, architectural boundaries, and requirement completeness</em> rather than guessing.</p>
             <ul>
-              <li><strong>Step 1 (Read the Last Sentence First):</strong> Start with the final sentence to spot the main goal (least operational overhead, lowest cost, lowest latency, compliance, or finding the root cause).</li>
-              <li><strong>Step 2 (Cut 2 Obvious Wrong Answers):</strong> Cross out the 2 clear traps right away—options that fix the wrong part of the system, rely on made-up AWS features, or optimize for the wrong goal.</li>
-              <li><strong>Step 3 (Break the 50/50 Tie):</strong> When you're down to the final two (the Winner vs. the Close Runner-Up), use the <strong>Three Golden Rules</strong> below.</li>
+              <li><strong>Step 1 (Reverse-Read):</strong> Read the final sentence first to lock onto the exact binding constraint (least operational overhead, cost optimization, latency, governance/compliance, or root-cause diagnosis).</li>
+              <li><strong>Step 2 (The Fast 50% Purge):</strong> Eliminate the 2 obvious distractors immediately—options operating at the wrong architectural layer, relying on fabricated service capabilities, or optimizing for the opposite tradeoff.</li>
+              <li><strong>Step 3 (The 50/50 Tie-Breaker):</strong> When down to the final two (the Winner vs. the Near-Miss Distractor), apply the <strong>Three Golden Rules</strong> below.</li>
             </ul>
 
             <div class="golden-rules">
               <aside class="fact">
-                <span class="label">Golden Rule 1: Match the Main Goal in the Final Sentence (Managed Services First)</span>
-                In a 50/50 split, both options usually <em>can</em> work—so stop asking "Is this possible?" and ask <strong>"Which option directly answers what the final sentence is asking for?"</strong> Unless the question specifically forces custom infrastructure (like custom model weights not supported on Bedrock, payloads/timeouts past serverless limits, or direct GPU control), <strong>managed AWS services (Amazon Bedrock features + serverless tools)</strong> always beat custom containers, EC2 clusters, or custom-built code on operational overhead and speed.
+                <span class="label">Golden Rule 1: Optimize for the Binding Constraint (Managed-First by Default)</span>
+                In a 50/50 split, both options usually <em>can</em> work—so stop asking "Is this possible?" and ask <strong>"Which option directly satisfies the final sentence's primary constraint?"</strong> Unless the stem explicitly forces custom infrastructure (e.g., custom model weights not supported on Bedrock, payloads/timeouts exceeding serverless limits, or specialized GPU runtime control), <strong>native managed capabilities (Amazon Bedrock features + serverless glue)</strong> always beat custom containers, EC2 clusters, or custom code on operational overhead and agility.
               </aside>
               <aside class="fact">
-                <span class="label">Golden Rule 2: Fix the Problem in the Layer Where It Happens</span>
-                Every GenAI requirement or bug belongs to a specific part of the stack: <strong>Data/Ingestion, Retrieval/Search, Model/Generation, Workflow/State, or Security/Infrastructure</strong>. Never pick a tool from one layer to fix a problem in another. Infrastructure and IAM problems show up as clear system or API errors (4xx/5xx, timeouts, access denied), whereas clean logs and metrics with bad answers point to an app or model issue (search quality, prompt wording, model choice, or mismatched embeddings). Likewise, fix search settings when context is missing, and fix prompts, model parameters, or Guardrails when the generated text is the problem.
+                <span class="label">Golden Rule 2: Match the Architectural Layer &amp; Failure Domain</span>
+                Every GenAI requirement or failure lives in a specific layer: <strong>Data/Ingestion, Retrieval/Indexing, Model/Generation, Orchestration/State, or Security/Infrastructure</strong>. Never select a solution from one layer to fix a problem in another. Infrastructure and IAM failures surface as explicit API/system errors (4xx/5xx, timeouts, access denied), whereas healthy telemetry with poor outputs points to the semantic/application layer (retrieval quality, prompt design, model selection, or data drift). Similarly, tune retrieval mechanisms to fix missing context, and tune prompts, inference parameters, or Guardrails to control generation behavior.
               </aside>
               <aside class="fact">
-                <span class="label">Golden Rule 3: Meet Every Requirement Without Assuming "Magic"</span>
-                The right answer must cover <strong>every mandatory detail</strong> in the question (such as <em>real-time vs. background processing, multi-turn chat memory, strict data isolation, or zero-downtime migration</em>) using real, documented AWS features. Cross out the finalist that solves the main problem while ignoring a second requirement, or that assumes an AWS service "automatically" figures out business rules, blocks bad content, or transforms data without the right feature turned on.
+                <span class="label">Golden Rule 3: 100% Requirement Coverage with Zero Unstated Magic</span>
+                The winning answer must satisfy <strong>every mandatory qualifier</strong> in the scenario (e.g., <em>real-time vs. asynchronous, multi-turn state, regulatory isolation, zero-downtime migration</em>) using documented AWS behavior. Eliminate the finalist that solves the headline problem while violating a secondary constraint, or that assumes a service "automatically" infers business logic, enforces safety, or transforms data without the required native feature and configuration.
               </aside>
             </div>
 
             <h3>Pacing &amp; Stamina Plan (180 Mins / 75 Qs)</h3>
             <ul>
-              <li><strong>The 2-Minute Pace:</strong> Spend ~1.5 to 2 minutes per question across 75 questions (150 minutes total), saving a clean <strong>30-minute review buffer</strong> at the end.</li>
-              <li><strong>The 10-Second Reset:</strong> Never close your eyes for 60 seconds on camera (it triggers proctor warnings). Instead: take your hands off the keyboard, look at a neutral spot for 5–10 seconds, take one deep breath, and start the next question.</li>
-              <li><strong>Exam Day Warm-Up:</strong> Don't take full practice exams on test day (it drains your focus before the real thing). Review 3 familiar questions 60 minutes before, then stop studying 30 minutes before start time.</li>
-              <li><strong>Break Rules:</strong> OnVUE (online) allows a clear glass of water on the desk, and you cannot leave the camera view. Test centers allow unscheduled breaks (the exam clock keeps running), and water stays in your locker.</li>
+              <li><strong>The 2-Minute Baseline:</strong> Spend ~1.5 to 2 minutes per question across 75 questions (150 minutes total), banking a clean <strong>30-minute review buffer</strong>.</li>
+              <li><strong>The 10-Second Micro-Reset:</strong> Never close your eyes for 60 seconds on camera (triggers proctor alerts). Instead: drop hands from keyboard, look at a neutral spot for 5–10 seconds, take one deep breath, and attack the next stem.</li>
+              <li><strong>Exam Day Warm-Up:</strong> Zero full mock exams on test day (prevents glucose/executive function depletion). Review 3 familiar Confidently Correct questions 60 mins prior, then stop 30 mins before start.</li>
+              <li><strong>Break Rules:</strong> OnVUE (online) allows a clear glass of water on the desk, zero leaving webcam view. Test Center allows unscheduled breaks (clock keeps running), water stays in locker.</li>
             </ul>
 
-            <h3>Core Ground Rules</h3>
+            <h3>Core Rules</h3>
             <ul>
-              <li><strong>Security First (Unless Told Otherwise):</strong> Security is the baseline priority (AWS PrivateLink, IAM least privilege, Guardrails) unless the question asks for a specific single priority. If cost, speed, quick testing, or simplicity is the main goal, pick the option that best meets that goal while keeping sensible security in place.</li>
-              <li><strong>Lambda Is Stateless:</strong> AWS Lambda does not keep state between runs. Never store multi-turn chat history or large custom model weights in Lambda memory or <code>/tmp</code>.</li>
-              <li><strong>Diagnose Before Fixing:</strong> Finding the root cause (SageMaker Clarify audit, Guardrail Tracing, X-Ray, Logs Insights) must <em>always come before</em> making changes (retraining a model, changing thresholds).</li>
+              <li><strong>The Well-Architected Baseline:</strong> Security is the default foundational priority (AWS PrivateLink, IAM least privilege, Guardrails) unless overridden by a specific single constraint. If cost, speed, experimentation, or simplicity is the actual constraint, choose the option that best satisfies it while still applying reasonable security controls.</li>
+              <li><strong>The Ephemeral Compute Law:</strong> AWS Lambda is strictly stateless. Never store multi-turn chat history or large custom model weights in Lambda memory or <code>/tmp</code>.</li>
+              <li><strong>Diagnostics-First Law:</strong> Root-cause inspection (SageMaker Clarify audit, Guardrail Tracing, X-Ray, Logs Insights) must <em>always precede</em> remediation (retraining, threshold changes).</li>
               <li><strong>Custom Model Rule:</strong> Custom fine-tuned model weights require <strong>SageMaker Endpoints + ECR</strong> or <strong>Bedrock Provisioned Throughput (Model Units)</strong>—never Bedrock On-Demand.</li>
-              <li><strong>50/50 Filter:</strong> Default to native Bedrock or serverless options when the question asks for least operational overhead or lowest cost. Don't rule out ECS/EKS/GPU clusters when the question specifically asks for strict latency, guaranteed throughput, pre-warmed instances, or custom runtime control.</li>
+              <li><strong>50/50 Purge Filter:</strong> Default to native Bedrock or serverless options when the requirement is least operational overhead or lowest cost. Do not eliminate ECS/EKS/GPU cluster patterns outright when the requirement explicitly calls for strict latency, guaranteed throughput, pre-warmed inference, or specialized runtime control.</li>
             </ul>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 02</span> How to Eliminate Wrong Answers</div>
-      <p><strong>Good engineering judgment gets you down to two options; knowing how AWS services actually work picks the winner.</strong> Common sense is a great filter, but you still need to know real AWS service limits and features. <em>(You won't have internet or AI tools during the exam — rely on how the services actually work.)</em></p>
+      <div class="topic-title"><span>Topic 02</span> The Intuitive Elimination Guide</div>
+      <p><strong>Engineering judgment gets you to the final two; AWS feature knowledge selects the winner.</strong> Common sense is a powerful filter, not a substitute for knowing documented service capabilities, limits, and configuration boundaries. <em>(No internet or AI tools are available during the exam — trust the mental model you built.)</em></p>
 
             <div class="fact">
               <span class="label">Core Principle</span>
-              <strong>The exam tests what NOT to do just as much as what to do.</strong> Cross out designs that a practical engineer would reject in production: turning off monitoring, removing rollback options during a migration, skipping input checks, or spinning up servers you don't need. Then make sure the remaining option uses a real AWS feature that meets every requirement in the question.
+              <strong>The exam tests what NOT to do as much as what to do.</strong> Eliminate designs that a senior engineer would reject in production: dropping observability, removing rollback paths during a migration, skipping validation, or adding unjustified infrastructure. Then prove that the surviving option is a real AWS capability that satisfies every stated requirement.
             </div>
 
-            <h3>The 4-Step Question Breakdown</h3>
+            <h3>The 4-Step Decision Check</h3>
             <div class="formula">
-              Step 1 — Spot the Main Constraint: Read the LAST sentence first. Find what drives the decision: least operational overhead / lowest cost / strict latency / zero downtime.<br />
-              Step 2 — Check Every Requirement: Note every must-have detail, including words like <em>continuously</em>, <em>in production</em>, <em>without disruption</em>, or <em>across accounts</em>.<br />
-              Step 3 — Cut the Red Flags: Cross out bad practices, made-up features, unnecessary servers, and options that only solve half the problem. Keep believable options open; don't cross out an answer just because it uses strong wording.<br />
-              Step 4 — Prove Why It Works: Name the exact AWS feature, setting, trigger, and tradeoff that make the answer work. If you can't explain how it works in one plain sentence, keep checking.
+              Pass 1 — Constraint Anchor: Read the LAST sentence first. Identify the binding driver: least operational overhead / lowest cost / strict latency / zero downtime.<br />
+              Pass 2 — Requirement Coverage: Mark every non-negotiable, including qualifiers such as <em>continuously</em>, <em>in production</em>, <em>without disruption</em>, or <em>across accounts</em>.<br />
+              Pass 3 — Red-Flag Purge: Reject anti-patterns, unsupported magic, unjustified infrastructure, and options that solve only part of the scenario. Keep plausible options provisional; do not lock out a candidate merely because wording is strong.<br />
+              Pass 4 — Proof of Fit: Name the exact AWS feature, configuration, input/event source, and tradeoff that make the answer work. If you cannot explain the mechanism in one sentence, it is not proven.
             </div>
 
-            <h3>Requirement Scorecard</h3>
-            <p>For each remaining option, mentally check every requirement: <strong>&#10003; fully met</strong> / <strong>~ partly met or needs extra unstated work</strong> / <strong>&#10007; missed, conflicts, or creates a new problem</strong>. Pick the option with no <strong>&#10007;</strong> marks and the fewest <strong>~</strong> marks. If two options both have all <strong>&#10003;</strong>, break the tie using the main constraint in the final sentence.</p>
+            <h3>Requirement Checklist</h3>
+            <p>For each surviving option, silently score every mandatory requirement: <strong>&#10003; directly met</strong> / <strong>~ partly met or needs unstated work</strong> / <strong>&#10007; conflicted, unaddressed, or introduces new risk</strong>. Pick the option with no <strong>&#10007;</strong> marks and the fewest <strong>~</strong> marks. If two options both have all <strong>&#10003;</strong>, the tie-breaker is always the binding constraint.</p>
 
-            <h3>Common Wrong-Answer Traps</h3>
+            <h3>Distractor Signatures</h3>
             <ul>
-              <li><strong>Wrong layer:</strong> Trying to fix an infrastructure problem in app code, or a prompt problem with network settings.</li>
-              <li><strong>Half-solution:</strong> Solves the main problem but breaks another requirement (for example, cuts cost but breaks compliance).</li>
-              <li><strong>Over-built:</strong> Strings together multiple services when a single built-in AWS feature handles it directly.</li>
-              <li><strong>Made-up feature:</strong> Names a real AWS service with a realistic-sounding feature that doesn't actually exist.</li>
-              <li><strong>Wrong tradeoff:</strong> Optimizes for the wrong goal (for example, fastest speed when the question asked for lowest cost).</li>
+              <li><strong>Wrong layer:</strong> Solving an infrastructure problem in application code, or a prompt problem with network controls.</li>
+              <li><strong>Partial solution:</strong> Solves the main problem but ignores a stated constraint (e.g., reduces cost but breaks compliance).</li>
+              <li><strong>Over-engineered:</strong> Introduces multi-service orchestration when a native feature handles it directly.</li>
+              <li><strong>Fabricated capability:</strong> Names a real service with a plausible-sounding feature that does not exist in AWS.</li>
+              <li><strong>Opposite tradeoff:</strong> Optimizes for the wrong metric (e.g., lowest latency when the question asked for lowest cost).</li>
             </ul>
     </div>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 03</span> Single-Select Strategy (4-Choice Questions)</div>
-      <p>One option has to solve the whole problem end-to-end. If two answers still look good, compare them against the Requirement Scorecard and check how each service actually works. The winner is the one built for the main goal in the final sentence with the fewest extra moving parts.</p>
+      <p>One option must satisfy the full requirement end-to-end. If two answers remain plausible, compare them against the Requirement Checklist and perform the Proof-of-Fit check. The winner is the one whose documented primary purpose matches the binding constraint with the fewest unstated dependencies.</p>
             <div class="fact">
               <span class="label">Single-Select Tie-Breaker</span>
-              When two remaining options can both work, re-read the last sentence. Does it say <strong>least operational overhead</strong>? Pick managed Bedrock or serverless. Does it say <strong>lowest cost</strong>? Compare token pricing and prompt caching. Does it say <strong>strict sub-second latency</strong>? Look for response caching or provisioned throughput.
+              When two surviving options are technically valid, re-read the last sentence. Does it say <strong>least operational overhead</strong>? Default to Bedrock serverless. Does it say <strong>lowest cost</strong>? Compare token charges and prompt caching. Does it say <strong>strict sub-second latency</strong>? Look for response caching or provisioned throughput.
             </div>
             
             <h3>The 4 Tiers of Operational Overhead</h3>
-            <p>When the final sentence asks for <strong>"LEAST operational overhead"</strong> (or "minimal management overhead"), AWS options fall into these 4 tiers from simplest to heaviest. Always pick the highest tier (closest to Tier 1) that meets every requirement in the question:</p>
+            <p>When the binding constraint in the final sentence asks for <strong>"LEAST operational overhead"</strong> (or "minimal management overhead"), AWS options strictly follow these 4 tiers. The winning option always selects the highest tier that completely satisfies the requirements:</p>
             <table>
               <thead>
                 <tr>
                   <th>Tier</th>
-                  <th>AWS Category</th>
-                  <th>Key Services &amp; Features</th>
-                  <th>How to Use on the Exam</th>
+                  <th>AWS Architectural Category</th>
+                  <th>Signature Keyword Triggers</th>
+                  <th>Exam Elimination Rule</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Tier 1: Managed GenAI Features</strong></td>
-                  <td><strong>Zero Server Management:</strong> Built-in AWS AI features with no servers to run.</td>
+                  <td><strong>Tier 1: Native Managed GenAI</strong></td>
+                  <td><strong>Zero Server/Infra Ops:</strong> Fully managed AWS AI control planes and capabilities.</td>
                   <td>Amazon Bedrock Knowledge Bases, Bedrock Agents, <strong>Bedrock Prompt Management</strong>, Bedrock Guardrails, Converse API, Bedrock Model Evaluation.</td>
-                  <td>&#10003; <strong>Automatic Winner</strong> whenever the built-in feature covers the requirement.</td>
+                  <td>&#10003; <strong>Automatic Winner</strong> if the managed capability meets the requirement.</td>
                 </tr>
                 <tr>
-                  <td><strong>Tier 2: Serverless Glue</strong></td>
-                  <td><strong>Zero Cluster Management:</strong> Event-driven functions, managed APIs, serverless databases.</td>
+                  <td><strong>Tier 2: Managed Serverless Glue</strong></td>
+                  <td><strong>Zero Cluster Ops:</strong> Event-driven compute, API gateways, serverless storage.</td>
                   <td><strong>AWS Lambda</strong>, <strong>Amazon API Gateway (WebSocket / HTTP)</strong>, OpenSearch Serverless (AOSS), DynamoDB, S3, Step Functions.</td>
-                  <td>&#10003; <strong>Best Supporting Tools:</strong> Pair with Tier 1 for custom routing, streaming, and data prep.</td>
+                  <td>&#10003; <strong>Winning Glue:</strong> Pairs with Tier 1 for custom routing, streaming, and preprocessing.</td>
                 </tr>
                 <tr>
                   <td><strong>Tier 3: Managed Containers</strong></td>
-                  <td><strong>Container Management:</strong> Dockerfiles, ECR image scanning, task definitions, cluster scaling.</td>
+                  <td><strong>Container Ops:</strong> Dockerfile maintenance, ECR image scanning, task definitions, cluster autoscaling.</td>
                   <td>Amazon ECS (Fargate/EC2), Amazon EKS, Application Load Balancers (ALB), custom Docker containers.</td>
-                  <td>&#10007; <strong>Cut</strong> whenever Tier 1 or Tier 2 can do the job. Keep only if payloads &gt;6 MB, runtimes &gt;15 min, or custom GPU containers are required.</td>
+                  <td>&#10007; <strong>Eliminate</strong> whenever Tier 1 or Tier 2 can perform the task. Keep only if payloads &gt;6 MB, compute &gt;15 min, or custom GPU binaries are required.</td>
                 </tr>
                 <tr>
                   <td><strong>Tier 4: Self-Hosted / Custom DIY</strong></td>
-                  <td><strong>Heavy Server Work:</strong> OS patching, scaling, custom code, training pipelines.</td>
+                  <td><strong>Heavy Ops:</strong> Patching, scaling, custom coding, training pipelines.</td>
                   <td>EC2 GPU instances, self-hosted vector databases (Milvus/Pinecone on EC2), custom Python text chunkers, SageMaker training pipelines for simple ranking.</td>
-                  <td>&#10007; <strong>Cut Immediately:</strong> Always wrong when the question asks for "least overhead."</td>
+                  <td>&#10007; <strong>Instant Distractor:</strong> Disqualified immediately on any "least overhead" question.</td>
                 </tr>
               </tbody>
             </table>
 
             <h3>Named-Feature Rule</h3>
-            <p>When a question asks which Bedrock, AgentCore, SageMaker, Guardrails, or CloudWatch <em>feature</em> handles a task, look for the official built-in feature name. Don't pick a custom DIY setup unless the built-in feature can't meet the requirement. Know the difference between similar features: online vs. on-demand evaluation; knowledge-base ingestion logs vs. model invocation logs vs. CloudTrail; Prompt Management vs. prompt caching vs. response caching.</p>
+            <p>When a question asks which Bedrock, AgentCore, SageMaker, Guardrails, or CloudWatch <em>feature</em> provides a behavior, expect a named managed capability. Do not substitute a reasonable DIY architecture unless the managed feature cannot meet the requirement. Learn lifecycle distinctions: online vs. on-demand evaluation; knowledge-base ingestion logs vs. model invocation logs vs. CloudTrail; Prompt Management vs. prompt caching vs. response caching.</p>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 04</span> Checking Absolute Words ("Always", "Never", "Automatically")</div>
-      <p>Words like <strong>always</strong>, <strong>never</strong>, <strong>immediately</strong>, <strong>solely</strong>, and <strong>automatically</strong> are signals to double-check how the AWS service actually works — not automatic reasons to cross out an answer.</p>
+      <div class="topic-title"><span>Topic 04</span> Absolute-Language Verification</div>
+      <p>Words such as <strong>always</strong>, <strong>never</strong>, <strong>immediately</strong>, <strong>solely</strong>, and <strong>automatically</strong> are prompts to verify a service boundary — not instant disqualifiers.</p>
             <ul>
-              <li>Cross out the option when the claim goes against the question's requirements or how AWS actually works.</li>
-              <li>Keep it when a strict security, compliance, or availability requirement calls for it and AWS supports that behavior.</li>
-              <li><strong>Without configuration</strong> is usually a red flag unless the service truly does that by default out of the box.</li>
-              <li><strong>Automatically detects / infers / decides</strong> requires a real classifier, evaluator, threshold, rule, or built-in feature.</li>
+              <li>Eliminate the option when the claim conflicts with the requirements or documented behavior.</li>
+              <li>Keep it when a stated security, compliance, reliability, or availability requirement justifies the strong language and AWS supports the capability.</li>
+              <li><strong>Without configuration</strong> is suspect unless the service explicitly performs that behavior by default.</li>
+              <li><strong>Automatically detects / infers / decides</strong> requires a documented classifier, evaluator, threshold, rule, or managed feature.</li>
             </ul>
-            <div class="warning"><strong>Bottom line:</strong> Common sense cuts bad designs; knowing how AWS works picks the right one. Keep baseline metrics during migrations, monitor old and new setups side by side before cutting over, and check that the service + settings + workload all fit before locking in your answer.</div>
+            <div class="warning"><strong>Final rule:</strong> Common sense eliminates bad architecture; AWS service knowledge chooses the supported one. Preserve baselines during migrations, use canary or parallel telemetry when appropriate, and verify capability + configuration + workload fit before committing.</div>
     </div>
   </section>
 
-  <!-- ==================== TAB: 2. How to Pair Answers on Multi-Select Questions (Pick Two / Pick Three) ==================== -->
+  <!-- ==================== TAB: 2. Pairing Techniques &amp; Multi-Select Mastery (Pick Two / Pick Three) ==================== -->
   <section data-section="pairing" class="searchable-section">
-    <h2>2. How to Pair Answers on Multi-Select Questions (Pick Two / Pick Three)</h2>
+    <h2>2. Pairing Techniques &amp; Multi-Select Mastery (Pick Two / Pick Three)</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 05</span> Pairing Answers on Multi-Select Questions (Pick Two / Pick Three)</div>
+      <div class="topic-title"><span>Topic 05</span> Multi-Select Mastery &amp; Advanced Pairing Techniques (Pick Two / Pick Three)</div>
       <div class="fact">
-            <span class="label">Why "Pick Two" Questions Are Harder</span>
+            <span class="label">The Mathematical Reality &amp; Double-Trap</span>
             <strong>5-choice "Select Two" questions have 10 possible pairs (<code>C(5,2) = 10</code>).</strong> Guessing blind yields only a 10% chance (vs. 25% on single-select), and AWS awards <strong>zero partial credit</strong>. AWS intentionally includes options that are individually true statements about AWS, but only solve <em>half</em> the scenario or duplicate the other selected answer. A senior engineer must pair two complementary capabilities that jointly satisfy every scenario constraint without functional overlap.
           </div>
 
-          <h3>The Two-Part Question Rule (The Core Pairing Secret)</h3>
-          <p>Over 90% of multi-select questions ask for <strong>two separate requirements</strong> in the question:</p>
+          <h3>The Split-Constraint Principle (The Core Pairing Secret)</h3>
+          <p>Over 90% of multi-select questions contain <strong>two distinct architectural requirements</strong> in the stem:</p>
           <ul>
-            <li><strong>Requirement A (How It Runs):</strong> Lower latency, better search ranking, caching, streaming, or workflow steps.</li>
-            <li><strong>Requirement B (Safety &amp; Security):</strong> Hiding PII, private networking/encryption, blocking prompt attacks, audit logs, or compliance rules.</li>
+            <li><strong>Requirement A (Functional / Operational):</strong> Latency reduction, relevance ranking, caching, streaming, or workflow orchestration.</li>
+            <li><strong>Requirement B (Governance / Non-Functional):</strong> PII redaction, cryptographic isolation, prompt attack defense, audit logging, or compliance boundaries.</li>
           </ul>
-          <div class="formula">The Two-Requirement Rule: One right answer solves Requirement A; the second right answer solves Requirement B. If you pick two answers that both solve Requirement A (like two caching tools or two chunking settings), Requirement B is left completely unsolved and your pair is wrong.</div>
+          <div class="formula">The Two-Requirement Rule: One correct answer solves Requirement A; the second correct answer solves Requirement B. If you pick two answers that both address Requirement A (e.g., two caching layers or two chunking settings), you have left Requirement B completely unresolved. Your pair fails.</div>
 
-          <h3>The 6 Common Answer Pairs</h3>
+          <h3>The 6 Common Complementary Answer Pairs</h3>
           <table>
             <thead>
               <tr>
                 <th>Pairing Pattern</th>
-                <th>Part A</th>
-                <th>Part B</th>
+                <th>Component 1 (Part A)</th>
+                <th>Component 2 (Part B)</th>
                 <th>Classic AIP-C01 Exam Scenario</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>1. Input + Output Safety</strong></td>
-                <td><strong>Amazon Comprehend (<code>DetectPiiEntities</code>)</strong> scrubbing text before ingestion</td>
-                <td><strong>Bedrock Guardrails Sensitive Info Filters</strong> masking output + Contextual Grounding</td>
-                <td>Keeping PII out of training/prompt logs while stopping hallucinations in public answers.</td>
+                <td><strong>1. Ingress + Egress Sandwich</strong></td>
+                <td><strong>Amazon Comprehend (<code>DetectPiiEntities</code>)</strong> pre-ingestion text scrubbing</td>
+                <td><strong>Bedrock Guardrails Sensitive Info Filters</strong> output masking + Contextual Grounding</td>
+                <td>Preventing PII leaks into training/prompt logs while stopping hallucinations in public responses.</td>
               </tr>
               <tr>
-                <td><strong>2. Broad Search + Reranking</strong></td>
-                <td><strong>Bedrock Knowledge Bases Hybrid Search</strong> (OpenSearch Serverless vector + BM25 keyword)</td>
+                <td><strong>2. Retrieval Candidate Gen + Reranking</strong></td>
+                <td><strong>Bedrock Knowledge Bases Hybrid Search</strong> (OpenSearch Serverless dense vector + BM25 keyword)</td>
                 <td><strong>Cross-Encoder Reranker Model</strong> (Cohere Rerank / Bedrock Reranker)</td>
-                <td>Relevant documents ranked too low in vector search results with minimal operational overhead.</td>
+                <td>Relevant documents ranked too low in dense search results; minimal operational overhead.</td>
               </tr>
               <tr>
-                <td><strong>3. Two-Layer Caching (Prefix + Response)</strong></td>
+                <td><strong>3. Two-Tier Caching (Prefix + Response)</strong></td>
                 <td><strong>Bedrock Prompt Caching</strong> (static system prompts &gt;1,024 tokens; 90% off input tokens)</td>
-                <td><strong>ElastiCache Redis / DynamoDB DAX</strong> (app-level response cache for repeated FAQ answers)</td>
-                <td>Cutting latency and token costs for high-volume customer service chatbots.</td>
+                <td><strong>ElastiCache Redis / DynamoDB DAX</strong> (application-level response caching for repeated FAQ answers)</td>
+                <td>Slashing latency and token billing spend for high-volume customer service virtual assistants.</td>
               </tr>
               <tr>
-                <td><strong>4. Private Network + Custom Encryption Keys</strong></td>
+                <td><strong>4. Network Isolation + Cryptographic Governance</strong></td>
                 <td><strong>AWS PrivateLink (Interface VPC Endpoints)</strong> for Bedrock, S3, and OpenSearch</td>
                 <td><strong>AWS KMS Customer Managed Keys (CMK)</strong> with separate rotation &amp; key policies</td>
-                <td>Strict financial/healthcare rules blocking public internet traffic and shared encryption keys.</td>
+                <td>Strict financial/healthcare compliance prohibiting public internet traversal and shared keys.</td>
               </tr>
               <tr>
-                <td><strong>5. Workflow State + Fallback Circuit Breaker</strong></td>
-                <td><strong>AWS Step Functions</strong> state machine with Task Tokens &amp; parallel branches</td>
-                <td><strong>Fallback Branch / Circuit Breaker</strong> routing to a backup model or cache on error</td>
-                <td>Multi-agent workflow needing high availability when a third-party model goes down or throttles.</td>
+                <td><strong>5. State Orchestration + Resilience Circuit Breaker</strong></td>
+                <td><strong>AWS Step Functions</strong> state machine with Task Tokens &amp; parallel execution branches</td>
+                <td><strong>Fallback Branch / Circuit Breaker</strong> routing to secondary model or cache on error</td>
+                <td>Multi-agent workflow requiring high availability during third-party FM outages or rate limits.</td>
               </tr>
               <tr>
-                <td><strong>6. Metrics Monitoring + Request Tracing</strong></td>
+                <td><strong>6. Passive Telemetry + Microservice Tracing</strong></td>
                 <td><strong>Amazon CloudWatch Metrics &amp; Alarms</strong> (tracking <code>InvocationLatency</code> &amp; model error rates)</td>
-                <td><strong>AWS X-Ray Active Tracing</strong> (step-by-step latency across API Gateway &rarr; Lambda &rarr; Bedrock)</td>
-                <td>Finding where slowdowns happen across a multi-step GenAI app.</td>
+                <td><strong>AWS X-Ray Active Tracing</strong> (subsegment latency across API Gateway &rarr; Lambda &rarr; Bedrock)</td>
+                <td>Diagnosing end-to-end latency bottlenecks in a distributed multi-hop GenAI application.</td>
               </tr>
             </tbody>
           </table>
 
-          <h3>How to Find the Right Pair in 5 Steps</h3>
+          <h3>The 5-Step Pairing Method</h3>
           <div class="formula">
-            Step 1 — Split the Question: Read the final sentence. Spot Requirement 1 (like latency/cost) and Requirement 2 (like security/safety).<br />
-            Step 2 — Label Each Option's Job: Note which stage of the pipeline each option belongs to (Input / Search / Ranking / Model / Output / Monitoring) and what job it does.<br />
-            Step 3 — Cut Duplicates Doing the Same Job: If Option B and Option D both handle ranking, they are competing for the same spot. Keep the managed low-overhead option; cut the custom DIY option. Never pick two options doing the exact same job.<br />
-            Step 4 — Cut Clashing Setups: If Option A uses managed Bedrock Knowledge Bases and Option C requires running your own OpenSearch cluster on EC2, they don't belong together. Drop the setup that breaks the question's main constraint.<br />
-            Step 5 — Check for Made-Up Features: Check the two remaining options on their own. Do they name real AWS features? Are there fake features (like a "CloudFront throttling policy")? If both are real, don't overlap, and cover both requirements, lock in the pair.
+            Step 1 — Split the Stem: Read the final sentence. Underline Requirement 1 (e.g. latency/cost) and Requirement 2 (e.g. security/safety).<br />
+            Step 2 — Functional Tagging: Tag all 5 options with their pipeline stage (Ingress / Retrieval / Rank / Inference / Output / Ops) and functional job.<br />
+            Step 3 — Purge Redundant Duplicates (Overlap Test): If Option B and Option D both do ranking, they are competing duplicates. Keep the managed low-overhead option; eliminate the custom/DIY option. Never select two options doing the same job at the same stage.<br />
+            Step 4 — Purge Architectural Clashes: If Option A uses managed Bedrock Knowledge Bases and Option C requires self-hosting an OpenSearch cluster on EC2, they are mutually exclusive architectural tracks. Drop the non-qualifying architecture.<br />
+            Step 5 — Independent Truth &amp; Distractor Check: Inspect both survivors alone. Do they name real AWS features? Are there fabricated options (like "CloudFront throttling policy")? If both are genuine, non-overlapping, and cover both requirements, lock in the pair.
           </div>
 
-          <h3>Worked Example: "Relevant Docs Ranked Too Low + Low Overhead"</h3>
+          <h3>Worked Case Study: "Relevant Docs Ranked Too Low + Low Overhead"</h3>
           <table>
             <thead><tr><th>Option</th><th>Role</th><th>Verdict</th></tr></thead>
             <tbody>
-              <tr><td><strong>A. Enable Bedrock KB Hybrid Search</strong></td><td>Broaden search matches using vector + BM25 keyword search</td><td>&#10003; <strong>Winner (Part 1)</strong>: Built-in managed setting</td></tr>
-              <tr><td><strong>B. Attach Bedrock Reranker Model (Cohere)</strong></td><td>Re-score and re-order top matches by actual relevance</td><td>&#10003; <strong>Winner (Part 2)</strong>: Managed, zero training</td></tr>
-              <tr><td><strong>C. Implement OpenSearch Learning to Rank (LTR)</strong></td><td>Rank: Custom machine-learned ranking model</td><td>&#10007; <strong>Cut (Duplicate)</strong>: Needs manual training lists, high DIY work</td></tr>
-              <tr><td><strong>D. Migrate to Aurora pgvector custom scoring</strong></td><td>Rank: Custom scoring code</td><td>&#10007; <strong>Cut (Duplicate)</strong>: Custom-built, breaks "minimal overhead"</td></tr>
-              <tr><td><strong>E. Train custom embedding model on SageMaker</strong></td><td>Embed: Retrain embeddings before ingestion</td><td>&#10007; <strong>Cut (Heavy Overhead)</strong>: Expensive, requires a training pipeline</td></tr>
+              <tr><td><strong>A. Enable Bedrock KB Hybrid Search</strong></td><td>Broaden candidate recall via vector + BM25 keyword</td><td>&#10003; <strong>Winner (Part 1)</strong>: Managed setting</td></tr>
+              <tr><td><strong>B. Attach Bedrock Reranker Model (Cohere)</strong></td><td>Cross-encode &amp; re-rank top candidates by true relevance</td><td>&#10003; <strong>Winner (Part 2)</strong>: Managed, zero training</td></tr>
+              <tr><td><strong>C. Implement OpenSearch Learning to Rank (LTR)</strong></td><td>Rank: Custom machine-learned ranking model</td><td>&#10007; <strong>Eliminate (Duplicate)</strong>: Heavy judgment lists, high DIY overhead</td></tr>
+              <tr><td><strong>D. Migrate to Aurora pgvector custom scoring</strong></td><td>Rank: Custom algorithmic re-ranking</td><td>&#10007; <strong>Eliminate (Duplicate)</strong>: Self-built, violates minimal overhead</td></tr>
+              <tr><td><strong>E. Train custom embedding model on SageMaker</strong></td><td>Embed: Pre-ingestion retraining</td><td>&#10007; <strong>Eliminate (Extreme Overhead)</strong>: Costly, requires training data pipeline</td></tr>
             </tbody>
           </table>
-          <p><strong>Why A + B Wins:</strong> Option A brings in better search candidates; Option B sorts those candidates so the best ones land at the top. Options C, D, and E all try to do the same ranking job with way too much manual setup, so they get cut.</p>
+          <p><strong>Pairing Analysis:</strong> Option A improves candidate retrieval; Option B reorders the retrieved candidates. Options C, D, and E all duplicate the ranking/relevance job with massive operational burden, so they are eliminated.</p>
 
-          <div class="warning"><strong>Common Multi-Select Traps:</strong> (1) The "Same-Service" Trap: assuming two options belong together just because both mention "Bedrock Knowledge Bases". (2) The "Twin Option" Trap: getting stuck between two nearly identical API calls when only one (or neither) is part of the answer. (3) Solving Only Half the Question: picking two search options when the question asked for search + output PII safety.</div>
+          <div class="warning"><strong>Multi-Select Trap Signatures:</strong> (1) The "Same-Service" False Pair: assuming two options belong together simply because both name "Bedrock Knowledge Bases". (2) The "Mirror Distractor" Mirage: agonizing between two identical-sounding API methods when neither (or only one) is in the true pair. (3) Over-indexing on one layer: picking two retrieval options when the stem asked for retrieval + output PII safety.</div>
 
-          <h3>Worked Example: "RAG App Returns 'No Relevant Information Found' After Lambda Update" (Official Skill Builder Question)</h3>
-          <p><strong>Question Setup:</strong> A financial company runs a RAG app with Bedrock embeddings + OpenSearch Service vector store + Lambda. After a code update to the Lambda function, the app starts returning generic fallback answers ("no relevant information found") even for questions that used to work. <em>What the logs show:</em> CloudWatch Logs shows zero errors; AWS X-Ray shows the model call succeeded (200 OK); the OpenSearch cluster is healthy; search speed is normal.</p>
+          <h3>Worked Case Study: "RAG App Returns 'No Relevant Information Found' After Lambda Update" (Official Skill Builder Question)</h3>
+          <p><strong>Scenario Stem:</strong> A financial company operates RAG with Bedrock embeddings + OpenSearch Service vector store + Lambda orchestration. After a recent code update to the Lambda function, the app starts returning generic responses ("no relevant information found") even for questions that previously worked. <em>Telemetry clues:</em> CloudWatch Logs shows no errors; AWS X-Ray confirms successful FM invocation (200 OK); OpenSearch cluster is healthy; query latency remains normal.</p>
           <table>
-            <thead><tr><th>Option</th><th>Why It Works or Fails</th><th>Verdict</th></tr></thead>
+            <thead><tr><th>Option</th><th>Analysis &amp; Telemetry Check</th><th>Verdict</th></tr></thead>
             <tbody>
               <tr>
                 <td><strong>A. The Bedrock FM temperature parameter was increased.</strong></td>
-                <td>Temperature only controls randomness in <em>generated</em> text. It is never used by embedding models, and it cannot cause a vector search to return zero matching documents.</td>
-                <td>&#10007; <strong>Trap (Wrong Layer)</strong>: Mixes up text generation settings with document search.</td>
+                <td>Temperature controls randomness and creativity in <em>generative</em> text output. It is never used for deterministic embedding models, and generation randomness does not cause retrieval vector search to return zero matched documents.</td>
+                <td>&#10007; <strong>Distractor (Wrong Layer)</strong>: Conflates generation parameters with retrieval pipeline.</td>
               </tr>
               <tr>
                 <td><strong>B. The updated Lambda function uses a different version of the embedding model.</strong></td>
-                <td><strong>Embedding Drift:</strong> New search queries are turned into vectors using a different model version than the documents already stored in OpenSearch. Because the numbers don't line up, similarity scores drop below the cutoff and return 0 matches—while every service still returns 200 OK with zero errors.</td>
-                <td>&#10003; <strong>Winner</strong>: Mismatched embedding versions explain both the missing results and the clean logs.</td>
+                <td><strong>Embedding Drift:</strong> Query embeddings are generated in a different vector space than the indexed document embeddings. Cosine similarity drops below the matching threshold, yielding 0 hits and triggering the fallback response. All components succeed with 200 OK, explaining clean telemetry.</td>
+                <td>&#10003; <strong>Winner</strong>: Mathematical vector space incompatibility with 100% clean infrastructure telemetry.</td>
               </tr>
               <tr>
                 <td><strong>C. The document embeddings in OpenSearch were deleted during the update.</strong></td>
-                <td><strong>The 50/50 Trap:</strong> If documents or indexes were deleted, OpenSearch would log index errors or change query behavior. The question specifically says <em>zero errors, healthy cluster, and normal search latency</em>—meaning the documents are still there, just not matching. Also, updating Lambda code doesn't delete data in OpenSearch.</td>
-                <td>&#10007; <strong>Cut (Ruled Out by Logs)</strong>: Clean logs and normal search speed prove the data wasn't deleted.</td>
+                <td><strong>The 50/50 Hesitation Trap:</strong> If embeddings were deleted, OpenSearch would throw index/document errors or query failures in CloudWatch. The stem explicitly confirms <em>zero errors, healthy cluster, and normal query latency</em>—proving documents are still being retrieved, but their similarity scores are ineffective. Furthermore, updating Lambda code does not touch OpenSearch data.</td>
+                <td>&#10007; <strong>Eliminate (Disproven by Telemetry)</strong>: Clean logs and healthy cluster disprove data deletion.</td>
               </tr>
               <tr>
                 <td><strong>D. The Lambda IAM role is missing bedrock:InvokeModel permission.</strong></td>
-                <td>A missing IAM permission immediately throws an <code>AccessDeniedException</code> (HTTP 403) in CloudWatch and marks the X-Ray trace as failed. The question states that <em>model calls succeeded and CloudWatch has zero errors</em>.</td>
-                <td>&#10007; <strong>Trap (Ruled Out by X-Ray)</strong>: Directly contradicts the 200 OK logs in the question.</td>
+                <td>Missing IAM permission causes an immediate <code>AccessDeniedException</code> (HTTP 403) logged as an error in CloudWatch, and X-Ray marks the subsegment as failed. The stem explicitly confirms <em>successful FM invocation and zero CloudWatch errors</em>.</td>
+                <td>&#10007; <strong>Distractor (Disproven by X-Ray)</strong>: Direct contradiction with stated telemetry.</td>
               </tr>
             </tbody>
           </table>
-          <div class="formula"><strong>The 50/50 Takeaway (B vs C):</strong> Both B and C could explain "no results found." To break the tie, look at the logs: Clean CloudWatch + Healthy Cluster + Normal Speed = the database and data are fine (C is wrong). The mismatch is in the embedding versions (B is right).</div>
+          <div class="formula"><strong>The 50/50 Tie-Breaker Takeaway (B vs C):</strong> Both B and C explain "no results found." To break the tie, read the telemetry: Clean CloudWatch + Healthy Cluster + Normal Latency = Infrastructure and data are intact (C is false). The failure is in the vector space (B is true).</div>
 
-          <h3>Worked Example: "Real-Time Web Editor Suggestions with LEAST Operational Overhead" (Official Skill Builder Question 3)</h3>
-          <p><strong>Question Setup:</strong> Journalists use a web article editor that analyzes text in real time when they click "analyze". Articles have category tags (news, sports, editorial) to route to the right Bedrock model. It must apply style guide rules and stream suggested edits live in the browser with the <em>LEAST operational overhead</em>.</p>
+          <h3>Worked Architecture Case Study: "Real-Time Web Editor Suggestions with LEAST Operational Overhead" (Official Skill Builder Question 3)</h3>
+          <p><strong>Scenario Stem:</strong> Journalists need a web-based article editor that provides real-time analysis of content upon clicking "analyze". Articles have content category metadata (news, sports, editorial) to route to appropriate Bedrock models. Must enforce style guide rules and stream suggested revisions in real time through the editor interface with <em>LEAST operational overhead</em>.</p>
           <table>
-            <thead><tr><th>Option</th><th>Why It Works or Fails</th><th>Verdict</th></tr></thead>
+            <thead><tr><th>Option</th><th>Architectural Mechanism &amp; Constraint Check</th><th>Verdict</th></tr></thead>
             <tbody>
               <tr>
                 <td><strong>A. API Gateway WebSocket API + Lambda + Bedrock Prompt Management + Bedrock streaming API</strong></td>
-                <td>Covers all 4 needs using 100% serverless, managed AWS tools: (1) WebSocket API keeps a live two-way stream open to the browser; (2) Lambda reads the category tag to pick the right Bedrock model; (3) Bedrock Prompt Management stores and versions the style guide rules; (4) Bedrock streaming API sends tokens back live as they are generated.</td>
-                <td>&#10003; <strong>Winner (Direct Fit)</strong>: Handles live streaming, model routing, style rules, and least operational overhead with zero servers to manage.</td>
+                <td>Meets all 4 functional requirements using 100% serverless, zero-maintenance AWS managed primitives: (1) WebSocket API provides persistent duplex streaming to web client; (2) Lambda reads category metadata to select Bedrock model; (3) Bedrock Prompt Management centrally stores and versions style guide rules with variable substitution; (4) Bedrock streaming API streams tokens back as they generate.</td>
+                <td>&#10003; <strong>Winner (Direct Fit)</strong>: Satisfies streaming, routing, style guide, and least operational overhead without any servers.</td>
               </tr>
               <tr>
                 <td><strong>B. API Gateway REST API with Lambda Function URLs for response streaming</strong></td>
-                <td><strong>Broken Streaming:</strong> API Gateway REST APIs <em>wait for the entire response to finish</em> (up to 10 MB or 29s timeout) before sending anything back to the browser. Putting a REST API in front of Lambda breaks live token streaming.</td>
-                <td>&#10007; <strong>Trap (Broken Streaming)</strong>: REST APIs buffer the full response; also misses prompt management and category routing.</td>
+                <td><strong>Distractor:</strong> API Gateway REST APIs <em>buffer complete responses</em> (up to 10 MB or 29s timeout) before returning anything to the client. Fronting Lambda with an API Gateway REST API completely breaks token streaming.</td>
+                <td>&#10007; <strong>Distractor</strong>: REST APIs cannot stream; also misses prompt management and category routing.</td>
               </tr>
               <tr>
                 <td><strong>C. ALB + Amazon ECS custom containers + custom routing and style checking</strong></td>
-                <td><strong>Too Much Overhead:</strong> Building Dockerfiles, managing ECR repos, task definitions, load balancers, OS patching, and cluster scaling is heavy server management.</td>
-                <td>&#10007; <strong>Cut (Too Much Overhead)</strong>: Always loses when serverless tools (Lambda + managed Bedrock) can do the job.</td>
+                <td><strong>Operational Overhead Violation:</strong> Managing Dockerfiles, ECR repos, container task definitions, ALB target groups, OS/runtime patching, and cluster autoscaling creates massive operational burden.</td>
+                <td>&#10007; <strong>Eliminate (Excessive Overhead)</strong>: Disqualified whenever serverless equivalents (Lambda + managed Bedrock) exist.</td>
               </tr>
               <tr>
                 <td><strong>D. SQS queue + Step Functions + Lambda + DynamoDB + API Gateway WebSocket API</strong></td>
-                <td><strong>Wrong Pattern for Live Use:</strong> SQS is built for background batch jobs, not live interactive clicks. Sending a live editor click through an SQS queue + Step Functions + DynamoDB adds waiting time and delay, breaking the requirement to immediately stream suggestions.</td>
-                <td>&#10007; <strong>Trap (Background Queue for Live UI)</strong>: Uses a slow background queue for a live interactive feature.</td>
+                <td><strong>Distractor:</strong> SQS is designed for asynchronous, decoupled background batch processing and resilient retries. Routing an interactive web editor request through SQS + Step Functions + DynamoDB polling introduces queue latency and state-machine startup overhead, violating "immediately begin providing suggested revisions."</td>
+                <td>&#10007; <strong>Distractor</strong>: Asynchronous batch queue pattern used for synchronous real-time typing.</td>
               </tr>
             </tbody>
           </table>
           <div class="fact">
-            <span class="label">Why "Option with All the Keywords" Is NOT Always a Trap</span>
-            People sometimes worry when an option lists several AWS features (WebSockets + Prompt Management + Streaming), thinking it looks like "keyword stuffing." On AWS Professional exams, <strong>a question with 4 requirements needs an answer that covers all 4 requirements</strong>. As long as every feature is real, fits the job, and is serverless, it's the right answer. Options B, C, and D aren't wrong because they have fewer buzzwords—they're wrong because they <strong>break streaming (REST API), add unnecessary servers (ECS), or use slow background queues for live clicks (SQS)</strong>.
+            <span class="label">Why "Option with All the Keywords" is NOT Always a Trap</span>
+            Candidates fear options with multiple named features (WebSockets + Prompt Management + Streaming) thinking it is "keyword soup." But in AWS Professional exams, <strong>a multi-part scenario requires a multi-part managed answer</strong>. As long as every named feature is real, used for its documented purpose, and serverless, it is the intended architecture. Options B, C, and D are not eliminated because they lack keywords—they are eliminated because they are <strong>distractors: REST APIs cannot stream, ECS adds unnecessary infrastructure, and SQS is for asynchronous batching</strong>.
           </div>
     </div>
   </section>
 
   <!-- ==================== TAB: 3. AIP-C01 Blueprint Domains, 7-Step RAG Pipeline & Vector Tuning ==================== -->
   <section data-section="rag" class="searchable-section">
-    <h2>3. AIP-C01 Blueprint Domains, 7-Step RAG Pipeline &amp; Vector Tuning</h2>
+    <h2>3. AIP-C01 Blueprint Domains, 7-Step RAG Pipeline & Vector Tuning</h2>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 06</span> Official Domain Breakdown</div>
       <table>
@@ -710,27 +710,27 @@
                 <tr>
                   <td><strong>Domain 1: FM Integration, Data Management &amp; Compliance (31%)</strong></td>
                   <td>Bedrock Knowledge Bases, OpenSearch Serverless, Aurora pgvector, Neptune Analytics (GraphRAG), S3 Vectors, Bedrock Data Automation.</td>
-                  <td>Default to Bedrock Knowledge Bases for managed RAG; cut custom Python chunkers or self-hosted EC2 vector DBs.</td>
+                  <td>Default to Bedrock Knowledge Bases for managed RAG; eliminate custom Python chunkers or self-hosted EC2 vector DBs.</td>
                 </tr>
                 <tr>
                   <td><strong>Domain 2: Implementation &amp; Integration (26%)</strong></td>
                   <td>Bedrock Agents (ReAct), Action Groups, Converse API, Prompt Flows, Step Functions Circuit Breakers, API Gateway WebSockets / SSE, MCP Servers.</td>
-                  <td>Use Converse API to switch models easily on multi-turn/document chats; use InvokeModelWithResponseStream + WebSockets/SSE for fast first token.</td>
+                  <td>Use Converse API for multi-model/multi-turn document portability; use InvokeModelWithResponseStream + WebSockets/SSE for low TTFT.</td>
                 </tr>
                 <tr>
                   <td><strong>Domain 3: AI Safety, Security &amp; Governance (20%)</strong></td>
                   <td>Bedrock Guardrails (Prompt Attack, Denied Topics, PII, Contextual Grounding), Amazon Comprehend, AWS PrivateLink, KMS, Secrets Manager, SageMaker Clarify.</td>
-                  <td>API Gateway checks JSON format; Comprehend scrubs PII before storage; Guardrails blocks prompt attacks, jailbreaks, and output PII.</td>
+                  <td>API Gateway validates JSON syntax; Comprehend scrubs PII pre-ingestion; Guardrails filters semantic intent, jailbreaks, and runtime PII.</td>
                 </tr>
                 <tr>
                   <td><strong>Domain 4: Operational Efficiency &amp; Optimization (12%)</strong></td>
                   <td>Prompt Caching (90% off), Batch Inference (50% off), Intelligent Prompt Routing, Prompt Compression, XML Structured Tags, Provisioned Throughput.</td>
-                  <td>Match pricing to traffic; use Prompt Caching for repeated prefixes &gt;1,024 tokens; trim or pre-summarize long text to cut input token costs.</td>
+                  <td>Match pricing to traffic pattern; use Prompt Caching for repeated prefixes &gt;1,024 tokens; prune/pre-summarize raw text to cut input tokens.</td>
                 </tr>
                 <tr>
                   <td><strong>Domain 5: Testing, Validation &amp; Troubleshooting (11%)</strong></td>
                   <td>CloudWatch Metrics/Alarms, AWS X-Ray, Bedrock Model Invocation Logging (S3 + Object Lock), Guardrail Tracing, RAGAS / Faithfulness / Citation Metrics.</td>
-                  <td>CloudWatch = metrics &amp; alarms; X-Ray = step-by-step latency; Invocation Logging = full prompt/response text; CloudTrail = API caller audit only.</td>
+                  <td>CloudWatch = passive smoke alarm (metrics); X-Ray = hop-by-hop latency; Invocation Logging = full prompt/response text; CloudTrail = control-plane API audit only.</td>
                 </tr>
               </tbody>
             </table>
@@ -738,54 +738,54 @@
     <div class="topic-card">
       <div class="topic-title"><span>Topic 07</span> End-to-End RAG Pipeline</div>
       <ol>
-              <li><strong>Step 1 • Input: Query Prep:</strong> User sends a question through API Gateway. If needed, the app rewrites or breaks down the question for multi-turn chat context.</li>
-              <li><strong>Step 2 • Vectorize: Query Embedding:</strong> The question is sent to the exact same embedding model used when indexing documents (e.g., Titan Text Embeddings V2) to turn it into a vector.</li>
-              <li><strong>Step 3 • Search: Vector / Hybrid Search:</strong> Runs k-NN / HNSW vector similarity search (+ optional BM25 keyword search and recency filters) in OpenSearch Serverless or Aurora pgvector. <em>k-NN Tradeoff:</em> Raising <i>k</i> pulls in more matches (higher recall) but slows down search; lowering <i>k</i> speeds up search but can miss matches.</li>
-              <li><strong>Step 4 • Filter: Reranking:</strong> Top matches pass through a Reranker model (e.g., Cohere Rerank) to score how well each chunk actually answers the question and drop weak matches.</li>
-              <li><strong>Step 5 • Build Prompt: Prompt Assembly:</strong> Bedrock Prompt Management combines the best chunks, system instructions, and the user's question into one structured prompt (separated cleanly with XML tags).</li>
-              <li><strong>Step 6 • Generate: Model Call &amp; Guardrails:</strong> Amazon Bedrock Guardrails checks the input for prompt attacks and jailbreaks, calls the Foundation Model, and checks the output for grounding (no hallucinations) and PII.</li>
-              <li><strong>Step 7 • Output: Streaming &amp; Citations:</strong> Response tokens and source citations stream back live to the user via <code>InvokeModelWithResponseStream</code> + WebSockets / SSE.</li>
+              <li><strong>Step 1 • Ingress: Query Transformation:</strong> Client sends natural language query via API Gateway. Optional query decomposition or rewriting occurs for multi-turn context.</li>
+              <li><strong>Step 2 • Vectorization: Query Embedding:</strong> Query string is passed to the exact same embedding model used during ingestion (e.g., Titan Text Embeddings V2) to generate a high-dimensional dense vector.</li>
+              <li><strong>Step 3 • Search: Vector / Hybrid Retrieval:</strong> Executes k-NN / HNSW vector similarity search (+ optional BM25 lexical keyword search and metadata recency scoring) in OpenSearch Serverless or Aurora pgvector. <em>k-NN Tradeoff:</em> Increasing <i>k</i> increases candidate recall but degrades search performance (higher latency/compute); decreasing <i>k</i> speeds up search at the cost of recall.</li>
+              <li><strong>Step 4 • Filtering: Cross-Encoder Reranking:</strong> Candidate chunks pass through a Cross-Encoder / Reranker model (e.g., Cohere Rerank) to score true relevance and drop low-confidence passages.</li>
+              <li><strong>Step 5 • Augmentation: Prompt Assembly:</strong> Bedrock Prompt Management constructs a structured prompt payload combining top-k passages, system instructions, and user query (delimited by XML structured tags).</li>
+              <li><strong>Step 6 • Inference: FM Generation &amp; Guardrails:</strong> Amazon Bedrock Guardrails screens ingress for prompt attacks and jailbreaks, invokes the Foundation Model, and evaluates egress for contextual grounding (faithfulness) and sensitive PII redaction.</li>
+              <li><strong>Step 7 • Egress: Streaming &amp; Citations:</strong> Tokens and traceable source citations stream back incrementally to the client via <code>InvokeModelWithResponseStream</code> + WebSockets / SSE.</li>
             </ol>
-            <div class="fact"><span class="label">Request flow</span>From user question to final answer: user prompt enters the app &gt; input check and auth &gt; prompt assembly &gt; search and reranking &gt; model call &gt; guardrails and safety checks &gt; live token streaming or final response &gt; logging and metrics.</div>
+            <div class="fact"><span class="label">Inference flow</span>From prompt initiation to final answer: user prompt enters the application &gt; request validation and auth &gt; prompt/context assembly &gt; retrieval and reranking &gt; model invocation &gt; guardrails and safety checks &gt; token streaming or final response &gt; observability and logging.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 08</span> Validating Every Step of the Pipeline</div>
+      <div class="topic-title"><span>Topic 08</span> Pipeline Validation &amp; Defense-in-Depth</div>
       <ul>
-              <li><strong>Input:</strong> Check user identity, payload size, JSON format, and allowed actions.</li>
-              <li><strong>Application:</strong> Apply business rules and clean inputs before calling the model.</li>
-              <li><strong>Generation:</strong> Check model output against your safety and quality rules.</li>
-              <li><strong>Operations:</strong> Track quality, latency, and errors over time.</li>
+              <li><strong>Input:</strong> Validate identity, size, schema, and allowed operations.</li>
+              <li><strong>Application:</strong> Apply deterministic business rules and sanitize payloads.</li>
+              <li><strong>Generation:</strong> Evaluate output against the configured safety and quality policy.</li>
+              <li><strong>Operations:</strong> Monitor behavior over time for quality shifts and failures.</li>
             </ul>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 09</span> How Vector Stores Work &amp; Performance Tuning</div>
-      <p>Vector databases store numerical embeddings for meaning-based search. Knowing how they index and scale helps you spot why search slows down:</p>
+      <div class="topic-title"><span>Topic 09</span> Vector Store Mechanics &amp; Performance Tuning</div>
+      <p>Vector databases store dense embeddings for semantic search. Understanding how they index and scale is critical for troubleshooting retrieval latency:</p>
             <ul>
-              <li><strong>HNSW vs. Flat (Brute Force):</strong> HNSW (Hierarchical Navigable Small World) builds multi-layer graphs for fast Approximate Nearest Neighbor (ANN) search in <code>O(log N)</code> time. A Flat index checks every single vector one by one in <code>O(N)</code> time. Always use HNSW at scale; Flat gives 100% exact matches on tiny datasets (&lt;10k), but gets painfully slow as data grows.</li>
-              <li><strong>The <i>k</i>-NN Tradeoff (Recall vs. Speed):</strong> <i>k</i> sets how many nearest matches to pull back. Raising <i>k</i> pulls back more candidates (helping rerankers), but searches deeper and sorts more items, which <em>slows down search</em>. Raising <i>k</i> never fixes slow search.</li>
-              <li><strong>Segments &amp; Refresh Interval (OpenSearch / Lucene):</strong> OpenSearch writes new vectors into separate Lucene <em>segments</em> on every refresh (default: 1 second). Because <strong>each segment builds its own HNSW graph</strong>, every search has to check <em>all active segments</em> and merge the results. Constant updates with a 1-second refresh create dozens of tiny segments and slow searches down. <strong>Fix:</strong> Increase <code>index.refresh_interval</code> (e.g., 30s–120s) so vectors batch into fewer, larger segments.</li>
-              <li><strong>OpenSearch Serverless (AOSS) Limits:</strong> AOSS automatically scales capacity using OpenSearch Compute Units (OCUs). AWS manages shards and replicas behind the scenes—you <em>cannot</em> manually tune shard counts or replicas on OpenSearch Serverless.</li>
-              <li><strong>Filter Metadata First:</strong> Filtering by metadata (like date, department, or category) before running vector math shrinks the search pool early and speeds up queries much more than tweaking <i>k</i>.</li>
+              <li><strong>HNSW vs. Flat (Brute Force):</strong> HNSW (Hierarchical Navigable Small World) builds multi-layer graphs for Approximate Nearest Neighbor (ANN) search with logarithmic time complexity: <code>O(log N)</code>. Flat index performs exhaustive distance comparison across every vector in <code>O(N)</code> time. Always use HNSW at scale; Flat guarantees 100% recall for tiny datasets (&lt;10k), but search latency explodes linearly as the index grows.</li>
+              <li><strong>The <i>k</i>-NN Tradeoff (Recall vs. Latency):</strong> <i>k</i> specifies the number of nearest neighbors retrieved. Increasing <i>k</i> retrieves more candidate vectors (improving recall for downstream rerankers), but requires deeper graph traversal and larger candidate sorting, which <em>increases query latency and degrades search performance</em>. It never resolves slow search.</li>
+              <li><strong>Segment Architecture &amp; Refresh Interval (OpenSearch / Lucene):</strong> OpenSearch flushes vectors into immutable Lucene <em>segments</em> on every index refresh (default: 1s). Crucially, <strong>an HNSW graph is built per segment</strong>, and k-NN queries must search <em>every active segment's graph</em> before merging results. Continuous ingestion with frequent refreshes creates dozens of tiny segments, severely degrading search latency as the index grows. <strong>Fix:</strong> Raise <code>index.refresh_interval</code> (e.g., 30s–120s) so vectors accumulate into fewer, larger segments with unified HNSW graphs.</li>
+              <li><strong>OpenSearch Serverless (AOSS) Boundaries:</strong> AOSS automatically provisions and scales OpenSearch Compute Units (OCUs) for ingestion and search. Shards and replicas are completely managed and abstracted by AWS; developers <em>cannot</em> configure shard counts or search replicas for Serverless collections.</li>
+              <li><strong>Metadata Pre-filtering:</strong> Applying metadata filters before vector distance calculation prunes the candidate search space early, reducing search latency significantly more than adjusting <i>k</i>.</li>
             </ul>
-            <div class="formula">OpenSearch slows down as index grows → Increase refresh interval (fewer segments/HNSW graphs); cross out shard/replica tuning on Serverless (AWS manages it via OCUs).</div>
+            <div class="formula">OpenSearch degraded search as index grows → Raise refresh interval (fewer segments/HNSW graphs); eliminate shard/replica tuning on Serverless (managed by OCUs).</div>
     </div>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 10</span> Prompting, RAG &amp; Vector Storage</div>
       <h3>Hybrid search / duplicate results</h3>
-            <div class="fact"><strong>🟢 Target:</strong> Combine keyword and vector search, remove duplicates by document ID or text, and merge scores before reranking.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> Keeping keyword and vector results as two separate final answers, or turning off keyword search when the question asks for hybrid search.</div>
+            <div class="fact"><strong>🟢 Target:</strong> Combine keyword and vector retrieval, deduplicate by document ID or normalized content, and merge relevance scores before reranking.</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> Treating keyword and vector results as separate final answer sets or disabling keyword search entirely when the requirement is hybrid retrieval.</div>
             <h3>Relevant results ranked too low / minimal overhead</h3>
-            <div class="fact"><strong>🟢 Target:</strong> Amazon Bedrock reranker models (Amazon Rerank, Cohere Rerank) on Knowledge Bases retrieval, paired with Knowledge Bases hybrid search when exact keywords also matter.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> OpenSearch Learning to Rank, custom pgvector scoring code, or custom-built ranking models—they all need training data or custom code and break "minimal overhead."</div>
+            <div class="fact"><strong>🟢 Target:</strong> Amazon Bedrock reranker models (Amazon Rerank, Cohere Rerank) on Knowledge Bases retrieval, paired with Knowledge Bases hybrid search when keyword matching also matters.</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> OpenSearch Learning to Rank, custom pgvector scoring algorithms, or custom relevancy models; they all require training data or custom code and are not minimal overhead.</div>
             <h3>Embedding Consistency &amp; Embedding Drift (Official Exam Concept)</h3>
-            <div class="fact"><strong>🟢 Target (Same Embedding Model):</strong> Use the exact same embedding model, version, and vector size for both indexing documents and searching queries.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> Mixing embeddings from different models or versions in the same index, because their numbers don't share the same coordinate space.</div>
+            <div class="fact"><strong>🟢 Target (Embedding Consistency):</strong> Keep a single embedding model, version, and dimension per vector index. All query vectors and document vectors must be generated by the exact same encoder model and version.</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> Mixing embeddings from different models or model versions inside one index, because they live in completely different vector coordinate spaces.</div>
             <div class="fact">
-              <span class="label">What Embedding Drift Is &amp; How to Spot It</span>
-              <strong>Embedding Drift</strong> happens when your app uses a different model (or version) to embed user search queries than the one used to embed the stored documents (for example, updating a Lambda function from Titan Text Embeddings v1 to v2 without re-indexing OpenSearch).<br />
-              <strong>Symptom:</strong> The app starts returning "no relevant information found" even for questions that used to work.<br />
-              <strong>What the Logs Show:</strong> Zero CloudWatch errors, X-Ray shows 200 OK model calls, and the vector database is healthy with normal speed.<br />
-              <strong>Fix:</strong> Either re-index all documents in the vector store with the new embedding model version, or switch the Lambda query code back to the original embedding model version.
+              <span class="label">Embedding Drift Definition &amp; Symptoms</span>
+              <strong>Embedding Drift</strong> occurs when the model or model version used to generate query embeddings differs from the model used to index the stored document embeddings (e.g., updating a Lambda function from Titan Text Embeddings v1 to v2 without re-indexing OpenSearch).<br />
+              <strong>Symptom:</strong> The application returns generic fallbacks like "no relevant information found" even for queries that previously worked.<br />
+              <strong>Telemetry Footprint:</strong> Zero CloudWatch errors, X-Ray confirms successful 200 OK FM invocation, and vector DB cluster is healthy with normal latency.<br />
+              <strong>Resolution:</strong> Either re-index all document embeddings in the vector store using the new model version, or revert the query embedding logic to match the index model.
             </div>
 
             <h3>Retrieval Failure vs. Generation Failure (The Temperature Trap)</h3>
@@ -794,7 +794,7 @@
             </div>
             <div class="warning">
               <strong>Generation Failure:</strong> Context documents <em>were successfully retrieved</em>, but the LLM output is hallucinated, contradictory, overly creative, or fails to follow formatting. <em>Root causes:</em> Temperature too high, Top-P too high, system prompt lacks grounding constraints.<br />
-              <strong>Poison Pill Trap:</strong> Never select "increase/decrease temperature" to resolve a retrieval failure ("no information found"). Temperature controls token sampling probabilities during text generation; it has zero impact on vector search or embedding generation.
+              <strong>Distractor Trap:</strong> Never select "increase/decrease temperature" to resolve a retrieval failure ("no information found"). Temperature controls token sampling probabilities during text generation; it has zero impact on vector search or embedding generation.
             </div>
             <h3>GraphRAG / Graph relationships + vector similarity</h3>
             <div class="fact"><strong>🟢 Target:</strong> Amazon Neptune Analytics when the requirement combines related documents or entities, graph structure, and vector similarity search.</div>
@@ -940,14 +940,14 @@
             <div class="warning"><strong>🔴 Eliminate:</strong> Route 53 Multi-Region failover and Bedrock Cross-Region Inference.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 20</span> Picking the Right Service</div>
+      <div class="topic-title"><span>Topic 20</span> Choose the Abstraction</div>
       <table>
               <thead><tr><th>Question wording</th><th>Likely direction</th></tr></thead>
               <tbody>
                 <tr><td>Train, tune, host, or deeply control a custom model</td><td><strong>SageMaker AI</strong></td></tr>
                 <tr><td>Custom model with large payloads (&gt;6 MB) or long runtimes (&gt;60s) on-demand</td><td><strong>SageMaker Asynchronous Inference</strong></td></tr>
                 <tr><td>Event-driven stateless code or preprocessing</td><td><strong>AWS Lambda</strong></td></tr>
-                <tr><td>Durable multi-step workflows, retries, task tokens</td><td><strong>Step Functions</strong></td></tr>
+                <tr><td>Durable multi-step orchestration, retries, task tokens</td><td><strong>Step Functions</strong></td></tr>
                 <tr><td>API front door, authentication, schema validation</td><td><strong>API Gateway</strong></td></tr>
                 <tr><td>Trace latency and cross-service failures</td><td><strong>AWS X-Ray</strong></td></tr>
                 <tr><td>Private service access and data isolation</td><td><strong>PrivateLink / VPC endpoints</strong></td></tr>
@@ -955,58 +955,58 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 21</span> Agent Design Patterns</div>
+      <div class="topic-title"><span>Topic 21</span> Agentic Application Patterns</div>
       <ul>
               <li><strong>ReAct:</strong> reasoning, acting through a tool, observing the result, and repeating as needed.</li>
               <li><strong>Bedrock Agents:</strong> managed agent behavior with action groups and knowledge sources.</li>
-              <li><strong>Step Functions:</strong> explicit workflow steps, retries, task tokens, and circuit breakers.</li>
+              <li><strong>Step Functions:</strong> explicit workflow orchestration, retries, task tokens, and circuit breakers.</li>
               <li><strong>DynamoDB sessionId + TTL:</strong> durable bounded conversation state.</li>
-              <li><strong>WebSockets or streaming responses:</strong> faster time to first token.</li>
+              <li><strong>WebSockets or streaming responses:</strong> lower perceived time to first token.</li>
             </ul>
-            <div class="warning"><span class="label">Do not confuse</span>ReAct is a general reasoning-and-action pattern. Step Functions and Bedrock Agents are the AWS tools that run agent workflows.</div>
+            <div class="warning"><span class="label">Do not confuse</span>ReAct is a general reasoning-and-action pattern. Step Functions and Bedrock Agents are AWS implementation choices that may orchestrate agentic behavior.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 22</span> Real-Time Streaming &amp; API Gateway Setup</div>
-      <p>Interactive GenAI apps (like live text editors, real-time code completion, and chat widgets) need to stream tokens as they are generated for a fast Time to First Token (TTFT). Knowing which AWS services stream and which ones buffer full responses helps you spot wrong answers right away:</p>
+      <div class="topic-title"><span>Topic 22</span> Real-Time Streaming Architectures &amp; API Gateway Setup</div>
+      <p>Interactive GenAI applications (e.g., live text editors, real-time code completion, chat widgets) require streaming tokens as they are generated to achieve low Time to First Token (TTFT). Understanding the exact networking and buffering rules of AWS ingress services is essential to avoid distractor traps:</p>
       <table>
         <thead>
           <tr>
             <th>Pattern / Service</th>
-            <th>How Streaming Works</th>
-            <th>Management Effort</th>
+            <th>Streaming Capability</th>
+            <th>Operational Profile</th>
             <th>AWS Exam Verdict</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>Amazon API Gateway WebSocket API + AWS Lambda</strong></td>
-            <td><strong>Live Two-Way Streaming:</strong> Lambda receives browser events and pushes Bedrock response tokens chunk-by-chunk over an open WebSocket connection.</td>
-            <td><strong>Zero Servers (Serverless):</strong> Managed connections, automatic scaling, pay-per-message.</td>
-            <td>&#10003; <strong>Best Choice (Least Overhead):</strong> Default winner for live web editors and real-time streaming UIs.</td>
+            <td><strong>Full Duplex Streaming:</strong> Lambda receives client events and pushes Bedrock response tokens chunk-by-chunk over a persistent WebSocket connection.</td>
+            <td><strong>Zero Infrastructure (Serverless):</strong> Fully managed connections, automatic scaling, pay-per-message.</td>
+            <td>&#10003; <strong>Gold Standard (Least Overhead):</strong> Default winner for interactive web editors and real-time streaming interfaces.</td>
           </tr>
           <tr>
             <td><strong>Amazon API Gateway REST API + Lambda Function URLs</strong></td>
-            <td><strong>BROKEN STREAMING:</strong> API Gateway REST APIs <em>wait for the full payload</em> (up to 10 MB or 29s timeout) before sending anything to the client. Putting an API Gateway REST API in front of a streaming Lambda kills live streaming.</td>
-            <td>Serverless, but doesn't work for live streaming.</td>
-            <td>&#10007; <strong>Common Trap:</strong> Lambda Function URLs support response streaming on their own (via <code>streamifyResponse</code>), but wrapping them behind an API Gateway REST API breaks streaming.</td>
+            <td><strong>Distractor (No Streaming):</strong> API Gateway REST APIs <em>buffer the entire payload</em> (up to 10 MB or 29s timeout) before sending anything to the client. Fronting a streaming Lambda with an API Gateway REST API completely destroys streaming.</td>
+            <td>Serverless, but architecturally invalid for real-time streaming.</td>
+            <td>&#10007; <strong>Distractor:</strong> Lambda Function URLs natively support response streaming (via <code>streamifyResponse</code>), but wrapping them in an API Gateway REST API negates streaming.</td>
           </tr>
           <tr>
             <td><strong>Application Load Balancer (ALB) + Amazon ECS Containers</strong></td>
-            <td><strong>Supported:</strong> Custom container code (Node/Python/Go) can keep open WebSockets or SSE streams through an ALB.</td>
-            <td><strong>High Management Overhead:</strong> Dockerfiles, ECR repos, task definitions, OS patching, and ECS cluster scaling.</td>
-            <td>&#10007; <strong>Cut on "Least Overhead":</strong> Wrong whenever the question asks for "LEAST operational overhead" and serverless options (Lambda) work.</td>
+            <td><strong>Supported:</strong> Custom container runtimes (e.g. Node/Python/Go) can manage persistent WebSockets or SSE streams through ALB.</td>
+            <td><strong>High Operational Overhead:</strong> Managing Dockerfiles, ECR repos, task definitions, OS patching, and ECS cluster autoscaling.</td>
+            <td>&#10007; <strong>Eliminate on "Least Overhead":</strong> Disqualified when the stem demands "LEAST operational overhead" and serverless options (Lambda) exist.</td>
           </tr>
           <tr>
             <td><strong>Amazon SQS + AWS Step Functions + Amazon DynamoDB</strong></td>
-            <td><strong>Background Queue (No Streaming):</strong> SQS holds messages for background batch jobs; Step Functions runs state machines; DynamoDB stores results.</td>
-            <td>Serverless, but adds queue waiting and polling delays.</td>
-            <td>&#10007; <strong>Wrong Pattern Trap:</strong> SQS is for background queues and retries—never for live user clicks ("immediately begin providing suggested revisions").</td>
+            <td><strong>Asynchronous / Non-Streaming:</strong> SQS buffers messages for decoupled background processing; Step Functions coordinates state machines; DynamoDB stores state.</td>
+            <td>Serverless, but introduces queue polling latency and execution overhead.</td>
+            <td>&#10007; <strong>Distractor:</strong> SQS is for asynchronous batch decoupling and resilient retries—never for synchronous, interactive user clicks ("immediately begin providing suggested revisions").</td>
           </tr>
         </tbody>
       </table>
       <div class="fact">
         <span class="label">Style Guide &amp; Prompt Versioning Rule</span>
-        When a question asks you to apply <strong>style guide rules, prompt versioning, and dynamic model routing</strong> with least operational overhead, use <strong>Amazon Bedrock Prompt Management</strong>. It stores, versions, and injects variables into prompts across multiple Bedrock models without hardcoding prompts in your app code.
+        When the requirement calls for enforcing <strong>style guide rules, prompt versioning, and dynamic model routing</strong> with least operational overhead, use <strong>Amazon Bedrock Prompt Management</strong>. It provides centralized storage, versioning, and variable injection for prompts across multiple Bedrock models without hardcoding prompts in application code.
       </div>
     </div>
     <div class="topic-card">
@@ -1022,128 +1022,128 @@
     </div>
   </section>
 
-  <!-- ==================== TAB: 6. Monitoring, Security, Guardrails & Evaluation ==================== -->
+  <!-- ==================== TAB: 6. Four-Pillar Observability, Security, Guardrails & Evaluation ==================== -->
   <section data-section="security" class="searchable-section">
-    <h2>6. Monitoring, Security, Guardrails &amp; Evaluation</h2>
+    <h2>6. Four-Pillar Observability, Security, Guardrails & Evaluation</h2>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 24</span> Safety, Security &amp; Networking</div>
       <h3>Cross-Region Inference / compliance boundaries</h3>
             <div class="fact"><strong>🟢 Target:</strong> Same-region inference for regulated workloads, or use explicit regional controls and networking patterns when data residency is required.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> Treating Cross-Region Inference as compliant by default. Data can cross regions and fall under different legal rules.</div>
-            <h3>Blocking PII on Input &amp; Output</h3>
-            <div class="fact"><strong>🟢 Target:</strong> Amazon Comprehend (<code>DetectPiiEntities</code>) for scrubbing text before ingestion or calling the model; Bedrock Guardrails Sensitive Information Filters to mask PII in model outputs. (Amazon Rekognition for images).</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> Relying only on prompt wording ("do not output SSNs") or mixing up Comprehend text detection with KMS disk encryption.</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> Treating Cross-Region Inference as compliant by default. Data can traverse regions and be subject to different regulatory requirements.</div>
+            <h3>Bidirectional PII Defense / Data Ingress &amp; Egress</h3>
+            <div class="fact"><strong>🟢 Target:</strong> Amazon Comprehend (<code>DetectPiiEntities</code>) for pre-processing/scrubbing text before ingestion or model invocation; Bedrock Guardrails Sensitive Information Filters to redact/mask PII in model outputs. (Amazon Rekognition for images).</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> Relying solely on prompt instructions ("do not output SSNs") or confusing Comprehend NLP analysis with KMS storage encryption.</div>
             <h3>Prompt Attack Detection &amp; Jailbreak Defense</h3>
-            <div class="fact"><strong>🟢 Target:</strong> Bedrock Guardrails content and prompt-attack filters to block prompt injection, jailbreaks, and role-play bypasses. Turn on <code>"trace": "enabled"</code> and check <code>GuardrailPolicyType</code> to find the root cause.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> Using AWS WAF to block conversational jailbreaks (WAF handles HTTP/DDoS/rate limits, not prompt meaning), or writing custom regex in Lambda.</div>
+            <div class="fact"><strong>🟢 Target:</strong> Bedrock Guardrails semantic filters to detect and block prompt injection, jailbreaks, and role-playing bypasses. Enable <code>"trace": "enabled"</code> and filter by <code>GuardrailPolicyType</code> for root-cause diagnosis.</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> WAF rules for semantic jailbreaks (WAF handles HTTP/DDoS/rate limits, not semantic intent), or custom regex in Lambda.</div>
             <h3>S3 Cross-Region Replication (CRR) / Data Residency</h3>
-            <div class="fact"><strong>🟢 Target:</strong> Keep encryption and access policies intact during replication, and check data residency rules before copying GenAI training data to another region.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> Assuming S3 CRR automatically removes PII in transit or strips encryption.</div>
+            <div class="fact"><strong>🟢 Target:</strong> Maintain encryption and access policies byte-for-byte during replication, but verify sovereign compliance boundaries and data residency before replicating GenAI training corpora.</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> Assuming S3 CRR automatically anonymizes PII in transit or strips encryption.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 25</span> Testing, Evaluation &amp; Monitoring</div>
-      <h3>Full-stack monitoring setup</h3>
-            <div class="fact"><strong>🟢 Target:</strong> Combine CloudWatch metrics, AWS X-Ray tracing, Bedrock Model Invocation Logging, and Amazon Managed Grafana.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> Using CloudWatch metrics by themselves or only checking logs once a week in batches.</div>
-            <h3>Multi-agent systems / tracking across agents</h3>
-            <div class="fact"><strong>🟢 Target:</strong> Track each agent's latency, token usage, tool calls, retries, and handoffs, and connect traces end-to-end to spot slowdowns or failures.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> Watching only one summary dashboard or only the busiest agent when trying to debug multi-agent handoff issues.</div>
-            <h3>Alerting / set a baseline first</h3>
-            <div class="fact"><strong>🟢 Target:</strong> Measure normal GenAI behavior first before setting alert thresholds, then alert when latency, token usage, error rate, or quality shifts significantly.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> Alerting on every tiny bump, turning off monitoring during a rollout, or picking random thresholds without a baseline.</div>
+      <div class="topic-title"><span>Topic 25</span> Testing, Evaluation &amp; Observability</div>
+      <h3>Enterprise monitoring &amp; full observability architecture</h3>
+            <div class="fact"><strong>🟢 Target:</strong> The Four-Pillar Observability Stack consisting of CloudWatch metrics, AWS X-Ray tracing, Bedrock Model Invocation Logging, and Amazon Managed Grafana.</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> Isolated CloudWatch metrics alone and weekly/batch log polling cadences.</div>
+            <h3>Multi-agent systems / cross-agent observability</h3>
+            <div class="fact"><strong>🟢 Target:</strong> Monitor each agent's latency, token usage, tool calls, retries, and coordination flow, then correlate traces for end-to-end task success and bottlenecks.</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> Treating a single aggregate dashboard or just the busiest agent as sufficient for diagnosing orchestration failures, handoff problems, or quality regressions across the system.</div>
+            <h3>Alerting / baseline-first monitoring</h3>
+            <div class="fact"><strong>🟢 Target:</strong> Establish a representative baseline for normal GenAI behavior before setting thresholds, then alert on statistically significant deviations in latency, token usage, error rate, or quality.</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> Triggering alerts on every minor fluctuation, disabling monitoring during rollout, or setting static thresholds without a baseline.</div>
             <h3>Bedrock RAG Evaluation: Citation Metrics</h3>
-            <div class="fact"><strong>🟢 Target:</strong> Citation Coverage to measure how much of the answer is backed by sources, and Citation Precision to check whether the cited sources actually support the claim.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> Claims that coverage only applies to text while precision applies to images, or that citation metrics measure speed.</div>
+            <div class="fact"><strong>🟢 Target:</strong> Citation Coverage for measuring recall and completeness of source backing, and Citation Precision for measuring citation accuracy.</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> Claims that coverage applies to text while precision applies to images, execution speed pipeline claims, and custom prompt requirements.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 26</span> Which Monitoring Tool Does What (4 Core Tools)</div>
+      <div class="topic-title"><span>Topic 26</span> The 4-Pillar Observability Diagnostic Table</div>
       <table>
               <thead>
                 <tr>
                   <th>Service</th>
-                  <th>What It Tracks</th>
-                  <th>Common Exam Trap</th>
+                  <th>Exact Role &amp; Scope</th>
+                  <th>Common Distractor</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td><strong>Amazon CloudWatch</strong></td>
-                  <td>Metrics &amp; alarms ("smoke alarm"): tracks numbers over time (<code>InvocationLatency</code>, error counts, token counts) and fires alarms when metrics spike or drift.</td>
-                  <td>Cannot auto-rewrite prompts, auto-retrain models, read full prompt text, or trace step-by-step delays across services.</td>
+                  <td>Passive telemetry ("smoke alarm"): time-series metrics (<code>InvocationLatency</code>), statistical drift, and alarms for prompt regression or bias drift.</td>
+                  <td>Cannot auto-rewrite prompts, auto-retrain models, inspect full prompt text, or trace multi-hop microservice spans.</td>
                 </tr>
                 <tr>
                   <td><strong>AWS X-Ray</strong></td>
-                  <td>Request tracing: measures step-by-step latency across API Gateway &rarr; Lambda &rarr; Bedrock &rarr; Vector Store.</td>
-                  <td>Cannot track data drift over time or read the actual prompt and response text.</td>
+                  <td>Distributed request tracing: hop-by-hop subsegment latency across API Gateway &rarr; Lambda &rarr; Bedrock &rarr; Vector Store.</td>
+                  <td>Cannot monitor statistical data distribution shift or audit prompt payload text.</td>
                 </tr>
                 <tr>
                   <td><strong>Bedrock Model Invocation Logging</strong></td>
-                  <td>Full prompt &amp; response logs: saves the actual input prompt and output text to S3 (pair with <strong>S3 Object Lock Compliance Mode</strong> for 7-year tamper-proof storage) or CloudWatch Logs.</td>
+                  <td>Data-plane payload auditing: captures full prompt input and completion output text to S3 (pair with <strong>S3 Object Lock Compliance Mode</strong> for 7-year WORM) or CloudWatch Logs.</td>
                   <td>Never confuse with CloudTrail.</td>
                 </tr>
                 <tr>
                   <td><strong>AWS CloudTrail</strong></td>
-                  <td>API caller audit log: records <em>who</em> made an AWS API call, <em>when</em>, and from <em>what IP</em>.</td>
-                  <td><strong>Never</strong> records prompt text, generated answers, token counts, or model latency.</td>
+                  <td>Control-plane governance: logs <em>who</em> made an API call, <em>when</em>, and from <em>what IP</em>.</td>
+                  <td><strong>Never</strong> records prompt text, completion tokens, or inference latency metrics.</td>
                 </tr>
               </tbody>
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 27</span> Domain 5: Troubleshooting Common Failures from Logs &amp; Metrics</div>
-      <p>AIP-C01 tests whether you can spot why a GenAI app broke by looking at <strong>logs and metrics</strong> (CloudWatch, X-Ray, Vector DB status). Use this table to match the symptom to the real cause and cross out wrong answers:</p>
+      <div class="topic-title"><span>Topic 27</span> Domain 5: Scenario-Based Observability &amp; Root-Cause Troubleshooting Table</div>
+      <p>AIP-C01 tests your ability to diagnose GenAI pipeline failures from <strong>telemetry signatures</strong> (CloudWatch, X-Ray, Vector DB health). Use this table to match the observed symptom to its true root cause and instantly eliminate distractors:</p>
       <table>
         <thead>
           <tr>
-            <th>Symptom</th>
-            <th>What Logs &amp; Metrics Show</th>
-            <th>Real Cause</th>
-            <th>How to Fix It</th>
-            <th>Wrong-Answer Trap</th>
+            <th>Scenario &amp; Symptom</th>
+            <th>Telemetry Footprint</th>
+            <th>Root Cause</th>
+            <th>AWS Remediation</th>
+            <th>Common Distractor</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>RAG returns generic fallback / "no relevant information found"</strong> after Lambda/app update</td>
-            <td><strong>CloudWatch:</strong> 0 errors.<br /><strong>X-Ray:</strong> 200 OK FM call.<br /><strong>Vector Store:</strong> Healthy cluster, normal speed.</td>
-            <td><strong>Embedding Drift:</strong> Query embeddings are created with a different model or version than the stored document embeddings. The numbers don't line up, so similarity scores fall below the cutoff.</td>
-            <td>Re-index the vector store with the new embedding model version, OR switch Lambda back to the original model version.</td>
-            <td>Changing temperature (only affects text generation, not search); claiming documents were deleted during the Lambda update (ruled out by clean logs).</td>
+            <td><strong>CloudWatch:</strong> 0 errors.<br /><strong>X-Ray:</strong> 200 OK FM invocation.<br /><strong>Vector Store:</strong> Healthy cluster, normal latency.</td>
+            <td><strong>Embedding Drift:</strong> Query embeddings generated by a different model or version than stored document embeddings. Vector spaces are incompatible; similarity falls below threshold.</td>
+            <td>Re-index the entire vector store with the new embedding model version, OR revert Lambda to use the original model version.</td>
+            <td>Increasing temperature (generation parameter, does not affect retrieval); claiming documents were deleted during Lambda update (disproven by clean telemetry).</td>
           </tr>
           <tr>
-            <td><strong>Bedrock call crashes app / HTTP 500</strong></td>
-            <td><strong>CloudWatch:</strong> <code>AccessDeniedException</code> (HTTP 403).<br /><strong>X-Ray:</strong> Failed step on Bedrock call.</td>
-            <td><strong>Missing IAM Permission:</strong> Lambda execution role is missing <code>bedrock:InvokeModel</code> (or KMS <code>kms:Decrypt</code> for a custom key).</td>
-            <td>Add an IAM policy granting <code>bedrock:InvokeModel</code> on the model ARN to the Lambda execution role.</td>
-            <td>Adding retry loops with exponential backoff (retries never fix 403 permission errors); raising the Lambda timeout.</td>
+            <td><strong>Bedrock invocation crashes app / HTTP 500</strong></td>
+            <td><strong>CloudWatch:</strong> <code>AccessDeniedException</code> (HTTP 403).<br /><strong>X-Ray:</strong> Red/failed subsegment on Bedrock invoke.</td>
+            <td><strong>Missing IAM Permission:</strong> Lambda execution role lacks <code>bedrock:InvokeModel</code> (or KMS <code>kms:Decrypt</code> for customer-managed key).</td>
+            <td>Attach IAM policy granting <code>bedrock:InvokeModel</code> on target model ARN to Lambda execution role.</td>
+            <td>Adding retry loops with exponential backoff (retries never resolve 403 auth errors); increasing Lambda timeout.</td>
           </tr>
           <tr>
-            <td><strong>Random failures during traffic spikes</strong></td>
-            <td><strong>CloudWatch:</strong> <code>ThrottlingException</code> (HTTP 429), high p95 latency.<br /><strong>X-Ray:</strong> Multiple retries before failing.</td>
-            <td><strong>Bedrock On-Demand Quota:</strong> Account requests-per-second or tokens-per-minute limit reached on shared endpoints.</td>
-            <td>Add exponential backoff with jitter in the SDK; request a quota increase; or buy Bedrock Provisioned Throughput (Model Units).</td>
-            <td>Raising Lambda concurrency (makes Bedrock throttling worse); turning off X-Ray tracing; switching to a Flat vector index.</td>
+            <td><strong>Intermittent failures during high traffic spikes</strong></td>
+            <td><strong>CloudWatch:</strong> <code>ThrottlingException</code> (HTTP 429), elevated p95 latency.<br /><strong>X-Ray:</strong> Repeated retry attempts before exit.</td>
+            <td><strong>Bedrock On-Demand Quota:</strong> Account TPS or Tokens-Per-Minute limit exceeded on shared endpoints.</td>
+            <td>Implement exponential backoff with full jitter in SDK; request quota increase; or purchase Bedrock Provisioned Throughput (Model Units).</td>
+            <td>Scaling up Lambda concurrency (worsens Bedrock throttling); disabling X-Ray tracing; switching to Flat vector index.</td>
           </tr>
           <tr>
-            <td><strong>Model returns a canned refusal message ("I cannot answer this...")</strong> on a normal prompt</td>
-            <td><strong>CloudWatch:</strong> 0 code errors, <code>GuardrailIntervened</code> &gt; 0.<br /><strong>X-Ray:</strong> 200 OK Bedrock call.<br /><strong>Logs:</strong> <code>action: "BLOCKED"</code>.</td>
-            <td><strong>Guardrail Filter Triggered:</strong> The prompt or retrieved text tripped a Denied Topic, Content Filter, PII filter, or Contextual Grounding check.</td>
-            <td>Set <code>"trace": "enabled"</code> in the Bedrock call; check <code>guardrailAction</code> and <code>policyType</code> to adjust the filter sensitivity.</td>
-            <td>Retraining the model on SageMaker; raising temperature; turning off CloudWatch alarms.</td>
+            <td><strong>Model outputs canned refusal message ("I cannot answer this...")</strong> despite benign prompt</td>
+            <td><strong>CloudWatch:</strong> 0 runtime errors, <code>GuardrailIntervened</code> metric &gt; 0.<br /><strong>X-Ray:</strong> 200 OK Bedrock invoke.<br /><strong>Logs:</strong> <code>action: "BLOCKED"</code>.</td>
+            <td><strong>Guardrail Policy Trigger:</strong> Prompt or retrieved context triggered Denied Topics, Content Filter, PII filter, or Contextual Grounding threshold.</td>
+            <td>Enable <code>"trace": "enabled"</code> in Bedrock request; inspect <code>guardrailAction</code> and specific <code>policyType</code> to tune filter thresholds.</td>
+            <td>Retraining model on SageMaker; increasing temperature; disabling CloudWatch alarms.</td>
           </tr>
           <tr>
-            <td><strong>Vector search gets slower and slower as new data is added</strong></td>
-            <td><strong>CloudWatch / OpenSearch:</strong> High CPU, high segment count, zero query errors, cluster green/yellow.</td>
-            <td><strong>Too Many Small Lucene Segments:</strong> The default 1s <code>index.refresh_interval</code> creates hundreds of tiny segments, each with its own HNSW graph to search.</td>
-            <td>Increase <code>index.refresh_interval</code> (e.g., 30s–120s) during ingestion, and run <code>_forcemerge</code> to combine segments.</td>
-            <td>Tuning shards/replicas on OpenSearch Serverless (AWS manages them via OCUs); switching HNSW to Flat (Flat is O(N) and much slower).</td>
+            <td><strong>Vector search latency explodes as data is ingested</strong></td>
+            <td><strong>CloudWatch / OpenSearch:</strong> CPU elevated, segment count high, zero query errors, cluster green/yellow.</td>
+            <td><strong>Lucene Segment Proliferation:</strong> Default 1s <code>index.refresh_interval</code> creates hundreds of small Lucene segments, each with its own HNSW graph.</td>
+            <td>Raise <code>index.refresh_interval</code> (e.g., 30s–120s) during ingestion, and run <code>_forcemerge</code> to consolidate segments.</td>
+            <td>Configuring shards/replicas on OpenSearch Serverless (managed by OCUs); switching HNSW to Flat (Flat scales O(N), far worse).</td>
           </tr>
           <tr>
-            <td><strong>Model hallucinates or ignores instructions at the bottom of the prompt</strong></td>
-            <td><strong>CloudWatch:</strong> 200 OK call, input token count hitting the context limit.<br /><strong>X-Ray:</strong> Slow model response time.</td>
-            <td><strong>Context Window Stuffed / Lost-in-the-Middle:</strong> Too many raw search chunks pasted into the prompt without filtering or trimming.</td>
-            <td>Add a Bedrock Reranker (Cohere) to keep only the top 3 best chunks; trim text; or use a larger-context model.</td>
-            <td>Raising <code>max_tokens</code> (only changes how long the reply can be, not how much input context the model can handle).</td>
+            <td><strong>Model hallucinating / ignoring instructions at bottom of prompt</strong></td>
+            <td><strong>CloudWatch:</strong> 200 OK invoke, input token count at model context limit.<br /><strong>X-Ray:</strong> High inference latency.</td>
+            <td><strong>Context Window Overflow / Lost-in-the-Middle:</strong> Too many raw chunks injected without filtering or compression.</td>
+            <td>Add Bedrock Reranker (Cohere) to prune to top-3 relevant chunks; compress text; or switch to Claude 3.5 Sonnet (200k context).</td>
+            <td>Increasing <code>max_tokens</code> (only affects generated output length, not input context handling).</td>
           </tr>
         </tbody>
       </table>
@@ -1151,16 +1151,16 @@
     <div class="topic-card">
       <div class="topic-title"><span>Topic 28</span> Security, PII, Guardrails &amp; RAG Evaluation</div>
       <ul>
-              <li><strong>Blocking PII on Input &amp; Output:</strong> Use <strong>Amazon Comprehend (<code>DetectPiiEntities</code>)</strong> to scrub text before indexing or calling a model; use <strong>Bedrock Guardrails Sensitive Information Filters</strong> to mask PII in model outputs. (Use <strong>Amazon Rekognition</strong> for images).</li>
-              <li><strong>Prompt Attack Detection:</strong> Bedrock Guardrails filters detect and block jailbreaks, prompt injections, and role-play tricks.</li>
-              <li><strong>Debugging Blocked Guardrail Requests:</strong> Turn on <code>"trace": "enabled"</code> and check <code>GuardrailPolicyType</code> (Content, Topic, SensitiveInformation, ContextualGrounding).</li>
-              <li><strong>Secrets &amp; Networking:</strong> Store API keys in <strong>AWS Secrets Manager</strong> with automatic rotation and KMS encryption. Keep network traffic private with <strong>AWS PrivateLink (Interface VPC Endpoints)</strong>.</li>
-              <li><strong>S3 Cross-Region Replication (CRR):</strong> Keeps encryption and permissions intact, but copying GenAI training data across regions can break <strong>data residency &amp; compliance rules</strong> (and CRR never removes PII automatically).</li>
+              <li><strong>Bidirectional PII Defense:</strong> Use <strong>Amazon Comprehend (<code>DetectPiiEntities</code>)</strong> for pre-processing/scrubbing text before ingestion or model invocation; use <strong>Bedrock Guardrails Sensitive Information Filters</strong> to redact/mask PII in model outputs. (Use <strong>Amazon Rekognition</strong> for images).</li>
+              <li><strong>Prompt Attack Detection:</strong> Bedrock Guardrails semantic filters detect and block jailbreaks, prompt injections, and role-playing bypasses.</li>
+              <li><strong>Guardrail Root-Cause Diagnosis:</strong> Enable <code>"trace": "enabled"</code> and filter by <code>GuardrailPolicyType</code> (Content, Topic, SensitiveInformation, ContextualGrounding).</li>
+              <li><strong>Secrets &amp; Networking:</strong> Store API keys in <strong>AWS Secrets Manager</strong> with automatic rotation and KMS encryption. Isolate network traffic via <strong>AWS PrivateLink (Interface VPC Endpoints)</strong>.</li>
+              <li><strong>S3 Cross-Region Replication (CRR):</strong> Preserves encryption and access policies byte-for-byte, but copying GenAI training data across geographic borders creates <strong>data residency &amp; sovereign compliance risks</strong> (CRR never auto-anonymizes PII).</li>
               <li><strong>RAG Evaluation Metrics:</strong>
                 <ul>
-                  <li><strong>Faithfulness / Contextual Grounding:</strong> Checks if the answer is actually backed by the retrieved text (catches hallucinations; much better than BLEU/ROUGE word-overlap scores).</li>
-                  <li><strong>Citation Coverage (Recall):</strong> How much of the answer is backed by source citations.</li>
-                  <li><strong>Citation Precision (Accuracy):</strong> Whether the cited sources actually back up the claim they're attached to.</li>
+                  <li><strong>Faithfulness / Contextual Grounding:</strong> Checks if response is factually backed by retrieved context (stops hallucinations; superior to BLEU/ROUGE n-gram matching).</li>
+                  <li><strong>Citation Coverage (Recall):</strong> Proportion of generated claims backed by source citations.</li>
+                  <li><strong>Citation Precision (Accuracy):</strong> Whether cited passages actually substantiate the linked claim.</li>
                 </ul>
               </li>
             </ul>
@@ -1324,10 +1324,10 @@
             </table>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 39</span> Real AWS Automation vs. Made-Up "Magic"</div>
-      <p>Use this quick check when an answer promises hands-off automation: <strong>name the real AWS feature, what setting turns it on, and what it actually does.</strong></p>
-            <div class="fact"><strong>🟢 Green flag:</strong> Real AWS feature + required setting + clear scope of what it automates.</div>
-            <div class="warning"><strong>🔴 Red flag:</strong> Claims an AWS service magically figures out business rules or guarantees results without a real feature.</div>
+      <div class="topic-title"><span>Topic 39</span> Documented Automation vs. "Magic"</div>
+      <p>Use this litmus test when an answer promises hands-off behavior: <strong>name the documented capability, the required configuration, and the boundary of what it automates.</strong></p>
+            <div class="fact"><strong>🟢 Green flag:</strong> Supported capability + configuration + boundary of automation.</div>
+            <div class="warning"><strong>🔴 Red flag:</strong> Service infers business policy or guarantees outcomes without a defined feature.</div>
     </div>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 40</span> Service Map</div>
@@ -1345,109 +1345,109 @@
     </div>
   </section>
 
-  <!-- ==================== TAB: 9. Keyword & 'Poison Pill' Elimination Tables ==================== -->
+  <!-- ==================== TAB: 9. Master Keyword & Distractor Elimination Tables ==================== -->
   <section data-section="matrix" class="searchable-section">
-    <h2>9. Keyword &amp; 'Poison Pill' Elimination Tables</h2>
+    <h2>9. Master Keyword &amp; Distractor Elimination Tables</h2>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 41</span> Scenario Clues: Green Flags vs. Red Flags</div>
-      <p>Match the requirement to the right AWS tool, then check settings and tradeoffs. A red flag means it doesn't fit the scenario in the question, not that the service is always bad.</p>
+      <div class="topic-title"><span>Topic 41</span> Scenario Triggers: Architecture &amp; Operational Green Flags vs. Red Flags</div>
+      <p>Map the constraint to a capability, then check fit, configuration, and tradeoffs. A red flag is a mismatch for the stated scenario, not a universal ban on a service.</p>
           <table>
             <thead>
               <tr>
-                <th>Question Clue / Requirement</th>
-                <th>🟢 Green flags: fits the need</th>
-                <th>🔴 Red flags: wrong fit or made-up claim</th>
+                <th>Constraint / trigger</th>
+                <th>🟢 Green flags: fit the stated need</th>
+                <th>🔴 Red flags: mismatch or unsupported claim</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong>Automated evaluation / prompt regressions</strong></td>
-                <td>CI/CD runs prompt variants against a golden dataset and gates release on configured quality thresholds; Step Functions can coordinate multi-step checks. Bedrock prompt optimization is explicitly run for a chosen target model.</td>
-                <td>Assuming deployment silently rewrites prompts or blocks poor responses without an evaluation gate or configured Guardrails. Prompt optimization is not continuous auto-tuning by default.</td>
+                <td>CI/CD runs prompt variants against a golden dataset and gates release on configured quality thresholds; Step Functions can orchestrate multi-step validation. Bedrock prompt optimization is explicitly invoked for a selected target model.</td>
+                <td>Assuming deployment silently rewrites prompts or blocks poor responses without an evaluation gate or configured Guardrails. Prompt optimization is not continuous, evaluation-driven auto-tuning by default.</td>
               </tr>
               <tr>
                 <td><strong>Minimize operational overhead / private or changing facts</strong></td>
-                <td>Use managed Bedrock models, Knowledge Bases, Agents, or Prompt Management when their supported features fit. A provider model called through Bedrock is still managed Bedrock inference; compare model cost and capability separately. RAG supplies changing/private facts; fine-tuning targets learned task style.</td>
-                <td>Adding custom containers, EC2 GPU clusters, EKS, or hosted endpoints without a control, model, throughput, or latency requirement that needs them; fine-tuning just to load changing facts.</td>
+                <td>Use managed Bedrock models, Knowledge Bases, Agents, or Prompt Management when their supported features fit. A provider model invoked through Bedrock is still managed Bedrock inference; compare model cost and capability separately. RAG supplies changing/private facts; fine-tuning targets learned task behavior.</td>
+                <td>Adding custom containers, EC2 GPU clusters, EKS, or hosted endpoints without a control, model, throughput, or latency requirement that justifies them; fine-tuning solely to load changing facts.</td>
               </tr>
               <tr>
                 <td><strong>Real-time web editor / streaming / low TTFT (least overhead)</strong></td>
-                <td><strong>API Gateway WebSocket API</strong> linked to <strong>AWS Lambda</strong> + Bedrock Streaming API (<code>InvokeModelWithResponseStream</code> or <code>ConverseStream</code>); use <strong>Bedrock Prompt Management</strong> to store and version style-guide/system prompts with variables.</td>
-                <td>Custom containers on ECS/ALB (unnecessary server management); background queues or state machines (SQS &rarr; Step Functions &rarr; DynamoDB) for live typing/editing; <strong>API Gateway REST API</strong> (buffers full responses up to 10 MB and cannot stream tokens); HTTP short/long polling; direct browser gRPC without transcoding.</td>
+                <td><strong>API Gateway WebSocket API</strong> linked to <strong>AWS Lambda</strong> + Bedrock Streaming API (<code>InvokeModelWithResponseStream</code> or <code>ConverseStream</code>); use <strong>Bedrock Prompt Management</strong> to centrally maintain and version style-guide/system prompts with dynamic variables.</td>
+                <td>Custom containers on ECS/ALB (unnecessary operational overhead); asynchronous queues or state machines (SQS &rarr; Step Functions &rarr; DynamoDB) for interactive typing/editing; <strong>API Gateway REST API</strong> (buffers complete responses up to 10 MB and cannot stream tokens); HTTP short/long polling; direct browser gRPC without transcoding.</td>
               </tr>
               <tr>
                 <td><strong>Event-driven ingestion / resilient S3 updates</strong></td>
-                <td>For burst buffering, backpressure, and durable retries, send S3 create/delete events to SQS and use a Lambda SQS trigger to call <code>IngestKnowledgeBaseDocuments</code> or <code>DeleteKnowledgeBaseDocuments</code>. Add a dead-letter queue and make processing safe to retry.</td>
-                <td>Using a fixed timer when changes need to show up right away; using direct S3-to-Lambda when the question specifically asks for a durable queue backlog. Direct S3-to-Lambda is fine for simpler flows.</td>
+                <td>For burst buffering, backpressure, and durable retry handling, route S3 create/delete notifications to SQS and use a Lambda SQS event source mapping to call <code>IngestKnowledgeBaseDocuments</code> or <code>DeleteKnowledgeBaseDocuments</code>. Configure a redrive policy and make processing idempotent.</td>
+                <td>Using a periodic schedule when changes must be reflected promptly; using direct S3-to-Lambda when the requirement specifically calls for a durable, customer-controlled backlog. Direct invocation is still viable for lower-latency, simpler flows and supports asynchronous retries/failure destinations.</td>
               </tr>
               <tr>
                 <td><strong>Relational SQL / transactions / vector retrieval</strong></td>
-                <td>Aurora PostgreSQL with pgvector when SQL transactions and vector search belong together; OpenSearch for vector/hybrid search; S3 Vectors for large-scale low-cost vector storage; DocumentDB when document and vector search fit.</td>
-                <td>DynamoDB GSIs as a stand-in for vector similarity search; DocumentDB when relational SQL/ACID transactions are required; Redshift as an OLTP transaction database.</td>
+                <td>Aurora PostgreSQL with pgvector when relational transactions and vector queries belong together; OpenSearch for vector/hybrid search; S3 Vectors for supported large-scale vector workloads; DocumentDB when document and vector-search semantics fit.</td>
+                <td>DynamoDB GSIs as a substitute for approximate-nearest-neighbor vector search; DocumentDB when relational SQL/ACID behavior is required; Redshift as an OLTP transaction store. Redshift may fit analytical vector workloads.</td>
               </tr>
               <tr>
                 <td><strong>Prompt injection / safety / schema</strong></td>
-                <td>Turn on Bedrock Guardrails for prompt-attack filters, denied topics, PII filtering, and contextual grounding. Use API Gateway request validation to check JSON format; keep secrets out of prompts.</td>
-                <td>Relying on a base model alone to enforce safety rules; treating JSON schema checks as jailbreak protection; using Comprehend sentiment/entity analysis or regex as your only jailbreak defense; assuming Guardrails guarantee 100% safe output.</td>
+                <td>Configure and apply Bedrock Guardrails for supported prompt-attack filters, denied topics, sensitive-information filtering, and contextual grounding. Use API Gateway request validation for request structure/schema; keep secrets out of prompts and use application controls for confidentiality.</td>
+                <td>Relying on a base model to enforce policy; treating request validation as semantic safety; using Comprehend sentiment/entity analysis or regex as the sole jailbreak defense; assuming Guardrails guarantee every response is safe.</td>
               </tr>
               <tr>
                 <td><strong>Multiple models / prompt portability</strong></td>
-                <td>Use Bedrock Converse for one consistent API across supported chat models; use Prompt Management variants, variables, and versions for model-specific prompts.</td>
-                <td>Assuming the exact same prompt text behaves identically on every model, or that XML/Markdown tags work the exact same way everywhere; building a custom prompt-translation model without a reason.</td>
+                <td>Use Bedrock Converse for its consistent interface across supported message models; keep Prompt Management variants, variables, and versions for model/workflow-specific behavior.</td>
+                <td>Assuming identical prompt text yields equivalent behavior across models, or that XML/Markdown tags are interpreted uniformly; building a custom prompt-translation model or compiler without a requirement that justifies it.</td>
               </tr>
               <tr>
-                <td><strong>Root-cause debugging / detailed analysis</strong></td>
-                <td>Set <code>enableTrace: true</code> on Bedrock Agents <code>InvokeAgent</code> calls and inspect the trace steps; use Guardrails trace output; turn on Model Invocation Logging to S3 or CloudWatch Logs for full request/response text.</td>
-                <td>Using overall call-count alarms alone to explain why one request failed; treating a simple source tag as a full trace. Offline Model Evaluation compares model quality before launch; it doesn't replace live production logs.</td>
+                <td><strong>Root-cause diagnostics / detailed analysis</strong></td>
+                <td>Set <code>enableTrace: true</code> on Bedrock Agents <code>InvokeAgent</code> calls and inspect returned trace parts; use Guardrails trace data on supported inference paths; enable Model Invocation Logging to S3 or CloudWatch Logs for request/response bodies and metadata, subject to privacy controls.</td>
+                <td>Using aggregate invocation-count alarms alone to explain one request's behavior; treating an input/output content-source field as a full trace. Offline Model Evaluation helps compare quality; it does not replace request-level production tracing.</td>
               </tr>
               <tr>
                 <td><strong>Private networking / data isolation</strong></td>
-                <td>Use AWS PrivateLink interface VPC endpoints for private service access, paired with endpoint policies, security groups, and IAM permissions.</td>
-                <td>Using public internet endpoints when private networking is required; relying on an S3 bucket policy alone to keep network traffic off the public internet; confusing multi-Region setup with private networking.</td>
+                <td>Use AWS PrivateLink interface VPC endpoints for supported private service access, with endpoint policies, security groups, and IAM as required by the boundary.</td>
+                <td>Using public endpoints or internet routing when private-only access is required; relying on an S3 bucket policy alone to secure network transit; treating multi-Region deployment as network isolation.</td>
               </tr>
               <tr>
                 <td><strong>Bounded agent loops / stopping conditions</strong></td>
-                <td>For custom loops, set max step limits and timeouts and check for a clear completion state in your code; use built-in Bedrock Agent limits as documented.</td>
-                <td>Assuming an agent will magically spot a runaway loop or stop at a business goal without a step limit or completion check.</td>
+                <td>For custom loops, enforce max steps/timeouts and verify an explicit goal state in orchestration code; use managed-agent controls only as documented and configured.</td>
+                <td>Assuming an agent will always detect a runaway loop or stop exactly at a business-defined goal without an applicable limit or completion check.</td>
               </tr>
               <tr>
                 <td><strong>Document preparation / LLM ingestion</strong></td>
-                <td>Configure Knowledge Bases parsing/chunking, or build data prep steps with Glue/Lambda. Use Bedrock Data Automation to extract structured data from documents and media.</td>
-                <td>Assuming S3 automatically cleans, chunks, or reformats files to fit a model's context window on its own.</td>
+                <td>Configure Knowledge Bases parsing/chunking, or build explicit preprocessing with Glue/Lambda. Use Bedrock Data Automation for supported extraction and structured outputs.</td>
+                <td>Assuming S3 passively cleans, semantically chunks, or reformats documents to fit any model context window.</td>
               </tr>
               <tr>
                 <td><strong>Troubleshoot KB ingestion / failed documents</strong></td>
-                <td>Send Knowledge Base logs to Amazon CloudWatch Logs; search with CloudWatch Logs Insights for per-document error codes (<code>RESOURCE_IGNORED</code>, <code>EMBEDDING_FAILED</code>, <code>INDEXING_FAILED</code>).</td>
-                <td>Using CloudTrail (only logs API calls like <code>StartIngestionJob</code>, not which individual files failed); using Model Invocation Logging (logs live model prompts, not document ingestion jobs); using Application Signals.</td>
+                <td>Configure Knowledge Base logging with Amazon CloudWatch Logs as destination; query via CloudWatch Logs Insights for document-level failure statuses (<code>RESOURCE_IGNORED</code>, <code>EMBEDDING_FAILED</code>, <code>INDEXING_FAILED</code>).</td>
+                <td>Using CloudTrail (only audits control-plane API calls like <code>StartIngestionJob</code>, blind to file processing failures); using Model Invocation Logging (monitors runtime inference payloads, not ingestion jobs); using Application Signals (APM latency/SLO tracking, not ingestion errors).</td>
               </tr>
               <tr>
                 <td><strong>Analyze photos/video / summarize trends</strong></td>
-                <td>Pick a Bedrock model that supports the media type you need. The model reads the images/video; Step Functions can coordinate multi-step calls and retries; save structured results in S3 and chart them in QuickSight.</td>
-                <td>Assuming every multimodal model accepts video; treating Step Functions or QuickSight as the AI model that reads the image; using an image-generator model to analyze photos.</td>
+                <td>Select a Bedrock model whose current model card supports the required media inputs. The model interprets media; Step Functions can coordinate multi-step calls/retries; store structured results in S3 and visualize them in QuickSight.</td>
+                <td>Assuming every multimodal model accepts video; treating Step Functions or QuickSight as the media analyzer; using an image-generation model for visual understanding or training custom labels when open-ended semantic extraction is the need.</td>
               </tr>
               <tr>
                 <td><strong>Large payload (&gt; 6 MB, e.g. 50 MB) / long processing (&gt; 60s, e.g. 15 min) / on-demand GPU</strong></td>
-                <td>Deploy a <strong>SageMaker Asynchronous Inference</strong> endpoint on GPU instances; handles large payloads up to 1 GB via S3, runtimes up to 1 hour, on-demand calls (<code>InvokeEndpointAsync</code>), and scales down to 0 instances when idle.</td>
-                <td><strong>Real-Time Inference</strong> (6 MB payload limit, 60s timeout limit); <strong>Serverless Inference</strong> (4 MB payload limit, 60s timeout, CPU only / no GPUs); <strong>Batch Transform</strong> (offline batch job that spins up and tears down clusters, not an on-demand endpoint).</td>
+                <td>Deploy a <strong>SageMaker Asynchronous Inference</strong> endpoint using accelerated computing (GPU) instances; handles large payloads up to 1 GB via S3, processing timeouts up to 1 hour, on-demand requests (<code>InvokeEndpointAsync</code>), and scales to 0 instances when idle.</td>
+                <td><strong>Real-Time Inference</strong> (hard limits: 6 MB payload max, 60s timeout max); <strong>Serverless Inference</strong> (4 MB payload max, 60s timeout, CPU only / no GPU instance types); <strong>Batch Transform</strong> (offline batch job that provisions and tears down clusters, not an on-demand interactive endpoint).</td>
               </tr>
               <tr>
-                <td><strong>Migrating On-Demand Bedrock &rarr; Provisioned Throughput / keeping monitoring intact</strong></td>
-                <td>Run <strong>side-by-side monitoring for both modes during the switch</strong>. Track metrics for both on-demand model IDs and provisioned model ARNs to compare p95/p99 latency (TTFT), token throughput, and <code>InvocationUtilization</code>; shift traffic gradually with weighted routing. Turn off old alarms only after the new setup is stable.</td>
-                <td>Turning off on-demand metrics <em>right away</em> when provisioning (loses your baseline comparison); dropping speed dashboards to only watch cost; watching account quota pages instead of actual CloudWatch call metrics; assuming provisioned throughput means you never need <code>ThrottlingException</code> (429) alarms.</td>
+                <td><strong>Migrating On-Demand Bedrock &rarr; Provisioned Throughput / observability continuity</strong></td>
+                <td>Establish <strong>parallel monitoring for both invocation modes during the transition period</strong>. Maintain simultaneous telemetry for on-demand model IDs and provisioned model ARNs to compare p95/p99 latency (TTFT), token throughput, and <code>InvocationUtilization</code>; use canary/weighted routing for gradual traffic cutover. Decommission on-demand metrics only after a documented stability period.</td>
+                <td>Decommissioning on-demand metrics <em>immediately</em> upon provisioning (destroys baseline comparison); dropping performance dashboards to track only cost metrics (cost and performance are complementary, never zero-sum); relying on service-quota dashboards instead of invocation-level CloudWatch telemetry; assuming provisioned throughput eliminates the need for <code>ThrottlingException</code> (429) alarms.</td>
               </tr>
             </tbody>
           </table>
-          <div class="formula">Rule of thumb: check that the AWS feature exists, is configured properly, and fits the workload. Treat words like "automatically," "natively," and "for every model" as claims to double-check, not automatic wrong answers.</div>
+          <div class="formula">Decision rule: verify capability + configuration + workload fit. Treat “automatically,” “natively,” and “for every model” as claims to check, not automatic disqualifiers.</div>
     </div>
     <div class="topic-card">
-      <div class="topic-title"><span>Topic 42</span> Keyword &amp; "Poison Pill" Elimination Table</div>
-      <p>The "Cut the Crap" (75/25) quick table: Spot the main requirement in the final sentence, match it to the right AWS tool, and cross out answers with fake features or broken setups.</p>
+      <div class="topic-title"><span>Topic 42</span> Master Keyword &amp; Distractor Elimination Table</div>
+      <p>The "Cut the Crap" (75/25) elimination reference: Identify the binding operational constraint in the final sentence, lock onto the target AWS mechanism, and eliminate distractors.</p>
           <table>
             <thead>
         <tr>
-          <th>Question Clue / Trigger Phrase</th>
+          <th>Question Constraint / Trigger Phrase</th>
           <th>🟢 Green Flags (25% Target Winner)</th>
-          <th>🔴 Red Flags / Traps (75% Crap to Cut Immediately)</th>
+          <th>🔴 Red Flags / Distractors (75% Crap to Cut Immediately)</th>
         </tr>
       </thead>
       <tbody>
@@ -1478,7 +1478,7 @@
         </tr>
         <tr>
           <td><strong>"Reduce TTFT for predictable / repeated queries"</strong></td>
-          <td><strong>Pre-computing responses &amp; serving from an in-memory cache (ElastiCache / DynamoDB DAX)</strong> or <strong>Bedrock Prompt Caching</strong>.</td>
+          <td><strong>Pre-computing responses & serving from an in-memory cache (ElastiCache / DynamoDB DAX)</strong> or <strong>Bedrock Prompt Caching</strong>.</td>
           <td>Changing Temperature/Top-P (hyperparameters never change FLOPs); adding few-shot examples (increases prefill latency).</td>
         </tr>
         <tr>
@@ -1488,7 +1488,7 @@
         </tr>
         <tr>
           <td><strong>"Reduce input token cost for large articles / PDFs"</strong></td>
-          <td><strong>Prompt compression / Pre-summarizing articles</strong>; pruning unneeded sections; <strong>XML tags &amp; structured formatting</strong>.</td>
+          <td><strong>Prompt compression / Pre-summarizing articles</strong>; pruning unneeded sections; <strong>XML tags & structured formatting</strong>.</td>
           <td>Converting PDF to plain text without pruning content (same word/token count); raising temperature; switching Converse to InvokeModel.</td>
         </tr>
         <tr>
@@ -1498,7 +1498,7 @@
         </tr>
         <tr>
           <td><strong>"Multi-turn document analysis across multiple models"</strong></td>
-          <td><strong>Amazon Bedrock Converse API</strong> (single consistent API handling documents and multi-turn chat across models).</td>
+          <td><strong>Amazon Bedrock Converse API</strong> (single model-agnostic interface handling documents and multi-turn context).</td>
           <td>Claiming Converse charges fewer input tokens than InvokeModel; claiming Converse has built-in document chunking or faster server speed.</td>
         </tr>
         <tr>
@@ -1508,57 +1508,57 @@
         </tr>
         <tr>
           <td><strong>"Stateful vs. Stateless Agent / MCP Servers"</strong></td>
-          <td><strong>Stateful:</strong> Keeps session context via <code>Mcp-Session-Id</code>, Bedrock Agents, or DynamoDB (<code>sessionId</code> + TTL). <strong>Stateless:</strong> Simple one-off lookups in Lambda.</td>
-          <td>Storing multi-turn state in Lambda <code>/tmp</code> or local memory; sending untrimmed raw chat history from client on every turn.</td>
+          <td><strong>Stateful:</strong> Maintains session context via <code>Mcp-Session-Id</code>, Bedrock Agents, or DynamoDB (<code>sessionId</code> + TTL). <strong>Stateless:</strong> Independent atomic lookups in Lambda.</td>
+          <td>Storing multi-turn state in Lambda <code>/tmp</code> or local memory; sending unpruned raw chat history from client on every turn.</td>
         </tr>
         <tr>
-          <td><strong>"ReAct Agent Tool Error Handling &amp; Schema Design"</strong></td>
-          <td><strong>Pass tool errors into the Observation step so the agent can adjust its plan</strong>; write <strong>clear parameter descriptions &amp; types</strong> in tool schemas.</td>
-          <td>Turning errors into warnings so the agent keeps running a broken plan; restarting containers; stuffing all tools into one giant schema.</td>
+          <td><strong>"ReAct Agent Tool Error Handling & Schema Design"</strong></td>
+          <td><strong>Feed tool errors into Observation phase so agent can reason and adapt its plan</strong>; define <strong>clear parameter descriptions & types</strong> in tool schemas.</td>
+          <td>Converting errors to warnings so agent continues original plan uninterrupted; restarting containers; bundling all tools into one schema.</td>
         </tr>
         <tr>
           <td><strong>"FM Outage Resilience / Deployment Rollback"</strong></td>
-          <td><strong>AWS Step Functions Circuit Breaker pattern</strong> (stops calling a failing model &amp; routes to a backup model/cache); <strong>SageMaker Model Registry</strong> for fine-tuned model versioning &amp; rollback.</td>
-          <td>Buying more Model Units on a failing model; permanently deleting models; using Bedrock Prompt Management or S3 versioning to store model weights.</td>
+          <td><strong>AWS Step Functions Circuit Breaker pattern</strong> (stops routing to failing model & routes to fallback/cache); <strong>SageMaker Model Registry</strong> for fine-tuned model versioning & rollback.</td>
+          <td>Increasing Model Units on a failing model; permanently deleting models; using Bedrock Prompt Management or S3 versioning for model weights.</td>
         </tr>
         <tr>
           <td><strong>"Limit external client request rate at perimeter"</strong></td>
           <td><strong>Amazon API Gateway with Usage Plans and Throttling configuration</strong>.</td>
-          <td>CloudFront origin request policies set for throttling (made-up feature); ELB connection draining; account-wide WAF blanket rules.</td>
+          <td>CloudFront origin request policies set for throttling (fabricated feature); ELB connection draining; account-level WAF blanket rules.</td>
         </tr>
         <tr>
           <td><strong>"Centralized multi-department GenAI governance"</strong></td>
-          <td><strong>Centralized GenAI Gateway</strong> in front of all department Bedrock calls (enforces Guardrails, logging, and IAM).</td>
-          <td>Shared Lambda layers; separate unmonitored Bedrock setups per department; one giant monolithic app.</td>
+          <td><strong>Centralized GenAI Gateway</strong> fronting all departmental Bedrock access (enforces Guardrails, logging, and IAM).</td>
+          <td>Shared Lambda layers; independent unmonitored Bedrock configs per department; single monolithic app.</td>
         </tr>
         <tr>
           <td><strong>"RAG returns 'no relevant information' / generic responses after code update"</strong></td>
-          <td><strong>Embedding Drift (query embedding model or version differs from document index embedding model)</strong>. Vector numbers don't line up; similarity drops below cutoff.</td>
-          <td>Document embeddings were deleted during Lambda update (clean logs and normal speed prove data wasn't deleted); Bedrock FM temperature increased (temperature doesn't affect search); IAM missing InvokeModel (would log AccessDenied in CloudWatch).</td>
+          <td><strong>Embedding Drift (query embedding model or version differs from document index embedding model)</strong>. Vector spaces mismatch; similarity collapses below threshold.</td>
+          <td>Document embeddings were deleted during Lambda update (clean telemetry and normal latency disprove deletion); Bedrock FM temperature increased (temperature does not affect retrieval); IAM missing InvokeModel (would throw AccessDenied in CloudWatch).</td>
         </tr>
         <tr>
           <td><strong>"Clean CloudWatch (0 errors) + X-Ray 200 OK + Healthy Vector DB + No matches"</strong></td>
-          <td><strong>Mismatched Vector Space</strong> (Embedding Drift, model version mismatch, vector size mismatch, or similarity cutoff set too high).</td>
-          <td>Blaming server outages, deleted databases, missing IAM roles, network drops, or crashed clusters (all ruled out by 100% clean logs and metrics).</td>
+          <td><strong>Semantic / Vector Space Incompatibility</strong> (Embedding Drift, model version mismatch, dimension mismatch, or similarity threshold too aggressive).</td>
+          <td>Blaming infrastructure outages, deleted databases, missing IAM roles, network disconnects, or crashed clusters (all disproven by 100% clean telemetry).</td>
         </tr>
         <tr>
           <td><strong>"Retrieval failure vs. Generation failure"</strong></td>
           <td><strong>Retrieval:</strong> Embedding drift, chunk size, metadata filters, vector index. <strong>Generation:</strong> Temperature, top-p, system prompt, few-shot examples.</td>
-          <td>Changing temperature/top-p to fix missing search results ("no information found"); changing embedding models to fix bad output formatting.</td>
+          <td>Selecting temperature/top-p to fix retrieval ("no information found"); changing embedding models to fix hallucinated formatting.</td>
         </tr>
         <tr>
           <td><strong>"Real-time article editor / live suggestions with LEAST operational overhead"</strong></td>
           <td><strong>Amazon API Gateway WebSocket API + AWS Lambda + Bedrock Streaming API + Bedrock Prompt Management</strong> (centralized style guide rules).</td>
-          <td>API Gateway REST API with Function URLs (REST APIs buffer full responses and break streaming); ALB + ECS containers (breaks least operational overhead); SQS + Step Functions (background queue pattern, breaks live response).</td>
+          <td>API Gateway REST API with Function URLs (REST APIs buffer responses and break streaming); ALB + ECS containers (violates least operational overhead); SQS + Step Functions (asynchronous batch pattern, violates immediate real-time response).</td>
         </tr>
       </tbody>
           </table>
     </div>
   </section>
 
-  <!-- ==================== TAB: 10. Quick Keyword Guide, One-Line Rules & Exam Checklist ==================== -->
+  <!-- ==================== TAB: 10. Rapid Keyword Decision Sheet, One-Line Rules & Master Checklist ==================== -->
   <section data-section="heuristics" class="searchable-section">
-    <h2>10. Quick Keyword Guide, One-Line Rules &amp; Exam Checklist</h2>
+    <h2>10. Rapid Keyword Decision Sheet, One-Line Rules &amp; Master Checklist</h2>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 43</span> Input, Retrieval, Output</div>
       <table>
@@ -1576,16 +1576,16 @@
       <div class="topic-title"><span>Topic 44</span> One-Line Exam Rules</div>
       <div class="formula">Graph relationships + vectors → GraphRAG / Neptune Analytics.</div>
             <div class="formula">Embedding similarity + ANN → vector index / HNSW.</div>
-            <div class="formula">OpenSearch slows down as index grows → Increase refresh interval (fewer segments/HNSW graphs); cross out shard/replica tuning on Serverless (AWS manages it via OCUs).</div>
-            <div class="formula">k in k-NN → Higher k pulls more matches (recall) but slows down search; lower k speeds up queries.</div>
+            <div class="formula">OpenSearch degraded search as index grows → Raise refresh interval (fewer segments/HNSW graphs); eliminate shard/replica tuning on Serverless (managed by OCUs).</div>
+            <div class="formula">k in k-NN → Higher k increases recall but degrades search latency/performance; lower k improves query speed.</div>
             <div class="formula">Repeated prompt prefix → Prompt Caching.</div>
             <div class="formula">Repeated finished answer → response cache.</div>
-            <div class="formula">Multi-step stateful workflow → Agents or Step Functions.</div>
+            <div class="formula">Multi-step stateful process → Agents or Step Functions.</div>
             <div class="formula">Custom model endpoint → SageMaker + ECR + S3.</div>
-            <div class="formula">System-prompt role definition → consistent persona, expertise, tone, and topic focus.</div>
-            <div class="formula">Temperature → output randomness, never IAM permissions, model architecture, or search results.</div>
-            <div class="formula">RAG "no information found" + 0 CloudWatch errors + 200 OK X-Ray → Embedding Drift (query model != index model); clean logs rule out data deletion and IAM errors.</div>
-            <div class="formula">Retrieval failure (missing docs) vs. Generation failure (hallucinations/randomness) → Temperature affects generation only, NEVER search.</div>
+            <div class="formula">System-prompt role definition → consistent persona, expertise, tone, and domain focus.</div>
+            <div class="formula">Temperature → output randomness, not IAM permissions, model architecture, or programming-language access.</div>
+            <div class="formula">RAG "no information found" + 0 CloudWatch errors + 200 OK X-Ray → Embedding Drift (query model != index model); clean telemetry eliminates data deletion and IAM errors.</div>
+            <div class="formula">Retrieval failure (missing docs) vs. Generation failure (hallucinations/randomness) → Temperature affects generation only, NEVER retrieval.</div>
     </div>
     <div class="topic-card">
       <div class="topic-title"><span>Topic 45</span> Exam Checklist</div>
