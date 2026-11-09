@@ -35,10 +35,23 @@
     header {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       border-bottom: 1px solid var(--border);
-      padding: 1.5rem 1.5rem 1.25rem;
+      padding: 1.25rem 1.5rem 1.25rem;
       position: sticky;
       top: 0;
       z-index: 100;
+    }
+    .header-logo-wrap {
+      max-width: 1400px;
+      margin: 0 auto 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .header-logo {
+      width: 112px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45));
     }
     .header-inner {
       max-width: 1400px;
@@ -371,6 +384,9 @@
 <body>
 
 <header>
+  <div class="header-logo-wrap">
+    <img src="aws-genai-pro-badge.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/calcomsci/AWS-GenAI-Study-Guide-WIP/main/aws-genai-pro-badge.png';" alt="AWS Certified Generative AI Developer — Professional (AIP-C01) Badge" class="header-logo" />
+  </div>
   <div class="header-inner">
     <div>
       <h1>AWS Certified Generative AI Developer — Professional (AIP-C01)</h1>
