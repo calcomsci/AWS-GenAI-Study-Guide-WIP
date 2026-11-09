@@ -382,7 +382,7 @@
   </div>
   <div class="last-updated-bar">
     <span class="last-updated-badge">Last Updated</span>
-    <span class="last-updated-text"><strong>November 8, 2026</strong> • Updated with the "Cut the Crap" Answer Elimination Method &amp; 4-Tier Operational Overhead Ranking</span>
+    <span class="last-updated-text" id="lastUpdatedText"><strong id="lastUpdatedDate">November 9, 2026</strong> • <span id="lastUpdatedSummary">Updated Author's Footnote on the deprecated 50/50 method &amp; "Cut the Crap" Answer Elimination Method</span></span>
   </div>
   <div class="nav-tabs">
     <button class="tab-btn active" onclick="filterTab('all', this)">All Sections</button>
@@ -1644,6 +1644,45 @@
       el.style.display = text.includes(q) ? '' : 'none';
     });
   });
+
+  (function updateLastModifiedBanner() {
+    const dateEl = document.getElementById('lastUpdatedDate');
+    const summaryEl = document.getElementById('lastUpdatedSummary');
+    if (!dateEl) return;
+
+    const formatDate = (d) => d.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    });
+
+    if (document.lastModified) {
+      const localMod = new Date(document.lastModified);
+      if (!isNaN(localMod.getTime())) {
+        dateEl.textContent = formatDate(localMod);
+      }
+    }
+
+    fetch('https://api.github.com/repos/calcomsci/AWS-GenAI-Study-Guide-WIP/commits/main', {
+      headers: { 'Accept': 'application/vnd.github.v3+json' }
+    })
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (!data || !data.commit) return;
+        const commitDateStr = data.commit.committer?.date || data.commit.author?.date;
+        if (commitDateStr) {
+          const commitDate = new Date(commitDateStr);
+          if (!isNaN(commitDate.getTime())) {
+            dateEl.textContent = formatDate(commitDate);
+          }
+        }
+        const rawMsg = (data.commit.message || '').split('\n')[0].trim();
+        if (rawMsg && summaryEl) {
+          summaryEl.textContent = rawMsg;
+        }
+      })
+      .catch(() => {});
+  })();
 </script>
 
 </body>
