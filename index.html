@@ -217,25 +217,7 @@
       flex-wrap: nowrap;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
-    }
-    .toolbar-aws-logo-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      padding: 0.15rem 0.25rem;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: opacity 0.15s ease;
-    }
-    .toolbar-aws-logo-link:hover {
-      opacity: 0.88;
-    }
-    .toolbar-aws-logo {
-      height: 28px;
-      width: auto;
-      display: block;
+      gap: 0.65rem;
     }
 
     /* Amazon Unified Search & Category Bar */
@@ -294,38 +276,42 @@
       flex-shrink: 0;
     }
 
-    /* Reader Theme Switcher (White/Black vs Black/White) */
+    /* Reader Theme Switcher (AWS White-Text Logo vs AWS Black-Text Logo) */
     .theme-switcher {
       display: inline-flex;
       align-items: center;
-      background: #131921;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(19, 25, 33, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 8px;
-      padding: 2px;
-      gap: 2px;
+      padding: 3px;
+      gap: 5px;
       flex-shrink: 0;
     }
     .theme-btn {
-      border: none;
-      background: transparent;
-      color: #d5dbdb;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.36rem 0.6rem;
+      border: 2px solid transparent;
+      padding: 0.28rem 0.55rem;
       border-radius: 6px;
       cursor: pointer;
-      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       transition: all 0.15s ease;
     }
-    .theme-btn.active-light {
-      background: #ffffff;
-      color: #0f1111;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    #btnLightTheme {
+      background: #131921;
     }
+    #btnDarkTheme {
+      background: #ffffff;
+    }
+    .theme-btn.active-light,
     .theme-btn.active-dark {
-      background: #ff9900;
-      color: #0f1111;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      border-color: #ff9900;
+      box-shadow: 0 0 6px rgba(255, 153, 0, 0.55);
+    }
+    .theme-btn-logo {
+      height: 22px;
+      width: auto;
+      display: block;
     }
 
     @media (max-width: 768px) {
@@ -334,12 +320,11 @@
       h1 { font-size: 1.1rem; }
       .subtitle { font-size: 0.76rem; }
       .sticky-toolbar { padding: 0.42rem 0.6rem; }
-      .toolbar-aws-logo { height: 22px; }
       #sectionSelect { max-width: 130px; font-size: 0.75rem; padding: 0.38rem 0.35rem; }
       #searchInput { font-size: 0.78rem; padding: 0.38rem 0.5rem; }
       .amazon-search-badge { padding: 0 0.5rem; font-size: 0.8rem; }
-      .theme-btn { font-size: 0.7rem; padding: 0.32rem 0.42rem; }
-      .theme-btn .hide-mobile { display: none; }
+      .theme-btn { padding: 0.24rem 0.42rem; }
+      .theme-btn-logo { height: 18px; }
     }
 
     main {
@@ -621,9 +606,6 @@
 
 <nav class="sticky-toolbar" aria-label="Study Guide Navigation, Search, and Reading Mode">
   <div class="sticky-toolbar-inner">
-    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="toolbar-aws-logo-link" title="Back to top">
-      <img src="aws-logo-white-transparent.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/calcomsci/AWS-GenAI-Study-Guide-WIP/main/aws-logo-white-transparent.png';" alt="AWS" class="toolbar-aws-logo" />
-    </a>
     <div class="amazon-bar-group">
       <select id="sectionSelect" aria-label="Table of Contents" onchange="filterTab(this.value)">
         <option value="all">All Sections ▾</option>
@@ -644,10 +626,10 @@
 
     <div class="theme-switcher" role="group" aria-label="Reading Background Mode">
       <button type="button" id="btnLightTheme" class="theme-btn active-light" onclick="setReadingTheme('light')" title="White Background with Black Text (Default)">
-        ☀️ White<span class="hide-mobile"> BG</span>
+        <img src="aws-logo-white-text.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/calcomsci/AWS-GenAI-Study-Guide-WIP/main/aws-logo-white-text.png';" alt="White Background Mode" class="theme-btn-logo" />
       </button>
       <button type="button" id="btnDarkTheme" class="theme-btn" onclick="setReadingTheme('dark')" title="Black Background with White Text">
-        🌙 Black<span class="hide-mobile"> BG</span>
+        <img src="aws-logo-black-text.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/calcomsci/AWS-GenAI-Study-Guide-WIP/main/aws-logo-black-text.png';" alt="Black Background Mode" class="theme-btn-logo" />
       </button>
     </div>
   </div>
