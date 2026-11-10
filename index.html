@@ -102,8 +102,7 @@
     /* Amazon-inspired Top Header (#131921) */
     header {
       background: #131921;
-      border-top: 4px solid transparent;
-      border-image: linear-gradient(90deg, #ff9900 0%, #e91e63 25%, #00a8e1 50%, #00a65a 75%, #febd69 100%) 1;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       padding: 1.1rem 1.25rem 0.85rem;
       color: #ffffff;
     }
@@ -206,14 +205,13 @@
       color: #febd69;
     }
 
-    /* Vibrant Color-Inclusive Amazon Sub-Nav Menu Bar (#232f3e) */
+    /* Amazon Sub-Nav Menu Bar (#232f3e) */
     .sticky-toolbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: linear-gradient(90deg, #1b2531 0%, #232f3e 35%, #1e2b3c 70%, #232f3e 100%);
-      border-bottom: 3px solid transparent;
-      border-image: linear-gradient(90deg, #ff9900 0%, #e91e63 22%, #8b5cf6 45%, #00a8e1 68%, #00c853 88%, #ffd814 100%) 1;
+      background: #232f3e;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       padding: 0.5rem 1rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
     }
@@ -281,23 +279,6 @@
       font-weight: 700;
       user-select: none;
       flex-shrink: 0;
-    }
-
-    /* Vibrant Color Dots Strip inside Menu Bar */
-    .color-inclusivity-dots {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 0.25rem 0.5rem;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 999px;
-      flex-shrink: 0;
-    }
-    .color-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      display: inline-block;
     }
 
     /* Reader Theme Switcher (White/Black vs Black/White) */
@@ -627,14 +608,6 @@
 
 <nav class="sticky-toolbar" aria-label="Study Guide Navigation, Search, and Reading Mode">
   <div class="sticky-toolbar-inner">
-    <div class="color-inclusivity-dots" aria-hidden="true" title="Amazon Vibrant Spectrum">
-      <span class="color-dot" style="background:#ff9900;"></span>
-      <span class="color-dot" style="background:#e91e63;"></span>
-      <span class="color-dot" style="background:#00a8e1;"></span>
-      <span class="color-dot" style="background:#00c853;"></span>
-      <span class="color-dot" style="background:#a855f7;"></span>
-    </div>
-
     <div class="amazon-bar-group">
       <select id="sectionSelect" aria-label="Table of Contents" onchange="filterTab(this.value)">
         <option value="all">All Sections ▾</option>
