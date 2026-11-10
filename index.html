@@ -8,22 +8,82 @@
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <style>
+    /* Default Theme: White Background & Black Text (Amazon Shopping Default) */
     :root {
-      --bg: #0d131a;
-      --panel: #151f2b;
-      --panel-alt: #1b2838;
-      --border: #2a3b4f;
-      --text: #e6edf3;
-      --muted: #9fb1c6;
+      --bg: #eaeded;
+      --panel: #ffffff;
+      --panel-alt: #ffffff;
+      --card-bg: #f8fafc;
+      --border: #d5d9d9;
+      --divider: #e5e7eb;
+      --text: #0f1111;
+      --heading: #0f1111;
+      --muted: #4b5563;
+      --accent: #007185;
+      --accent-bright: #ff9900;
+      --green: #067d62;
+      --green-bg: rgba(6, 125, 98, 0.1);
+      --red: #cc0c39;
+      --red-bg: rgba(204, 12, 57, 0.08);
+      --amber: #c45500;
+      --amber-bg: rgba(255, 153, 0, 0.12);
+      --purple: #6b21a8;
+      --purple-bg: rgba(107, 33, 168, 0.1);
+      --fact-bg: #f0f9ff;
+      --fact-border: #bae6fd;
+      --fact-left: #007185;
+      --warn-bg: #fff1f2;
+      --warn-border: #fecdd3;
+      --formula-bg: #fffbeb;
+      --formula-border: #fde68a;
+      --table-th-bg: #f3f4f6;
+      --table-th-text: #0f1111;
+      --table-stripe: #f9fafb;
+      --code-bg: #f1f5f9;
+      --code-text: #b45309;
+      --topic-badge-bg: #fff7ed;
+      --topic-badge-border: #fdba74;
+      --topic-badge-text: #c2410c;
+      --shadow-card: 0 2px 6px rgba(15, 17, 17, 0.08);
+    }
+
+    /* Reader Option: Black Background & White Text */
+    body[data-theme="dark"] {
+      --bg: #05070b;
+      --panel: #0d121a;
+      --panel-alt: #131b26;
+      --card-bg: #0d121a;
+      --border: #263548;
+      --divider: rgba(255, 255, 255, 0.1);
+      --text: #f3f4f6;
+      --heading: #ffffff;
+      --muted: #9ca3af;
       --accent: #38bdf8;
+      --accent-bright: #febd69;
       --green: #22c55e;
-      --green-bg: rgba(34, 197, 94, 0.12);
-      --red: #ef4444;
-      --red-bg: rgba(239, 68, 68, 0.12);
-      --amber: #f59e0b;
-      --amber-bg: rgba(245, 158, 11, 0.12);
-      --purple: #a855f7;
-      --purple-bg: rgba(168, 85, 247, 0.12);
+      --green-bg: rgba(34, 197, 94, 0.14);
+      --red: #f87171;
+      --red-bg: rgba(239, 68, 68, 0.14);
+      --amber: #fbbf24;
+      --amber-bg: rgba(245, 158, 11, 0.14);
+      --purple: #c084fc;
+      --purple-bg: rgba(168, 85, 247, 0.14);
+      --fact-bg: rgba(56, 189, 248, 0.09);
+      --fact-border: rgba(56, 189, 248, 0.28);
+      --fact-left: #38bdf8;
+      --warn-bg: rgba(239, 68, 68, 0.1);
+      --warn-border: rgba(239, 68, 68, 0.28);
+      --formula-bg: rgba(245, 158, 11, 0.1);
+      --formula-border: rgba(245, 158, 11, 0.28);
+      --table-th-bg: #1a2433;
+      --table-th-text: #febd69;
+      --table-stripe: rgba(255, 255, 255, 0.025);
+      --code-bg: rgba(255, 255, 255, 0.1);
+      --code-text: #febd69;
+      --topic-badge-bg: rgba(255, 153, 0, 0.15);
+      --topic-badge-border: rgba(255, 153, 0, 0.4);
+      --topic-badge-text: #febd69;
+      --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.4);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,19 +93,23 @@
       color: var(--text);
       line-height: 1.55;
       padding-bottom: 4rem;
+      transition: background-color 0.18s ease, color 0.18s ease;
     }
     button, input, select {
       font-family: inherit;
     }
 
+    /* Amazon-inspired Top Header (#131921) */
     header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 1.15rem 1.25rem 0.9rem;
+      background: #131921;
+      border-top: 4px solid transparent;
+      border-image: linear-gradient(90deg, #ff9900 0%, #e91e63 25%, #00a8e1 50%, #00a65a 75%, #febd69 100%) 1;
+      padding: 1.1rem 1.25rem 0.85rem;
+      color: #ffffff;
     }
     .header-logo-wrap {
       max-width: 1400px;
-      margin: 0 auto 0.7rem;
+      margin: 0 auto 0.65rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -54,30 +118,35 @@
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.4rem;
       text-decoration: none;
-      color: var(--accent);
+      color: #febd69;
       transition: transform 0.15s ease, opacity 0.15s ease;
     }
     .header-logo-link:hover {
       transform: translateY(-1px);
-      opacity: 0.92;
+      opacity: 0.95;
     }
     .header-logo-link:hover .header-logo-caption {
-      text-decoration: underline;
+      background: #f3a847;
+      color: #111111;
     }
     .header-logo {
       width: 104px;
       height: auto;
       display: block;
-      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45));
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
     }
     .header-logo-caption {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #111111;
+      background: linear-gradient(180deg, #ffd814 0%, #febd69 100%);
+      padding: 0.22rem 0.75rem;
+      border-radius: 999px;
       text-align: center;
       letter-spacing: 0.01em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
     .header-inner {
       max-width: 1400px;
@@ -89,8 +158,8 @@
       text-align: center;
       gap: 0.25rem;
     }
-    h1 { font-size: 1.3rem; font-weight: 700; color: #fff; text-align: center; }
-    .subtitle { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; text-align: center; }
+    h1 { font-size: 1.32rem; font-weight: 700; color: #ffffff; text-align: center; }
+    .subtitle { font-size: 0.85rem; color: #d5dbdb; margin-top: 0.15rem; text-align: center; }
 
     .last-updated-bar {
       max-width: 1400px;
@@ -102,18 +171,18 @@
       text-align: center;
       gap: 0.55rem;
       font-size: 0.78rem;
-      color: var(--muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #d5dbdb;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
       padding-top: 0.55rem;
     }
     .last-updated-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: var(--green-bg);
-      color: var(--green);
-      border: 1px solid var(--green);
-      padding: 0.12rem 0.5rem;
+      background: rgba(34, 197, 94, 0.2);
+      color: #4ade80;
+      border: 1px solid #22c55e;
+      padding: 0.12rem 0.55rem;
       border-radius: 999px;
       font-size: 0.7rem;
       font-weight: 700;
@@ -125,28 +194,28 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--green);
+      background: #4ade80;
       display: inline-block;
     }
     .last-updated-text {
-      color: var(--muted);
+      color: #d5dbdb;
       font-size: 0.8rem;
       text-align: center;
     }
     .last-updated-text strong {
-      color: var(--text);
+      color: #febd69;
     }
 
+    /* Vibrant Color-Inclusive Amazon Sub-Nav Menu Bar (#232f3e) */
     .sticky-toolbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(15, 23, 42, 0.96);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      padding: 0.55rem 1.25rem;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      background: linear-gradient(90deg, #1b2531 0%, #232f3e 35%, #1e2b3c 70%, #232f3e 100%);
+      border-bottom: 3px solid transparent;
+      border-image: linear-gradient(90deg, #ff9900 0%, #e91e63 22%, #8b5cf6 45%, #00a8e1 68%, #00c853 88%, #ffd814 100%) 1;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
     }
     .sticky-toolbar-inner {
       max-width: 1400px;
@@ -155,62 +224,128 @@
       flex-wrap: nowrap;
       align-items: center;
       justify-content: space-between;
-      gap: 0.65rem;
+      gap: 0.6rem;
     }
-    .toc-dropdown-wrap {
+
+    /* Amazon Unified Search & Category Bar */
+    .amazon-bar-group {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex: 1 1 280px;
+      align-items: stretch;
+      flex: 1 1 auto;
       min-width: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.85);
+      background: #ffffff;
     }
-    .toc-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
+    .amazon-bar-group:focus-within {
+      box-shadow: 0 0 0 3px #ff9900;
     }
     #sectionSelect {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      color: #fff;
-      padding: 0.48rem 0.75rem;
-      border-radius: 8px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      width: 100%;
-      max-width: 360px;
+      background: linear-gradient(180deg, #f7f8fa 0%, #e7e9ec 100%);
+      border: none;
+      border-right: 1px solid #cdcdcd;
+      color: #0f1111;
+      padding: 0.46rem 0.65rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      max-width: 265px;
       cursor: pointer;
       outline: none;
+      flex-shrink: 0;
     }
-    #sectionSelect:focus {
-      outline: 2px solid var(--accent);
-      border-color: transparent;
+    #sectionSelect:hover {
+      background: #d5d9d9;
     }
     #searchInput {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.48rem 0.8rem;
-      border-radius: 8px;
-      flex: 1 1 260px;
-      max-width: 380px;
-      min-width: 130px;
+      background: #ffffff;
+      border: none;
+      color: #0f1111;
+      padding: 0.46rem 0.75rem;
+      flex: 1 1 160px;
+      min-width: 90px;
       font-size: 0.86rem;
+      outline: none;
     }
-    #searchInput:focus { outline: 2px solid var(--accent); border-color: transparent; }
+    #searchInput::placeholder {
+      color: #6b7280;
+    }
+    .amazon-search-badge {
+      background: linear-gradient(180deg, #febd69 0%, #f3a847 100%);
+      color: #111111;
+      padding: 0 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.92rem;
+      font-weight: 700;
+      user-select: none;
+      flex-shrink: 0;
+    }
 
-    @media (max-width: 640px) {
-      header { padding: 0.9rem 1rem 0.75rem; }
-      .header-logo { width: 84px; }
-      h1 { font-size: 1.12rem; }
-      .subtitle { font-size: 0.78rem; }
-      .sticky-toolbar { padding: 0.45rem 0.85rem; }
-      .toc-label { display: none; }
-      #sectionSelect { font-size: 0.82rem; padding: 0.42rem 0.55rem; }
-      #searchInput { font-size: 0.82rem; padding: 0.42rem 0.65rem; }
+    /* Vibrant Color Dots Strip inside Menu Bar */
+    .color-inclusivity-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.25rem 0.5rem;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+    .color-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Reader Theme Switcher (White/Black vs Black/White) */
+    .theme-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: #131921;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 8px;
+      padding: 2px;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .theme-btn {
+      border: none;
+      background: transparent;
+      color: #d5dbdb;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.36rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .theme-btn.active-light {
+      background: #ffffff;
+      color: #0f1111;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    .theme-btn.active-dark {
+      background: #ff9900;
+      color: #0f1111;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 0.85rem 0.9rem 0.7rem; }
+      .header-logo { width: 82px; }
+      h1 { font-size: 1.1rem; }
+      .subtitle { font-size: 0.76rem; }
+      .sticky-toolbar { padding: 0.42rem 0.6rem; }
+      .color-inclusivity-dots { display: none; }
+      #sectionSelect { max-width: 138px; font-size: 0.76rem; padding: 0.38rem 0.4rem; }
+      #searchInput { font-size: 0.78rem; padding: 0.38rem 0.5rem; }
+      .amazon-search-badge { padding: 0 0.5rem; font-size: 0.8rem; }
+      .theme-btn { font-size: 0.7rem; padding: 0.32rem 0.42rem; }
+      .theme-btn .hide-mobile { display: none; }
     }
 
     main {
@@ -218,21 +353,35 @@
       margin: 1.5rem auto;
       padding: 0 1.5rem;
       display: grid;
-      gap: 2rem;
+      gap: 1.75rem;
     }
 
     section {
       background: var(--panel);
       border: 1px solid var(--border);
+      border-top: 5px solid #ff9900;
       border-radius: 10px;
-      padding: 1.6rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-card);
     }
+    /* Vibrant Amazon Card Accent Colors per Section */
+    section[data-section="strategy"] { border-top-color: #ff6200; }
+    section[data-section="pairing"]  { border-top-color: #e91e63; }
+    section[data-section="rag"]      { border-top-color: #008296; }
+    section[data-section="bedrock"]  { border-top-color: #067d62; }
+    section[data-section="orchestration"] { border-top-color: #7c3aed; }
+    section[data-section="security"] { border-top-color: #cc0c39; }
+    section[data-section="cost"]     { border-top-color: #d97706; }
+    section[data-section="services"] { border-top-color: #007185; }
+    section[data-section="matrix"]   { border-top-color: #db2777; }
+    section[data-section="heuristics"] { border-top-color: #059669; }
+
     section > h2 {
       font-size: 1.3rem;
-      color: var(--accent);
+      color: var(--heading);
       margin-bottom: 1.25rem;
       padding-bottom: 0.6rem;
-      border-bottom: 2px solid var(--border);
+      border-bottom: 2px solid var(--divider);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -254,25 +403,26 @@
       gap: 0.6rem;
       font-size: 1.1rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--heading);
       margin-bottom: 0.85rem;
       padding-bottom: 0.4rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid var(--divider);
     }
     .topic-title span {
       font-size: 0.75rem;
-      color: var(--accent);
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 0.15rem 0.45rem;
+      color: var(--topic-badge-text);
+      background: var(--topic-badge-bg);
+      border: 1px solid var(--topic-badge-border);
+      padding: 0.15rem 0.48rem;
       border-radius: 4px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      font-weight: 800;
     }
 
     h3 {
       font-size: 0.98rem;
-      color: #fff;
+      color: var(--heading);
       margin: 1.1rem 0 0.45rem;
     }
 
@@ -280,7 +430,7 @@
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
 
     .card {
-      background: var(--panel);
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.1rem;
@@ -309,24 +459,24 @@
     .badge-cc { background: var(--green-bg); color: var(--green); border: 1px solid var(--green); }
     .badge-nr { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber); }
     .badge-eg { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple); }
-    .badge-domain { background: rgba(56, 189, 248, 0.15); color: var(--accent); border: 1px solid var(--accent); }
+    .badge-domain { background: var(--fact-bg); color: var(--accent); border: 1px solid var(--accent); }
 
     ul, ol { padding-left: 1.3rem; margin: 0.45rem 0 0.65rem; }
     li { margin-bottom: 0.35rem; font-size: 0.91rem; }
     p { font-size: 0.91rem; margin-bottom: 0.6rem; }
 
     .fact {
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      border-left: 4px solid var(--accent);
+      background: var(--fact-bg);
+      border: 1px solid var(--fact-border);
+      border-left: 4px solid var(--fact-left);
       padding: 0.65rem 0.85rem;
       border-radius: 6px;
       margin: 0.55rem 0;
       font-size: 0.9rem;
     }
     .warning {
-      background: rgba(239, 68, 68, 0.08);
-      border: 1px solid rgba(239, 68, 68, 0.25);
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
       border-left: 4px solid var(--red);
       padding: 0.65rem 0.85rem;
       border-radius: 6px;
@@ -334,8 +484,8 @@
       font-size: 0.9rem;
     }
     .formula {
-      background: rgba(245, 158, 11, 0.08);
-      border: 1px solid rgba(245, 158, 11, 0.25);
+      background: var(--formula-bg);
+      border: 1px solid var(--formula-border);
       border-left: 4px solid var(--amber);
       padding: 0.65rem 0.85rem;
       border-radius: 6px;
@@ -381,8 +531,14 @@
       text-align: left;
       vertical-align: top;
     }
-    th { background: rgba(0, 0, 0, 0.3); color: var(--accent); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; }
-    tr:nth-child(even) td { background: rgba(255, 255, 255, 0.015); }
+    th {
+      background: var(--table-th-bg);
+      color: var(--table-th-text);
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+    }
+    tr:nth-child(even) td { background: var(--table-stripe); }
 
     .checklist {
       display: grid;
@@ -393,7 +549,7 @@
       margin-top: 0.6rem;
     }
     .checklist li {
-      background: var(--panel);
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 0.65rem 0.85rem;
@@ -412,12 +568,13 @@
     }
 
     code {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--accent);
+      background: var(--code-bg);
+      color: var(--code-text);
       padding: 0.12rem 0.35rem;
       border-radius: 4px;
       font-family: SFMono-Regular, Consolas, monospace;
       font-size: 0.88em;
+      font-weight: 600;
     }
 
     .pipeline-steps {
@@ -427,7 +584,7 @@
       margin-top: 0.75rem;
     }
     .step-box {
-      background: var(--panel);
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-top: 3px solid var(--accent);
       border-radius: 6px;
@@ -468,12 +625,19 @@
   </div>
 </header>
 
-<nav class="sticky-toolbar" aria-label="Study Guide Navigation and Search">
+<nav class="sticky-toolbar" aria-label="Study Guide Navigation, Search, and Reading Mode">
   <div class="sticky-toolbar-inner">
-    <div class="toc-dropdown-wrap">
-      <label for="sectionSelect" class="toc-label">Table of Contents</label>
-      <select id="sectionSelect" onchange="filterTab(this.value)">
-        <option value="all">📑 All Sections (Full Study Guide)</option>
+    <div class="color-inclusivity-dots" aria-hidden="true" title="Amazon Vibrant Spectrum">
+      <span class="color-dot" style="background:#ff9900;"></span>
+      <span class="color-dot" style="background:#e91e63;"></span>
+      <span class="color-dot" style="background:#00a8e1;"></span>
+      <span class="color-dot" style="background:#00c853;"></span>
+      <span class="color-dot" style="background:#a855f7;"></span>
+    </div>
+
+    <div class="amazon-bar-group">
+      <select id="sectionSelect" aria-label="Table of Contents" onchange="filterTab(this.value)">
+        <option value="all">All Sections ▾</option>
         <option value="strategy">1. Exam Strategy &amp; "Cut the Crap" Method</option>
         <option value="pairing">2. Pairing Techniques</option>
         <option value="rag">3. Blueprint &amp; RAG</option>
@@ -485,8 +649,18 @@
         <option value="matrix">9. Elimination Tables</option>
         <option value="heuristics">10. Quick Rules &amp; Checklist</option>
       </select>
+      <input type="text" id="searchInput" placeholder="Search concepts, services, distractors..." />
+      <div class="amazon-search-badge" aria-hidden="true">🔍</div>
     </div>
-    <input type="text" id="searchInput" placeholder="Search concepts, services, distractors..." />
+
+    <div class="theme-switcher" role="group" aria-label="Reading Background Mode">
+      <button type="button" id="btnLightTheme" class="theme-btn active-light" onclick="setReadingTheme('light')" title="White Background with Black Text (Default)">
+        ☀️ White<span class="hide-mobile"> BG</span>
+      </button>
+      <button type="button" id="btnDarkTheme" class="theme-btn" onclick="setReadingTheme('dark')" title="Black Background with White Text">
+        🌙 Black<span class="hide-mobile"> BG</span>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -1710,6 +1884,20 @@
 </main>
 
 <script>
+  function setReadingTheme(mode) {
+    const btnLight = document.getElementById('btnLightTheme');
+    const btnDark = document.getElementById('btnDarkTheme');
+    if (mode === 'dark') {
+      document.body.setAttribute('data-theme', 'dark');
+      if (btnDark) btnDark.classList.add('active-dark');
+      if (btnLight) btnLight.classList.remove('active-light');
+    } else {
+      document.body.removeAttribute('data-theme');
+      if (btnLight) btnLight.classList.add('active-light');
+      if (btnDark) btnDark.classList.remove('active-dark');
+    }
+  }
+
   function filterTab(category) {
     document.querySelectorAll('main > section').forEach(sec => {
       if (category === 'all' || sec.getAttribute('data-section') === category) {
