@@ -45,16 +45,39 @@
     }
     .header-logo-wrap {
       max-width: 1400px;
-      margin: 0 auto 0.65rem;
+      margin: 0 auto 0.7rem;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    .header-logo-link {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      color: var(--accent);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .header-logo-link:hover {
+      transform: translateY(-1px);
+      opacity: 0.92;
+    }
+    .header-logo-link:hover .header-logo-caption {
+      text-decoration: underline;
     }
     .header-logo {
       width: 104px;
       height: auto;
       display: block;
       filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45));
+    }
+    .header-logo-caption {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-align: center;
+      letter-spacing: 0.01em;
     }
     .header-inner {
       max-width: 1400px;
@@ -424,7 +447,10 @@
 
 <header>
   <div class="header-logo-wrap">
-    <img src="aws-genai-pro-badge.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/calcomsci/AWS-GenAI-Study-Guide-WIP/main/aws-genai-pro-badge.png';" alt="AWS Certified Generative AI Developer — Professional (AIP-C01) Badge" class="header-logo" />
+    <a href="https://aws.amazon.com/certification/certified-generative-ai-developer-professional/" target="_blank" rel="noopener noreferrer" class="header-logo-link" title="Open AWS Certified Generative AI Developer - Professional Training and Exam Scheduling">
+      <img src="aws-genai-pro-badge.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/calcomsci/AWS-GenAI-Study-Guide-WIP/main/aws-genai-pro-badge.png';" alt="AWS Certified Generative AI Developer — Professional (AIP-C01) Badge" class="header-logo" />
+      <span class="header-logo-caption">AWS GenAI Developer Pro Training and Scheduling</span>
+    </a>
   </div>
   <div class="header-inner">
     <div>
@@ -434,7 +460,7 @@
   </div>
   <div class="last-updated-bar">
     <span class="last-updated-badge">Last Updated</span>
-    <span class="last-updated-text" id="lastUpdatedText"><strong id="lastUpdatedDate">November 9, 2026</strong> • <span id="lastUpdatedSummary">Updated Author's Footnote on the deprecated 50/50 method &amp; "Cut the Crap" Answer Elimination Method</span></span>
+    <span class="last-updated-text" id="lastUpdatedText"><strong id="lastUpdatedDate">November 10, 2026</strong> • <span id="lastUpdatedSummary">Updated Author's Footnote on the deprecated 50/50 method &amp; "Cut the Crap" Answer Elimination Method</span></span>
   </div>
 </header>
 
