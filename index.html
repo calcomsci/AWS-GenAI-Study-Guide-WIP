@@ -83,20 +83,23 @@
       max-width: 1400px;
       margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 0.75rem;
+      text-align: center;
+      gap: 0.25rem;
     }
-    h1 { font-size: 1.3rem; font-weight: 700; color: #fff; }
-    .subtitle { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
+    h1 { font-size: 1.3rem; font-weight: 700; color: #fff; text-align: center; }
+    .subtitle { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; text-align: center; }
 
     .last-updated-bar {
       max-width: 1400px;
       margin: 0.65rem auto 0;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
+      text-align: center;
       gap: 0.55rem;
       font-size: 0.78rem;
       color: var(--muted);
@@ -128,6 +131,7 @@
     .last-updated-text {
       color: var(--muted);
       font-size: 0.8rem;
+      text-align: center;
     }
     .last-updated-text strong {
       color: var(--text);
