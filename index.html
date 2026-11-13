@@ -654,7 +654,7 @@
   </div>
   <div class="last-updated-bar">
     <span class="last-updated-badge">Last Updated</span>
-    <span class="last-updated-text" id="lastUpdatedText"><strong id="lastUpdatedDate">November 10, 2026</strong> • <span id="lastUpdatedSummary">Updated Author's Footnote on the deprecated 50/50 method &amp; "Cut the Crap" Answer Elimination Method</span></span>
+    <span class="last-updated-text" id="lastUpdatedText"><strong id="lastUpdatedDate">November 12, 2026</strong> • <span id="lastUpdatedSummary">Added Self-Sufficient Question Dissection Framework &amp; Skill Builder Distractor Pattern Rules</span></span>
   </div>
 </header>
 
@@ -664,6 +664,7 @@
       <select id="sectionSelect" aria-label="Table of Contents" onchange="filterTab(this.value)">
         <option value="all">All Sections ▾</option>
         <option value="strategy">1. Exam Strategy &amp; "Cut the Crap" Method</option>
+        <option value="dissection">1B. Self-Sufficient Question Dissection</option>
         <option value="pairing">2. Pairing Techniques</option>
         <option value="rag">3. Blueprint &amp; RAG</option>
         <option value="bedrock">4. Bedrock &amp; FMs</option>
@@ -760,9 +761,12 @@
 
             <h3>Distractor Signatures</h3>
             <ul>
-              <li><strong>Wrong layer:</strong> Solving an infrastructure problem in application code, or a prompt problem with network controls.</li>
-              <li><strong>Partial solution:</strong> Solves the main problem but ignores a stated constraint (e.g., reduces cost but breaks compliance).</li>
-              <li><strong>Over-engineered:</strong> Introduces multi-service orchestration when a native feature handles it directly.</li>
+              <li><strong>Self-incriminating payoff clause ("...to identify X"):</strong> Read the final clause of each option. Distractors often confess their own limitation at the end of the sentence (e.g., concluding <em>"...to identify which content source triggered interventions"</em> when the stem asked <em>which specific policy rule was invoked and why</em>).</li>
+              <li><strong>Wrong lifecycle phase (Offline vs. Live Runtime):</strong> Proposing pre-deployment/offline tools (<strong>Bedrock Model Evaluation jobs</strong>, synthetic test cases, benchmark dashboards) to diagnose why a <strong>live production customer query</strong> was just blocked or failed.</li>
+              <li><strong>Telemetry depth mismatch (Count vs. Payload vs. Decision Trace):</strong> Using threshold <strong>Alarms/Metrics</strong> (counts <em>how many</em>) or <strong>Invocation Logs</strong> (captures <em>raw input/output text</em>) when the question asks for internal <strong>decision-making analysis</strong> (requires <strong>Tracing</strong>: <code>"trace": "enabled"</code> or <code>enableTrace: true</code>).</li>
+              <li><strong>Wrong layer:</strong> Solving an infrastructure problem in application code, or a retrieval problem with generation parameters (<code>temperature</code>).</li>
+              <li><strong>Partial solution:</strong> Solves the main problem but ignores a stated constraint (e.g., reduces cost but breaks compliance or streaming).</li>
+              <li><strong>Over-engineered:</strong> Introduces multi-service orchestration or containers when a native managed feature handles it directly.</li>
               <li><strong>Fabricated capability:</strong> Names a real service with a plausible-sounding feature that does not exist in AWS.</li>
               <li><strong>Opposite tradeoff:</strong> Optimizes for the wrong metric (e.g., lowest latency when the question asked for lowest cost).</li>
             </ul>
@@ -827,6 +831,141 @@
               <li><strong>Automatically detects / infers / decides</strong> requires a documented classifier, evaluator, threshold, rule, or managed feature.</li>
             </ul>
             <div class="warning"><strong>Final rule:</strong> Common sense eliminates bad architecture; AWS service knowledge chooses the supported one. Preserve baselines during migrations, use canary or parallel telemetry when appropriate, and verify capability + configuration + workload fit before committing.</div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB: 1B. Self-Sufficient Question Dissection Framework ==================== -->
+  <section data-section="dissection" class="searchable-section">
+    <h2>1B. Self-Sufficient Question Dissection Framework (How to Dissect Any AIP-C01 Question On Your Own)</h2>
+    <div class="topic-card">
+      <div class="topic-title"><span>Topic 04B</span> The Exam-Room Reality &amp; Self-Sufficient Dissection Algorithm</div>
+      <div class="warning">
+        <span class="label">Closed-Book Exam Reality Check: You Are On Your Own</span>
+        During the actual AWS Certified Generative AI Developer — Professional (AIP-C01) exam, <strong>you cannot access this study guide, AWS documentation, Google, or any AI assistant</strong>. Even though it feels deeply counterintuitive that an exam on building Generative AI systems cuts you off from the web and AI tools, <strong>you are 100% on your own in the testing room</strong>. Memorizing specific answers to specific practice questions will fail you the moment AWS changes the wording. Instead, use the self-sufficient dissection techniques below to tear apart any unfamiliar question and expose the 3 distractors from first principles.
+      </div>
+
+      <h3>1. How Every AWS Professional Question Stem Is Engineered (3-Part Anatomy)</h3>
+      <p>AWS exam writers follow a strict blueprint when writing multi-paragraph scenario questions. Every paragraph plants a specific structural clue:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Question Part</th>
+            <th>What AWS Exam Writers Put Here</th>
+            <th>Your Self-Sufficient Reading Technique</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Paragraph 1: The Inventory &amp; Category List</strong></td>
+            <td>Establishes the service and enumerates 2–4 specific categories or rules (e.g., <em>"guardrails include prompt injection detection, sensitive information filtering, and denied topic blocking"</em> or <em>"articles have news, sports, and editorial categories"</em>).</td>
+            <td><strong>The 1-to-1 Structural Mirror Check:</strong> AWS rarely lists 3 specific categories for flavor. Look for the answer choice whose configuration or dimensions map <strong>1-to-1</strong> to those exact categories (e.g., <code>ContentPolicy</code>, <code>SensitiveInformationPolicy</code>, <code>TopicPolicy</code>) instead of generic catch-alls.</td>
+          </tr>
+          <tr>
+            <td><strong>Paragraph 2: The Trigger Event &amp; Lifecycle Phase</strong></td>
+            <td>Describes <em>when</em> the problem occurs (e.g., <em>"When a customer query is blocked..."</em> or <em>"Before deploying a new prompt template..."</em>) and what the developer must accomplish next.</td>
+            <td><strong>Lock the Lifecycle &amp; Known Facts:</strong> (1) Is this a <strong>live runtime incident</strong> on a real user request, or <strong>offline pre-deployment testing</strong>? (2) Note what the stem <em>already tells you</em>—if it says <em>"When a customer query is blocked,"</em> you already know the source is the user input!</td>
+          </tr>
+          <tr>
+            <td><strong>Final Sentence: The Binding Question &amp; Depth</strong></td>
+            <td>Asks for the configuration that satisfies a specific superlative (e.g., <em>"MOST detailed analysis of guardrail decision-making"</em> or <em>"LEAST operational overhead"</em>).</td>
+            <td><strong>Match the Required Depth:</strong> Does it ask <em>how many</em> (Metrics/Alarms), <em>what raw text</em> (Invocation Logs), <em>how models compare on test sets</em> (Model Evaluation), or <em>which internal rule fired &amp; WHY</em> (<strong>Tracing</strong>)?</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>2. The 4 Universal Distractor Confession Patterns ("Cutting the Crap" Without Documentation)</h3>
+      <p>When you encounter unfamiliar API parameters or metrics on the exam, you don't need AWS documentation to spot the distractors—<strong>wrong answers betray themselves through 4 structural flaws</strong>:</p>
+      <div class="pipeline-steps">
+        <div class="step-box">
+          <div class="step-num">Pattern 1 • Read the Last 8 Words</div>
+          <strong>The Self-Incriminating Payoff Clause:</strong> Read the final <em>"...to identify X"</em> or <em>"...to ensure Y"</em> clause of each option. Distractors regularly confess they solve the wrong problem at the very end of the option (e.g., ending with <em>"...to identify which content source triggered interventions"</em> when the stem asked <em>which specific rule was invoked and why</em>).
+        </div>
+        <div class="step-box">
+          <div class="step-num">Pattern 2 • Check the Clock</div>
+          <strong>The Lifecycle Phase Mismatch:</strong> Never use an <strong>offline/pre-deployment benchmarking tool</strong> (Bedrock Model Evaluation jobs, synthetic company test cases, batch jobs) to diagnose why a <strong>live production customer query</strong> was just blocked or failed—or vice versa.
+        </div>
+        <div class="step-box">
+          <div class="step-num">Pattern 3 • Check What You Already Know</div>
+          <strong>Redundant Discovery of a Stated Fact:</strong> If the stem already tells you <em>"When a customer query is blocked..."</em>, any option that builds a pipeline to figure out whether the block happened on the input vs. the output (<code>GuardrailContentSource</code>) is wasting effort discovering a fact the question already gave you.
+        </div>
+        <div class="step-box">
+          <div class="step-num">Pattern 4 • Match the Telemetry Depth</div>
+          <strong>Alarms vs. Logs vs. Trace:</strong> <strong>Alarms/Metrics</strong> only tell you <em>that a count crossed a threshold</em>. <strong>Invocation Logs</strong> only show <em>raw request/response text</em>. Whenever the stem asks for <strong>internal decision-making, which specific rule fired, why content was flagged, or step-by-step agent reasoning</strong>, the answer is always <strong>Tracing</strong> (<code>"trace": "enabled"</code> or <code>enableTrace: true</code>).
+        </div>
+      </div>
+
+      <h3>3. The Diagnostic Depth Hierarchy (Memorize This 4-Row Mental Model)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>If the Question Stem Asks For...</th>
+            <th>Required AWS Mechanism</th>
+            <th>Why the Other Three Are Distractors</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>"Why was this decision made / which specific rule, policy, or reasoning step was invoked?"</strong></td>
+            <td><strong>Runtime Tracing</strong><br />(Guardrail <code>{"trace": "enabled"}</code> in <code>guardrailConfig</code> + <code>GuardrailPolicyType</code>; Agent <code>enableTrace: true</code>)</td>
+            <td>Logs only show raw text without internal rule scores; Alarms only beep on counts; Evaluation jobs only test offline datasets.</td>
+          </tr>
+          <tr>
+            <td><strong>"Capture full request and response payloads for auditing or compliance"</strong></td>
+            <td><strong>Bedrock Model Invocation Logging</strong><br />(Delivered to Amazon S3 or CloudWatch Logs)</td>
+            <td>CloudTrail only logs control-plane API calls (never prompt/response bodies); CloudWatch Metrics only store numeric time-series.</td>
+          </tr>
+          <tr>
+            <td><strong>"Alert when interventions, latency, or errors exceed a threshold"</strong></td>
+            <td><strong>Amazon CloudWatch Metrics &amp; Alarms</strong><br />(<code>InvocationsIntervened</code>, <code>InvocationLatency</code>)</td>
+            <td>Alarms are passive smoke detectors—they cannot explain <em>why</em> a single customer prompt was flagged or inspect payload text.</td>
+          </tr>
+          <tr>
+            <td><strong>"Benchmark and compare model or guardrail effectiveness across test datasets before deployment"</strong></td>
+            <td><strong>Bedrock Model Evaluation Jobs</strong><br />(Automated or human evaluation on test cases)</td>
+            <td>Offline batch benchmarking—cannot diagnose why an individual live customer query was just blocked in production.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>4. Live Dissection Walkthrough: Applying the Technique to an Unfamiliar Question</h3>
+      <p><strong>Scenario Summary (Official Skill Builder Pattern):</strong> Paragraph 1 states an AI assistant uses multiple Bedrock Guardrails: <em>(1) prompt injection detection, (2) sensitive information filtering, and (3) denied topic blocking</em>. Paragraph 2 states: <em>"When a customer query is blocked, a GenAI developer needs a detailed analysis of which specific guardrail rule was invoked and why the content was flagged"</em> to fine-tune configurations. Final sentence: <em>"Which configuration provides the MOST detailed analysis of guardrail decision-making for content filtering?"</em></p>
+      <table>
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>How to Dissect It On Your Own (Zero Memorization Required)</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>A. Enable Model Invocation Logging + CloudWatch alarms on <code>InvocationsIntervened</code> filtered by <code>GuardrailContentSource</code> + CloudWatch Insights queries <em>"to identify which content source triggered interventions."</em></strong></td>
+            <td>
+              <strong>1. Self-Incriminating Payoff Clause:</strong> Look at the last 7 words: <em>"...to identify which content source triggered interventions."</em> "Content source" only means <em>where</em> the text came from (<code>INPUT</code> vs. <code>OUTPUT</code>)—it does NOT tell you <em>which rule</em> fired or <em>why</em>.<br />
+              <strong>2. Redundant Fact Trap:</strong> The stem already said <em>"When a customer query is blocked..."</em> You already know the content source is the customer query!<br />
+              <strong>3. Telemetry Depth Mismatch:</strong> CloudWatch alarms notify on thresholds; they do not explain per-request rule decisions.
+            </td>
+            <td>&#10007; <strong>Cut Distractor A</strong><br />(Answers <em>"Where?"</em> instead of <em>"Which rule &amp; Why?"</em>)</td>
+          </tr>
+          <tr>
+            <td><strong>B. Configure guardrail tracing with <code>{"trace": "enabled"}</code> in <code>guardrailConfig</code>. Monitor <code>InvocationsIntervened</code> metrics filtered by <code>GuardrailPolicyType</code> dimensions: <code>ContentPolicy</code>, <code>TopicPolicy</code>, and <code>SensitiveInformationPolicy</code>.</strong></td>
+            <td>
+              <strong>1. Decision-Making = Trace:</strong> The stem asks for <em>"detailed analysis of guardrail decision-making"</em> and <em>"why content was flagged"</em> &rarr; <code>{"trace": "enabled"}</code> returns the exact internal rule assessment, filter strength, and confidence score.<br />
+              <strong>2. 1-to-1 Structural Mirror:</strong> Paragraph 1 listed 3 guardrails (<em>prompt injection, denied topics, sensitive info</em>) and Option B's <code>GuardrailPolicyType</code> dimensions map 1-to-1 to those exact 3 policies (<code>ContentPolicy</code>, <code>TopicPolicy</code>, <code>SensitiveInformationPolicy</code>).
+            </td>
+            <td>&#10003; <strong>Winner (Option B)</strong><br />(Matches depth + mirrors all 3 stem policies 1-to-1)</td>
+          </tr>
+          <tr>
+            <td><strong>C. Enable Bedrock Model Evaluation with automated evaluation jobs... test prompt injection resistance by using <em>company-specific test cases</em>...</strong></td>
+            <td>
+              <strong>1. Lifecycle Phase Mismatch:</strong> The stem asks what to do <em>"When a customer query is blocked"</em> (a live production event). Option C runs offline evaluation jobs on synthetic <em>"company-specific test cases"</em>, which cannot tell you why a live customer query was just blocked.<br />
+              <strong>2. Partial Scope:</strong> Only tests "prompt injection resistance," ignoring sensitive info and denied topics from Paragraph 1.
+            </td>
+            <td>&#10007; <strong>Cut Distractor C</strong><br />(Offline test suite used for a live runtime block)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="formula"><strong>Self-Sufficient Takeaway:</strong> Even if you had never seen <code>GuardrailContentSource</code> or <code>GuardrailPolicyType</code> before walking into the exam center, reading Option A's final words (<em>"which content source"</em> = Where) and Option C's mechanism (<em>"evaluation jobs with test cases"</em> = Offline) eliminates both distractors automatically and leaves <strong>Option B (Trace + PolicyType)</strong> as the undisputed winner.</div>
     </div>
   </section>
 
@@ -1326,8 +1465,8 @@
             <div class="fact"><strong>🟢 Target:</strong> Amazon Comprehend (<code>DetectPiiEntities</code>) for pre-processing/scrubbing text before ingestion or model invocation; Bedrock Guardrails Sensitive Information Filters to redact/mask PII in model outputs. (Amazon Rekognition for images).</div>
             <div class="warning"><strong>🔴 Eliminate:</strong> Relying solely on prompt instructions ("do not output SSNs") or confusing Comprehend NLP analysis with KMS storage encryption.</div>
             <h3>Prompt Attack Detection &amp; Jailbreak Defense</h3>
-            <div class="fact"><strong>🟢 Target:</strong> Bedrock Guardrails semantic filters to detect and block prompt injection, jailbreaks, and role-playing bypasses. Enable <code>"trace": "enabled"</code> and filter by <code>GuardrailPolicyType</code> for root-cause diagnosis.</div>
-            <div class="warning"><strong>🔴 Eliminate:</strong> WAF rules for semantic jailbreaks (WAF handles HTTP/DDoS/rate limits, not semantic intent), or custom regex in Lambda.</div>
+            <div class="fact"><strong>🟢 Target:</strong> Bedrock Guardrails semantic filters to detect and block prompt injection, jailbreaks, and role-playing bypasses. For internal decision-making analysis (which rule fired &amp; why), configure <code>{"trace": "enabled"}</code> in <code>guardrailConfig</code> and monitor <code>InvocationsIntervened</code> filtered by <code>GuardrailPolicyType</code> (<code>ContentPolicy</code>, <code>TopicPolicy</code>, <code>SensitiveInformationPolicy</code>).</div>
+            <div class="warning"><strong>🔴 Eliminate:</strong> WAF rules for semantic jailbreaks (WAF handles HTTP/DDoS/rate limits, not semantic intent), custom regex in Lambda, <code>GuardrailContentSource</code> dimensions (only identifies <code>INPUT</code> vs. <code>OUTPUT</code> source, not which policy rule triggered), or offline Model Evaluation jobs for live request blocks.</div>
             <h3>S3 Cross-Region Replication (CRR) / Data Residency</h3>
             <div class="fact"><strong>🟢 Target:</strong> Maintain encryption and access policies byte-for-byte during replication, but verify sovereign compliance boundaries and data residency before replicating GenAI training corpora.</div>
             <div class="warning"><strong>🔴 Eliminate:</strong> Assuming S3 CRR automatically anonymizes PII in transit or strips encryption.</div>
@@ -1418,10 +1557,10 @@
           </tr>
           <tr>
             <td><strong>Model outputs canned refusal message ("I cannot answer this...")</strong> despite benign prompt</td>
-            <td><strong>CloudWatch:</strong> 0 runtime errors, <code>GuardrailIntervened</code> metric &gt; 0.<br /><strong>X-Ray:</strong> 200 OK Bedrock invoke.<br /><strong>Logs:</strong> <code>action: "BLOCKED"</code>.</td>
+            <td><strong>CloudWatch:</strong> 0 runtime errors, <code>InvocationsIntervened</code> metric &gt; 0.<br /><strong>X-Ray:</strong> 200 OK Bedrock invoke.<br /><strong>Logs:</strong> <code>action: "BLOCKED"</code>.</td>
             <td><strong>Guardrail Policy Trigger:</strong> Prompt or retrieved context triggered Denied Topics, Content Filter, PII filter, or Contextual Grounding threshold.</td>
-            <td>Enable <code>"trace": "enabled"</code> in Bedrock request; inspect <code>guardrailAction</code> and specific <code>policyType</code> to tune filter thresholds.</td>
-            <td>Retraining model on SageMaker; increasing temperature; disabling CloudWatch alarms.</td>
+            <td>Configure <code>{"trace": "enabled"}</code> in <code>guardrailConfig</code>; monitor <code>InvocationsIntervened</code> filtered by <code>GuardrailPolicyType</code> (<code>ContentPolicy</code>, <code>TopicPolicy</code>, <code>SensitiveInformationPolicy</code>) to tune thresholds.</td>
+            <td>Filtering by <code>GuardrailContentSource</code> (only shows <code>INPUT</code> vs. <code>OUTPUT</code>, not which rule fired); offline Model Evaluation jobs; retraining on SageMaker; increasing temperature.</td>
           </tr>
           <tr>
             <td><strong>Vector search latency explodes as data is ingested</strong></td>
@@ -1445,7 +1584,7 @@
       <ul>
               <li><strong>Bidirectional PII Defense:</strong> Use <strong>Amazon Comprehend (<code>DetectPiiEntities</code>)</strong> for pre-processing/scrubbing text before ingestion or model invocation; use <strong>Bedrock Guardrails Sensitive Information Filters</strong> to redact/mask PII in model outputs. (Use <strong>Amazon Rekognition</strong> for images).</li>
               <li><strong>Prompt Attack Detection:</strong> Bedrock Guardrails semantic filters detect and block jailbreaks, prompt injections, and role-playing bypasses.</li>
-              <li><strong>Guardrail Root-Cause Diagnosis:</strong> Enable <code>"trace": "enabled"</code> and filter by <code>GuardrailPolicyType</code> (Content, Topic, SensitiveInformation, ContextualGrounding).</li>
+              <li><strong>Guardrail Root-Cause Diagnosis:</strong> Configure <code>{"trace": "enabled"}</code> in <code>guardrailConfig</code> and filter <code>InvocationsIntervened</code> by <code>GuardrailPolicyType</code> (<code>ContentPolicy</code>, <code>TopicPolicy</code>, <code>SensitiveInformationPolicy</code>)—never <code>GuardrailContentSource</code> when diagnosing <em>which</em> rule fired.</li>
               <li><strong>Secrets &amp; Networking:</strong> Store API keys in <strong>AWS Secrets Manager</strong> with automatic rotation and KMS encryption. Isolate network traffic via <strong>AWS PrivateLink (Interface VPC Endpoints)</strong>.</li>
               <li><strong>S3 Cross-Region Replication (CRR):</strong> Preserves encryption and access policies byte-for-byte, but copying GenAI training data across geographic borders creates <strong>data residency &amp; sovereign compliance risks</strong> (CRR never auto-anonymizes PII).</li>
               <li><strong>RAG Evaluation Metrics:</strong>
@@ -1688,9 +1827,9 @@
                 <td>Assuming identical prompt text yields equivalent behavior across models, or that XML/Markdown tags are interpreted uniformly; building a custom prompt-translation model or compiler without a requirement that justifies it.</td>
               </tr>
               <tr>
-                <td><strong>Root-cause diagnostics / detailed analysis</strong></td>
-                <td>Set <code>enableTrace: true</code> on Bedrock Agents <code>InvokeAgent</code> calls and inspect returned trace parts; use Guardrails trace data on supported inference paths; enable Model Invocation Logging to S3 or CloudWatch Logs for request/response bodies and metadata, subject to privacy controls.</td>
-                <td>Using aggregate invocation-count alarms alone to explain one request's behavior; treating an input/output content-source field as a full trace. Offline Model Evaluation helps compare quality; it does not replace request-level production tracing.</td>
+                <td><strong>Root-cause diagnostics / detailed decision analysis</strong></td>
+                <td>For internal decision/rule analysis: configure Guardrail tracing (<code>{"trace": "enabled"}</code> in <code>guardrailConfig</code>) + <code>InvocationsIntervened</code> filtered by <code>GuardrailPolicyType</code>, or set <code>enableTrace: true</code> on Bedrock Agents <code>InvokeAgent</code> calls. For raw request/response payload auditing: enable Model Invocation Logging to S3 or CloudWatch Logs.</td>
+                <td>Using aggregate invocation-count alarms alone to explain one request's behavior; filtering by <code>GuardrailContentSource</code> (only shows <code>INPUT</code> vs. <code>OUTPUT</code> source, not which rule fired); using offline Model Evaluation jobs to diagnose live blocked customer queries.</td>
               </tr>
               <tr>
                 <td><strong>Private networking / data isolation</strong></td>
