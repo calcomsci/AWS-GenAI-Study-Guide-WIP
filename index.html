@@ -774,7 +774,192 @@
       h1, section h2, .topic-title, th { color: #000; }
       code { background: #f4f4f4; color: #000; }
     }
-  </style>
+  
+    /* Section 1C Rich Question Dissection Styling */
+    .proof-dissection-block {
+      background: var(--code-bg, rgba(0, 0, 0, 0.02));
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+      margin: 0.75rem 0 1rem;
+    }
+    .proof-answer-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.65rem;
+    }
+    .proof-pill-correct {
+      display: inline-block;
+      background: #10b981;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .proof-clues-box {
+      background: rgba(14, 165, 233, 0.08);
+      border-left: 3px solid #0ea5e9;
+      padding: 0.55rem 0.8rem;
+      border-radius: 4px;
+      margin: 0.5rem 0 0.85rem;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+    .proof-options-heading {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin: 0.75rem 0 0.45rem;
+      color: var(--text);
+    }
+    .proof-options-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.4rem 0 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .proof-option-item {
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+    }
+    .proof-option-item.correct {
+      border-left: 4px solid #10b981;
+      background: rgba(16, 185, 129, 0.05);
+    }
+    .proof-option-item.eliminate {
+      border-left: 4px solid #ef4444;
+      background: rgba(239, 68, 68, 0.03);
+    }
+    .proof-rule-line {
+      font-size: 0.88rem;
+      padding: 0.45rem 0.75rem;
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 3px solid #f59e0b;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+    }
+
+    /* Question Box & Fitted Thumbnail (Right next to / below question) */
+    .proof-question-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 0.85rem 1.05rem;
+      margin: 0.65rem 0 0.85rem;
+      border-radius: 6px;
+    }
+    .proof-question-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.45rem;
+    }
+    .proof-question-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--accent);
+    }
+    .proof-view-full-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--code-bg, rgba(0, 0, 0, 0.04));
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .proof-view-full-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+    .proof-question-text {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--text);
+      white-space: pre-line;
+      margin: 0;
+    }
+    .proof-thumb-preview {
+      display: flex;
+      align-items: center;
+      margin-top: 0.65rem;
+      padding-top: 0.55rem;
+      border-top: 1px dashed var(--border);
+    }
+    .proof-thumb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: zoom-in;
+      text-align: left;
+    }
+    .proof-thumb-img {
+      max-height: 80px;
+      max-width: 140px;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .proof-thumb-btn:hover .proof-thumb-img {
+      transform: scale(1.04);
+      border-color: var(--accent);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+    }
+    .proof-thumb-caption {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .proof-thumb-btn:hover .proof-thumb-caption {
+      color: var(--text);
+    }
+    .proof-question-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .proof-question-text {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--text);
+      white-space: pre-line;
+      margin: 0;
+    }
+</style>
 </head>
 <body>
 
@@ -1077,323 +1262,794 @@
   <!-- ==================== TAB: 1C. Proof This Guide Works ==================== -->
   <section data-section="proof" class="searchable-section">
     <h2>1C. Proof This Guide Works (Official Skill Builder Question-by-Question Dissection)</h2>
-        <div class="topic-card">
+
+    <div class="topic-card">
       <div class="topic-title">Adding Source Lineage for Content Credibility Verification (AWS Glue Data Catalog + Output Metadata Tagging — Select TWO)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 1B (The 1-to-1 Structural Mirror Check)</strong>, <strong>Section 2 (Ingress + Egress Pipeline Pairing)</strong>, and <strong>Section 3 &amp; Section 8 (Data Provenance &amp; AWS Glue Data Catalog)</strong>, we eliminate B, C, and D and lock in the end-to-end lineage pair <strong>A and E</strong>.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-6f13d8a9.png', 'Official AWS Skill Builder Question & Verified Explanations — Source Lineage with Glue Data Catalog & Output Metadata')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-6f13d8a9.png" alt="Skill Builder Question — Adding Source Lineage with AWS Glue Data Catalog and FM Output Metadata Tagging" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Source Lineage &amp; Content Credibility</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5086 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-6f13d8a9.png', 'Official AWS Skill Builder Question & Verified Explanations — Source Lineage with Glue Data Catalog & Output Metadata')">🔍 Click to Enlarge Full Resolution</span>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">An education company built a content generation system on Amazon Bedrock. The system generates practice questions to quiz end users on a topic to test their knowledge. The system consumes a mix of curated data and scraped data in the topic domain. Reviewers must approve of the generated question-response sets before end users can access the sets. The company wants to improve the system by adding source lineage for the reviewers to verify the credibility of the content.
+
+Which combination of steps will meet these requirements with the LEAST operational overhead?
+(Select TWO)</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-6f13d8a9.png', 'Official AWS Skill Builder Question Screenshot — Question 1')" title="Click to view full question">
+            <img src="screenshots/sb-6f13d8a9.png" alt="Skill Builder Question — Adding Source Lineage with AWS Glue Data Catalog and FM Output Metadata Tagging" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option A and Option E</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Tag FM outputs with metadata from the data source. Ensures direct egress lineage linkage between generated text and the exact source documents cited, enabling end-to-end auditability for credibility verification.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use AWS CloudTrail to log reviewer feedback actions. CloudTrail logs control-plane API calls, not data provenance or source lineage of generated content.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Use Amazon SageMaker Clarify to explain model predictions. Clarify is designed for model explainability and bias detection, not tracking data lineage across scraped and curated sources.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Enable Amazon Bedrock invocation logging and correlate the logs with the data source. Invocation logging captures prompts and token usage; manually correlating raw logs with scraped sources introduces substantial operational overhead without automated lineage.</li>
+          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT):</strong> Register the curated and scraped input datasets with AWS Glue Data Catalog. Provides centralized metadata cataloging, automated schema crawlers, and searchable data provenance tracking across all training and knowledge datasets.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 1B (The 1-to-1 Ingress + Egress Structural Mirror Check) & Section 8 (AWS Glue Data Catalog Data Lineage)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Diagnosing RAG Retrieval Failure After a Code Update (Embedding Drift vs. Generation &amp; Infrastructure)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Golden Rule 2 (Match the Architectural Layer &amp; Failure Domain)</strong>, <strong>Section 3 (Embedding Consistency &amp; Embedding Drift + The Temperature Trap)</strong>, and <strong>Section 6 (Domain 5 Troubleshooting Table)</strong>, we eliminate A, C, and D using the stated telemetry and select <strong>Option B</strong> immediately.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-91d4e3a7.png', 'Official AWS Skill Builder Question & Verified Explanations — Embedding Drift')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-91d4e3a7.png" alt="Skill Builder Question — RAG Embedding Drift After Lambda Code Update" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Embedding Drift</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 4399 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-91d4e3a7.png', 'Official AWS Skill Builder Question & Verified Explanations — Embedding Drift')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Diagnosing RAG Retrieval Failure After a Code Update (Embedding Drift vs. Generation & Infrastructure)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A financial services company operates RAG for an application that answers user questions by using internal market analysis reports. The application uses Amazon Bedrock for the embedding model. The application uses an Amazon OpenSearch Service cluster as the vector store. An AWS Lambda function performs the embedding and search logic.
+
+After a recent code update to the Lambda function, the application starts returning generic responses. For example, the application returns "no relevant information found" even for questions that previously returned accurate answers. Amazon CloudWatch Logs shows no errors. AWS X-Ray confirms successful FM invocation. The OpenSearch Service cluster is healthy. Query latency remains normal.
+
+What is the cause of this issue?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-91d4e3a7.png', 'Official AWS Skill Builder Question Screenshot — Question 2')" title="Click to view full question">
+            <img src="screenshots/sb-91d4e3a7.png" alt="Skill Builder Question — RAG Embedding Drift After Lambda Code Update" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option B</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> The Amazon Bedrock FM temperature parameter was increased. Temperature controls token generation randomness during output creation. The failure occurred during retrieval (returning 'no relevant information found') before generative completion.</li>
+          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT):</strong> The updated Lambda function uses a different version of the embedding model. When embedding model versions change, vector space geometry shifts (Embedding Drift). Query vectors no longer match pre-indexed document vectors, yielding zero cosine similarity matches while all infrastructure remains 100% healthy.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> The document embeddings in OpenSearch Service were deleted during the application update and have not been re-indexed. Contradicted by stated telemetry—the OpenSearch Service cluster is explicitly reported as healthy with normal latency.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> The Lambda function's IAM role is missing the permission for bedrock:InvokeModel. Contradicted by stated telemetry—AWS X-Ray explicitly confirms successful FM invocation, and CloudWatch Logs show zero errors.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Golden Rule 2 (Match the Architectural Layer & Failure Domain), Section 3 (Embedding Drift & The Temperature Trap), and Section 6 (Domain 5 Troubleshooting)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
       <div class="topic-title">Enforcing Guardrail Compliance Across All Bedrock API Calls (IAM bedrock:GuardrailIdentifier Condition Key vs. Lambda Proxies)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Golden Rule 1 (Most Operationally Efficient — Tier 1 Control Plane)</strong>, <strong>Golden Rule 3 (Zero Unrequested Constraints)</strong>, and <strong>Section 6 (Security Fundamentals)</strong>, we eliminate A, C, and D and lock in <strong>Option B (<code>bedrock:GuardrailIdentifier</code> IAM condition key)</strong> immediately.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-5a38b4f1.png', 'Official AWS Skill Builder Question & Verified Explanations — Enforcing Guardrails with bedrock:GuardrailIdentifier Condition Key')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-5a38b4f1.png" alt="Skill Builder Question — Enforcing Guardrail Compliance on InvokeModel and Converse with IAM bedrock:GuardrailIdentifier Condition Key" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — IAM <code>bedrock:GuardrailIdentifier</code> Enforcement</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 4867 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-5a38b4f1.png', 'Official AWS Skill Builder Question & Verified Explanations — Enforcing Guardrails with bedrock:GuardrailIdentifier Condition Key')">🔍 Click to Enlarge Full Resolution</span>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A company is implementing AI governance policies. The policies require all FM interactions to be secured with guardrails. The company configures Amazon Bedrock guardrails. The company must ensure that all InvokeModel and Converse API calls to FMs apply the guardrails.
+
+Which solution will enforce guardrail compliance for the API calls in the MOST operationally efficient way?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-5a38b4f1.png', 'Official AWS Skill Builder Question Screenshot — Question 3')" title="Click to view full question">
+            <img src="screenshots/sb-5a38b4f1.png" alt="Skill Builder Question — Enforcing Guardrails with bedrock:GuardrailIdentifier IAM Condition Key" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option B</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Create an AWS Lambda function that validates and enforces guardrails before proxying requests to Amazon Bedrock. High operational overhead (Tier 3 custom compute), introduces latency bottlenecks, cold starts, and a single point of failure.</li>
+          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT):</strong> Configure IAM policies for the InvokeModel and Converse API calls with the bedrock:GuardrailIdentifier condition key. Apply the policies to all IAM roles that access the Amazon Bedrock FMs. Native Tier 1 IAM control plane enforcement. Denies any API call that does not pass the mandatory guardrail identifier at zero additional infrastructure overhead.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Store guardrail identifiers in AWS Systems Manager Parameter Store. Create an AWS Lambda function that retrieves the identifier before making calls. Multiplies operational complexity with redundant lookup hops and custom proxy code.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Configure IAM policies for the InvokeModel and Converse API calls with both bedrock:GuardrailIdentifier and bedrock:PromptRouterArn condition keys. Over-constrains policies by requiring prompt router validation when prompt router was never requested in the scenario (violates Golden Rule 3: Zero Unrequested Services).</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Golden Rule 1 (Most Operationally Efficient — Tier 1 Control Plane) and Section 7 (IAM bedrock:GuardrailIdentifier Condition Key)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
       <div class="topic-title">Deterministic Output Termination (Stop Sequences vs. Sampling Parameters)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 1B (Pattern 1: The Self-Incriminating Payoff Clause)</strong>, <strong>Section 4 (Foundation Model Inference Parameters)</strong>, and <strong>Section 9 (Master Elimination Table)</strong>, we can eliminate all 3 distractors in seconds and prove <strong>Option A</strong> is the only valid answer.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-a84f29c1.png', 'Official AWS Skill Builder Question & Verified Explanations — Stop Sequences Parameter')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-a84f29c1.png" alt="Skill Builder Question — Anthropic Claude Stop Sequences on Amazon Bedrock" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Stop Sequences Parameter</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 4003 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-a84f29c1.png', 'Official AWS Skill Builder Question & Verified Explanations — Stop Sequences Parameter')">🔍 Click to Enlarge Full Resolution</span>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A GenAI developer is building a virtual assistant application by using an Anthropic Claude model on Amazon Bedrock. The application sends user queries and expects conversational responses. The GenAI developer wants to configure the application to stop generating output after a specific phrase is generated in the response.
+
+Which solution will meet these requirements?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-a84f29c1.png', 'Official AWS Skill Builder Question Screenshot — Question 4')" title="Click to view full question">
+            <img src="screenshots/sb-a84f29c1.png" alt="Skill Builder Question — Anthropic Claude Stop Sequences on Amazon Bedrock" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option A</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Use the stop sequences parameter in the inference call to specify a trigger phrase. Stop sequences instruct the model to immediately halt token generation when the exact specified character sequence is produced.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use the temperature parameter in the inference call to control the likelihood of the phrase appearing. Temperature controls randomness in token probability distribution; it cannot halt generation at a specific trigger phrase.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Add the trigger phrase "stop at this phrase" in the user prompt. Prompt instructions rely on model obedience and can be ignored or hallucinated past; does not provide deterministic termination.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Use the top-k parameter to control the diversity of tokens in the model's output. Top-k limits sampling to the k highest-probability tokens; it does not stop generation upon a target phrase.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 1B (Pattern 1: The Self-Incriminating Payoff Clause) & Section 2 (Inference Parameters Reference Table)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Accelerating AI Development &amp; Automated Testing with Amazon Q Developer (Select TWO)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 1B (The 1-to-1 Structural Mirror Check &amp; Pattern 1: Self-Incriminating Clauses)</strong>, <strong>Section 2 (The Split-Constraint Pairing Method)</strong>, and <strong>Section 8 (Amazon Q Developer)</strong>, we expose the manual/reactive bottlenecks in A, B, and C and lock in the proactive automation pair <strong>D and E</strong>.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-8d27a5f4.png', 'Official AWS Skill Builder Question & Verified Explanations — Amazon Q Developer Code & CI/CD Test Generation')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-8d27a5f4.png" alt="Skill Builder Question — Accelerating AI Development and CI/CD Testing with Amazon Q Developer" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Amazon Q Developer</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5473 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-8d27a5f4.png', 'Official AWS Skill Builder Question & Verified Explanations — Amazon Q Developer Code & CI/CD Test Generation')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Accelerating AI Development & Automated Testing with Amazon Q Developer (Select TWO)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A cross-functional team is developing a generative AI (GenAI) application by using AWS services. The team needs to optimize developer productivity and enforce consistent integration patterns. The team needs to automate performance tuning and accelerate AI testing across multiple business units.
+
+The team wants to use Amazon Q Developer. The team must accelerate development workflows and maintain application quality.
+
+Which combination of steps will meet these requirements?
+(Select TWO)</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-8d27a5f4.png', 'Official AWS Skill Builder Question Screenshot — Question 5')" title="Click to view full question">
+            <img src="screenshots/sb-8d27a5f4.png" alt="Skill Builder Question — Accelerating AI Development and CI/CD Testing with Amazon Q Developer" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option D and Option E</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Use Amazon Q Developer to retrospectively analyze and document common integration patterns that are found across different business units' code bases. Purely retrospective documentation; fails to optimize active coding velocity or test generation.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use Amazon Q Developer to analyze code for security best practices and suggest compliance improvements. Implement a mandatory review process where all code changes must be manually approved by security teams before integration. Introduces a severe manual approval bottleneck, directly defeating developer acceleration.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Incorporate Amazon Q Developer to resolve coding issues that are identified during merge requests. Reserve most refactoring and optimization tasks for periodic manual review cycles. Self-incriminating delay clause; restricts optimization to infrequent manual cycles rather than continuous acceleration.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Configure Amazon Q Developer to automatically generate and refactor integration code snippets, provide targeted API usage guidance, and suggest performance optimizations for AI components. Directly accelerates coding workflows inside the developer IDE.</li>
+          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT):</strong> Integrate the Amazon Q Developer automated unit and integration test generation features into the team's CI/CD pipelines. Automatically synthesizes test suites and executes them continuously to catch regressions.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 1B (Pattern 1: Self-Incriminating Clauses), Section 2 (The Split-Constraint Pairing Method), and Section 8 (Amazon Q Developer)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
       <div class="topic-title">Multi-GPU LLM Serving Optimization with DJL on SageMaker AI (Select TWO)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 1B (The 1-to-1 Structural Mirror Check &amp; Pattern 1: Self-Incriminating Payoff Clause)</strong>, <strong>Section 2 (The Split-Constraint Pairing Method)</strong>, and <strong>Section 7 (Multi-GPU LLM Serving &amp; DJL Optimization Table)</strong>, we map the two profiling findings in Paragraph 2 directly to <strong>Options A and C</strong> and eliminate B, D, and E.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-7b35e1c8.png', 'Official AWS Skill Builder Question & Verified Explanations — DJL Serving Rolling Batch & Tensor Parallelism')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-7b35e1c8.png" alt="Skill Builder Question — Optimizing DJL Serving Rolling Batch Size and Tensor Parallelism on 8-GPU SageMaker Instances" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — DJL Serving Multi-GPU Optimization</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5347 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-7b35e1c8.png', 'Official AWS Skill Builder Question & Verified Explanations — DJL Serving Rolling Batch & Tensor Parallelism')">🔍 Click to Enlarge Full Resolution</span>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A GenAI developer deployed a fine-tuned LLM to an Amazon SageMaker AI endpoint. The GenAI developer used the default serving configuration for continuous batching with the AMI including the Deep Java Library (DJL). The model is being served on GPU-based Amazon EC2 instances, each with 8 GPUs. As the model scales to production, the GenAI developer discovers that many instances are needed to meet traffic demands. The GenAI developer wants to avoid increased costs from the overutilization.
+
+The GenAI developer analyzes logs. The GenAI developer discovers that the maximum I/O sequence length in real requests is 10 times smaller than what the model was originally configured to handle. Additionally, the current concurrency for each instance is low. Profiling shows that the model's weights and activations can fit entirely within 4 GPUs.
+
+Which combination of steps can the GenAI developer take to improve resource utilization?
+(Select TWO)</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-7b35e1c8.png', 'Official AWS Skill Builder Question Screenshot — Question 6')" title="Click to view full question">
+            <img src="screenshots/sb-7b35e1c8.png" alt="Skill Builder Question — Optimizing DJL Serving Rolling Batch Size and Tensor Parallelism on 8-GPU SageMaker Instances" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option A and Option C</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Reduce the model's maximum sequence length to provide a higher rolling batch size for each GPU. Decreasing max sequence length caps KV-cache memory allocation per request, freeing memory to process larger rolling batches in parallel.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Split the model across all 8 GPUs by using a tensor parallelism degree of 8 to improve memory efficiency. Consuming all 8 GPUs for a model that fits in 4 leaves the instance underutilized with only 1 replica.</li>
+          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT):</strong> Use tensor parallelism with a degree of 4 to deploy two model replicas for each instance. Sharding the model across 4 GPUs leaves the remaining 4 GPUs available for a second replica (8 GPUs / 4 = 2 replicas), doubling concurrent serving capacity.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Enable speculative decoding to reduce response latency for each request. Speculative decoding improves single-request latency, not instance-level throughput or GPU memory overutilization.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option E (ELIMINATE):</strong> Increase the number of SageMaker AI instances and spread requests more evenly. Adding more instances increases costs rather than optimizing the existing 8-GPU instance configuration.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 1B (The 1-to-1 Structural Mirror Check) & Section 3 (Multi-GPU LLM Serving & DJL Optimization Table)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Federated IdP Authentication &amp; Temporary Credentials for Amazon Bedrock (Amazon Cognito OIDC &amp; IAM Identity Center SAML — Select TWO)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Golden Rule 3 (100% Requirement Coverage — IdP Integration + Eliminate Long-Lived Credentials)</strong>, <strong>Section 1B (Pattern 1: Self-Incriminating Clauses)</strong>, and <strong>Section 6 (Security Fundamentals)</strong>, we eliminate A, B, and C and select the two native AWS federated identity solutions <strong>D and E</strong>.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-9e52a1d7.png', 'Official AWS Skill Builder Question & Verified Explanations — Federated IdP Authentication with Cognito OIDC & IAM Identity Center SAML')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-9e52a1d7.png" alt="Skill Builder Question — Federated Authentication for Amazon Bedrock with Amazon Cognito OIDC and AWS IAM Identity Center SAML" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Federated IdP Authentication</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5365 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-9e52a1d7.png', 'Official AWS Skill Builder Question & Verified Explanations — Federated IdP Authentication with Cognito OIDC & IAM Identity Center SAML')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Federated IdP Authentication & Temporary Credentials for Amazon Bedrock (Amazon Cognito OIDC & IAM Identity Center SAML — Select TWO)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A company needs secure authentication for a third-party application that uses Amazon Bedrock. The solution must integrate with the company's existing identity provider (IdP). The solution must maintain comprehensive audit logs of authentication and API calls. The solution must eliminate long-lived credentials and provide temporary access to Amazon Bedrock.
+
+Which solutions will meet these requirements?
+(Select TWO)</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-9e52a1d7.png', 'Official AWS Skill Builder Question Screenshot — Question 7')" title="Click to view full question">
+            <img src="screenshots/sb-9e52a1d7.png" alt="Skill Builder Question — Enterprise IdP Authentication with Amazon Cognito OIDC and IAM Identity Center SAML" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option D and Option E</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Configure an Amazon API Gateway Lambda authorizer to validate credentials against the company's LDAP server and issue signed JSON Web Tokens (JWTs). Custom token generation does not provide temporary AWS IAM credentials for Bedrock access.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Create an IAM role and configure federation by using AWS STS AssumeRole API calls. Store the application's IAM user credentials in the application configuration. Storing IAM user credentials in application configuration violates the requirement to eliminate long-lived credentials.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Create IAM users for each employee and rotate credentials using AWS Secrets Manager. Relies on persistent long-term credentials and does not integrate with the corporate IdP.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Implement an OpenID Connect (OIDC) integration with Amazon Cognito. Configure the integration to authenticate users through the IdP and exchange tokens for temporary AWS credentials. Configure the integration to allow the application to access Amazon Bedrock. Cognito Identity Pools exchange IdP tokens for short-lived AWS credentials with CloudTrail audit logging.</li>
+          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT):</strong> Deploy AWS IAM Identity Center with SAML federation to the IdP. Configure custom permission sets that grant access to Amazon Bedrock. Enables enterprise workforce federation and temporary credential assumption.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Golden Rule 3 (100% Requirement Coverage — Enterprise IdP Federation) & Section 7 (Cognito & IAM Identity Center Architecture)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Guardrail Decision-Making Analysis (Guardrail Tracing &amp; GuardrailPolicyType vs. GuardrailContentSource)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying all four <strong>Distractor Confession Patterns in Section 1B</strong> (Self-Incriminating Payoff Clause, Lifecycle Phase Mismatch, Redundant Fact Trap, and Telemetry Depth Hierarchy), we eliminate A, C, and D and lock in <strong>Option B</strong> with 100% certainty.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-f620c8e5.png', 'Official AWS Skill Builder Question & Verified Explanations — Guardrail Tracing & GuardrailPolicyType')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-f620c8e5.png" alt="Skill Builder Question — Bedrock Guardrail Tracing and GuardrailPolicyType vs GuardrailContentSource" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Guardrail Tracing &amp; GuardrailPolicyType</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5173 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-f620c8e5.png', 'Official AWS Skill Builder Question & Verified Explanations — Guardrail Tracing & GuardrailPolicyType')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Guardrail Decision-Making Analysis (Guardrail Tracing & GuardrailPolicyType vs. GuardrailContentSource)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A company is developing an AI assistant that processes customer data by using Amazon Bedrock. The AI assistant has multiple guardrails. The guardrails include prompt injection detection, sensitive information filtering, and denied topic blocking.
+
+When a customer query is blocked, a GenAI developer needs a detailed analysis of which specific guardrail rule was invoked and why the content was flagged. Then, the GenAI developer must fine-tune guardrail configurations and distinguish between legitimate customer queries and actual security threats.
+
+Which configuration provides the MOST detailed analysis of guardrail decision-making for content filtering?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-f620c8e5.png', 'Official AWS Skill Builder Question Screenshot — Question 8')" title="Click to view full question">
+            <img src="screenshots/sb-f620c8e5.png" alt="Skill Builder Question — Analyzing Guardrail Interventions with Guardrail Tracing and GuardrailPolicyType Dimensions" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option B</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Enable Amazon Bedrock model invocation logging to capture full request and response data. Configure Amazon CloudWatch alarms on InvocationsIntervened metrics filtered by GuardrailContentSource dimensions. GuardrailContentSource only indicates WHERE the block occurred (INPUT or OUTPUT), not WHICH policy rule triggered.</li>
+          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT):</strong> Configure guardrail tracing with {"trace": "enabled"} in guardrailConfig. Monitor InvocationsIntervened metrics filtered by the GuardrailPolicyType dimensions: ContentPolicy, TopicPolicy, and SensitiveInformationPolicy. Matches the 3 specific policy categories listed in the scenario 1-to-1, providing granular policy-level diagnostics.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Enable Amazon Bedrock model evaluation with automated evaluation jobs. Model evaluation jobs test prompts offline; they cannot trace or analyze live runtime customer interventions.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Configure guardrail tracing with {"trace": "enabled"} in guardrailConfig. Monitor InvocationsIntervened metrics filtered by the GuardrailContentSource dimension. ContentSource fails to distinguish between the prompt injection, sensitive info, and denied topic policies.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 1B (The 1-to-1 Structural Mirror Check & CamelCase Literalism Noun Test) & Section 7 (Bedrock Guardrails Telemetry Table)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Scalable, Event-Driven &amp; Resilient Knowledge Base Document Sync (S3 Event Notifications + SQS + Lambda vs. Direct Lambda &amp; Scheduled Sync)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Golden Rule 3 (100% Requirement Coverage — "scalable, event-driven, and resilient")</strong>, <strong>Section 8 (Amazon SQS)</strong>, and <strong>Section 9 (<code>"Event-driven ingestion / resilient S3 updates"</code>)</strong>, we eliminate A, B, and C and lock in <strong>Option D</strong> immediately.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-0e67c3d9.png', 'Official AWS Skill Builder Question & Verified Explanations — Event-Driven Resilient Knowledge Base Sync with S3 + SQS + Lambda')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-0e67c3d9.png" alt="Skill Builder Question — Scalable Event-Driven and Resilient Knowledge Base Document Sync with S3 Event Notifications, SQS, and Lambda" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Event-Driven Resilient KB Ingestion</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5074 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-0e67c3d9.png', 'Official AWS Skill Builder Question & Verified Explanations — Event-Driven Resilient Knowledge Base Sync with S3 + SQS + Lambda')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Scalable, Event-Driven & Resilient Knowledge Base Document Sync (S3 Event Notifications + SQS + Lambda vs. Direct Lambda & Scheduled Sync)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A company uses an AI assistant to answer customer questions based on internal company documents. The company wants to include new documents in the assistant's responses as soon as possible. The company wants to exclude deleted documents from the AI assistant's responses as soon as possible.
+
+The documents are stored in Amazon S3. The AI assistant uses Amazon Bedrock Knowledge Bases. Amazon S3 is the data source of the vector store that the company uses for RAG. A GenAI developer must create a scalable, event-driven, and resilient solution.
+
+Which solution will meet these requirements?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-0e67c3d9.png', 'Official AWS Skill Builder Question Screenshot — Question 9')" title="Click to view full question">
+            <img src="screenshots/sb-0e67c3d9.png" alt="Skill Builder Question — Resilient Event-Driven Knowledge Base Sync with S3, SQS, and Lambda" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option D</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Configure S3 Event Notifications to invoke an AWS Lambda function on object-created and object-deleted events. Direct S3-to-Lambda invocation lacks message buffering; sudden bursts of document uploads cause Lambda concurrency throttling and unrecoverable lost events.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Configure Amazon EventBridge Scheduler to schedule a rule that runs every 5 minutes and invokes an AWS Lambda function. Polling every 5 minutes is NOT event-driven; incurs indexing delays and operational overhead.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Configure Amazon EventBridge Scheduler to schedule a rule that runs every 5 minutes to invoke StartIngestionJob. Re-syncs the entire knowledge base data source on a timer, causing massive API overhead and throttling.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Configure S3 Event Notifications to send object-created and object-deleted events to an Amazon SQS queue. Create an AWS Lambda function to poll the queue and invoke IngestKnowledgeBaseDocuments for new objects and DeleteKnowledgeBaseDocuments for deleted objects. SQS provides decoupled buffering and automatic retries, satisfying scalable, event-driven, and resilient requirements.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Golden Rule 3 (100% Requirement Coverage — 'scalable, event-driven, and resilient') & Section 3 (Event-Driven Knowledge Base Ingestion)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
       <div class="topic-title">Cost-Effective Vector Storage at Massive Scale for Infrequent Queries (Amazon S3 Vectors)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 3 (Retrieval &amp; Vector Architecture Decision Table)</strong>, <strong>Section 8 (Vector &amp; Data Stores)</strong>, and <strong>Section 9 (<code>"High-scale vector storage / Infrequent queries / Low cost"</code>)</strong>, we eliminate A, B, and C and lock in <strong>Option D (Amazon S3 vector bucket with vector indexes)</strong> immediately.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-c842b6e1.png', 'Official AWS Skill Builder Question & Verified Explanations — Amazon S3 Vectors for Infrequent Large-Scale Similarity Search')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-c842b6e1.png" alt="Skill Builder Question — Amazon S3 Vector Bucket with Vector Indexes vs DynamoDB, RDS pgvector, and OpenSearch Serverless" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Amazon S3 Vectors</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 4723 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-c842b6e1.png', 'Official AWS Skill Builder Question & Verified Explanations — Amazon S3 Vectors for Infrequent Large-Scale Similarity Search')">🔍 Click to Enlarge Full Resolution</span>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A company is building a diagnostic imaging application. The application needs to perform similarity searches across 50 million images to assist with diagnosing and treating patients. The application must process new images daily. The application will perform similarity searches infrequently when users need to find similar cases for reference. The company wants a cost-effective solution that provides responsive search performance without requiring infrastructure management.
+
+Which solution will meet these requirements MOST cost-effectively?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-c842b6e1.png', 'Official AWS Skill Builder Question Screenshot — Question 10')" title="Click to view full question">
+            <img src="screenshots/sb-c842b6e1.png" alt="Skill Builder Question — Amazon S3 Vectors for Large-Scale Low-Frequency Similarity Search" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option D</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Use Amazon DynamoDB to store image vectors. Implement custom similarity search logic by using AWS Lambda functions. DynamoDB does not natively index vectors; custom Lambda distance calculations create high compute costs and latency.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Store image vectors in Amazon RDS for PostgreSQL with pgvector. Provisioned RDS DB instances incur continuous 24/7 compute and storage costs that remain underutilized for infrequent workloads.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Store image vectors in Amazon OpenSearch Serverless. OpenSearch Serverless charges minimum OCU compute unit baselines; less cost-effective when searches are sporadic.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Create an Amazon S3 vector bucket with vector indexes to store image embeddings and perform similarity searches. S3 Vectors is a fully managed, serverless capability of Amazon S3 that scales to billions of vectors with pay-per-query economics, ideal for infrequent searches at massive scale.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 3 (Retrieval & Vector Architecture Decision Table) & Section 8 (Amazon S3 Vectors)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Troubleshooting Bedrock Knowledge Base Document Ingestion Failures (CloudWatch Logs Insights vs. CloudTrail &amp; Invocation Logging)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 1 (Named-Feature Rule — KB Ingestion Logs vs. Model Invocation Logs vs. CloudTrail)</strong>, <strong>Section 6 (Observability Diagnostic Table)</strong>, and <strong>Section 9 (<code>Troubleshoot KB ingestion / failed documents</code>)</strong>, we eliminate B, C, and D and lock in <strong>Option A</strong> immediately.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-b470c9e2.png', 'Official AWS Skill Builder Question & Verified Explanations — Knowledge Base Logging to CloudWatch Logs')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-b470c9e2.png" alt="Skill Builder Question — Troubleshooting Bedrock Knowledge Base Document Ingestion with CloudWatch Logs Insights" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Knowledge Base Ingestion Logging</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 4498 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-b470c9e2.png', 'Official AWS Skill Builder Question & Verified Explanations — Knowledge Base Logging to CloudWatch Logs')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Troubleshooting Bedrock Knowledge Base Document Ingestion Failures (CloudWatch Logs Insights vs. CloudTrail & Invocation Logging)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A company runs a question-answering application. The application uses an Amazon Bedrock knowledge base that ingests documents from multiple Amazon S3 buckets. The company needs to monitor the data ingestion process to identify and troubleshoot any issues with document processing.
+
+Which solution will meet these requirements to monitor knowledge base operations?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-b470c9e2.png', 'Official AWS Skill Builder Question Screenshot — Question 11')" title="Click to view full question">
+            <img src="screenshots/sb-b470c9e2.png" alt="Skill Builder Question — Troubleshooting Bedrock Knowledge Base Document Ingestion Failures with CloudWatch Logs Insights" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option A</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Configure knowledge base logging with Amazon CloudWatch Logs as the destination. Use CloudWatch Logs Insights to query for failed document processing. Knowledge Base logging captures detailed document-level ingestion, parsing, and chunking error records (e.g. INDEXING_FAILED, EMBEDDING_FAILED).</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Enable AWS CloudTrail to track all API calls that relate to knowledge base operations. CloudTrail records control-plane API calls (StartIngestionJob), but contains zero document-level parsing errors or payload data.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Implement Amazon Bedrock model invocation logging to capture detailed metrics about document processing. Model invocation logging captures inference prompts and completions (LLM runtime), not Knowledge Base ingestion pipelines.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Enable Amazon CloudWatch Application Signals to automatically detect and alert on knowledge base performance issues. Application Signals monitors application services and traces, not Knowledge Base document ingestion pipelines.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 1 (Named-Feature Rule — KB Ingestion Logs vs. Model Invocation Logging) & Section 7 (Knowledge Base Ingestion Telemetry)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Multimodal Video/Photo Analysis &amp; BI Trend Dashboard (Least Operational Overhead)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Golden Rule 1 (Least Operational Overhead — Tier 1/2 Serverless)</strong>, <strong>Golden Rule 3 (100% Requirement Coverage)</strong>, and the <strong><code>Analyze photos/video / summarize trends</code></strong> trigger in <strong>Section 9</strong>, we eliminate all 3 distractors and select <strong>Option C</strong> immediately.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-3e91b7d4.png', 'Official AWS Skill Builder Question & Verified Explanations — Multimodal Fashion Trend Analysis')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-3e91b7d4.png" alt="Skill Builder Question — Multimodal Video and Photo Analysis with Bedrock, Step Functions, S3, and QuickSight" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Multimodal Fashion Trend Analysis</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5443 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-3e91b7d4.png', 'Official AWS Skill Builder Question & Verified Explanations — Multimodal Fashion Trend Analysis')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Multimodal Video/Photo Analysis & BI Trend Dashboard (Least Operational Overhead)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A company wants to create an application to analyze fashion trends. The application must analyze videos and photos from public fashion shows to understand style elements and trends. The solution must store the extracted information and provide a dashboard that summarizes the fashion trends.
+
+Which solution will meet these requirements with the LEAST operational overhead?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-3e91b7d4.png', 'Official AWS Skill Builder Question Screenshot — Question 12')" title="Click to view full question">
+            <img src="screenshots/sb-3e91b7d4.png" alt="Skill Builder Question — Multimodal Fashion Analysis with Bedrock, Step Functions, S3, and QuickSight" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option C</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Use Amazon Rekognition Custom Labels to train a custom model for fashion trend analysis. Store results in Amazon DynamoDB. Create a dashboard using Amazon Managed Grafana with custom plugins. High operational overhead collecting training labels, maintaining custom models, and developing Grafana plugins.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use an Anthropic Claude model in Amazon Bedrock to analyze text descriptions from fashion show videos and photos. Store results in Amazon OpenSearch Service. Create a dashboard using Amazon Managed Grafana. Requires manual text descriptions instead of direct multimodal processing, plus managing OpenSearch and Grafana.</li>
+          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT):</strong> Use AWS Step Functions to process videos and photos from fashion shows by using Amazon Bedrock multimodal FMs. Store analysis results in Amazon S3. Use an Amazon QuickSight dashboard to visualize trends in the data. 100% serverless Tier 1/2 managed architecture with zero custom model training or infrastructure maintenance.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Use Amazon EventBridge to trigger AWS Lambda functions that use Amazon Quick Suite to analyze videos and photos. Quick Suite does not perform raw media analysis of video and photo files.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Golden Rule 1 (Least Operational Overhead — Tier 1/2 Serverless) & Section 6 (Step Functions + Bedrock Architecture)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Prompt Template Approval Governance &amp; 7-Year Regulatory Invocation Logging (Bedrock Prompt Management + S3 Object Lock — Select TWO)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 1 (The Tier 1 Managed-Service Override Rule)</strong>, <strong>Section 2 (Pattern 7: Prompt Governance + Immutable Regulatory Audit)</strong>, and <strong>Section 6 (4-Pillar Observability Diagnostic Table)</strong>, we eliminate A, C, and D and lock in the native managed pair <strong>B and E</strong>.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-3c81f6b5.png', 'Official AWS Skill Builder Question & Verified Explanations — Bedrock Prompt Management & S3 Object Lock Compliance Logging')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-3c81f6b5.png" alt="Skill Builder Question — Prompt Template Governance with Bedrock Prompt Management and 7-Year S3 Object Lock Invocation Logging" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Prompt Governance &amp; 7-Year WORM Audit</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5590 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-3c81f6b5.png', 'Official AWS Skill Builder Question & Verified Explanations — Bedrock Prompt Management & S3 Object Lock Compliance Logging')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Prompt Template Approval Governance & 7-Year Regulatory Invocation Logging (Bedrock Prompt Management + S3 Object Lock — Select TWO)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A financial services company needs to use Amazon Bedrock to create an AI assistant that will help customer support representatives across multiple business units. A GenAI developer must ensure that prompt templates are properly governed through approval workflows. Additionally, the company requires comprehensive logging of all model invocations with a 7-year retention period for regulatory compliance.
+
+Which combination of steps will meet these requirements with MINIMAL operational overhead?
+(Select TWO)</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-3c81f6b5.png', 'Official AWS Skill Builder Question Screenshot — Question 13')" title="Click to view full question">
+            <img src="screenshots/sb-3c81f6b5.png" alt="Skill Builder Question — Prompt Template Governance and 7-Year Regulatory Invocation Logging with S3 Object Lock" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option B and Option E</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Store prompt templates in Amazon DynamoDB tables with composite keys partitioned by business units. Implement IAM policies that grant role-based access for template approval. Custom DynamoDB tables require custom code for approval workflows, increasing operational overhead compared to native Bedrock Prompt Management.</li>
+          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT):</strong> Use Amazon Bedrock Prompt Management with multi-stage approval workflows. Use IAM policies that require multi-party authorization. Native managed environment to create, parameterize, version, and govern prompt templates with built-in access controls.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Enable AWS CloudTrail data events for all Amazon Bedrock APIs. Deliver the logs to CloudTrail Lake with a 7-year retention setting. CloudTrail captures API metadata, but does not capture the actual prompt content and model responses needed for regulatory reconstruction.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Set up Amazon EventBridge rules to capture Amazon Bedrock model invocation events. Route events to CloudWatch Logs groups and export to S3. Adds unnecessary routing complexity and points of failure compared to direct Bedrock model invocation logging.</li>
+          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT):</strong> Enable Amazon Bedrock model invocation logging with Amazon S3 as the destination. Enable S3 Object Lock with compliance retention mode set to 7 years. Create separate prefixes for each business unit. Native built-in invocation logging directly to S3 with WORM compliance locking preventing any unauthorized deletion.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 1 (The Tier 1 Managed-Service Override Rule) & Section 6 (S3 Object Lock Compliance Logging)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
       <div class="topic-title">Deploying Python Agents to Amazon Bedrock AgentCore Runtime (Select TWO)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 1 (The 4 Tiers of Operational Overhead)</strong>, <strong>Section 2 (The Split-Constraint Pairing Method)</strong>, and <strong>Section 5 &amp; Section 8 (Amazon Bedrock AgentCore Runtime)</strong>, we eliminate A, B, and C for manual server/container overhead and lock in the complementary managed pair <strong>D and E</strong>.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-5c78a2f9.png', 'Official AWS Skill Builder Question & Verified Explanations — Bedrock AgentCore Runtime SDK & Starter Toolkit')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-5c78a2f9.png" alt="Skill Builder Question — Deploying Python Agent Code to Amazon Bedrock AgentCore Runtime" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Bedrock AgentCore Runtime</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5833 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-5c78a2f9.png', 'Official AWS Skill Builder Question & Verified Explanations — Bedrock AgentCore Runtime SDK & Starter Toolkit')">🔍 Click to Enlarge Full Resolution</span>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A financial services company is developing a research agent that processes complex financial data queries. The company must deploy existing Python agent code to Amazon Bedrock AgentCore Runtime. The company wants to reduce infrastructure management overhead and operational complexity.
+
+The agent must be able to handle quick data lookups that require sub-second responses. The agent must be able to handle comprehensive research report generation. For example, streaming responses over several minutes. The solution must automatically manage HTTP server configuration, endpoint routing, and health monitoring.
+
+Which deployment approaches will meet these requirements with MINIMAL operational overhead?
+(Select TWO)</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-5c78a2f9.png', 'Official AWS Skill Builder Question Screenshot — Question 14')" title="Click to view full question">
+            <img src="screenshots/sb-5c78a2f9.png" alt="Skill Builder Question — Deploying Python Agents with Bedrock AgentCore SDK and Starter Toolkit" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option D and Option E</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Implement a FastAPI server with a configuration of /invocations and /ping endpoints and container orchestration. A custom FastAPI server requires manual container builds, routing configuration, and deployment orchestration.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Deploy the agent on Amazon SageMaker AI real-time endpoints by using a custom inference container. Requires managing custom Docker images, inference servers, and auto-scaling policies.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Deploy the agent on Amazon ECS on AWS Fargate by using a custom container image that runs the AgentCore SDK application. Fargate eliminates server management but still requires task definitions, container builds, and lacks automated HTTP server/health setup.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Implement the AgentCore SDK with the @app.entrypoint decorator to automatically handle server setup and endpoint management. Automatically creates an HTTP server on port 8080, implements /invocations and /ping, and handles both quick lookups and streaming responses.</li>
+          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT):</strong> Deploy the agent by using the AgentCore starter toolkit for automated packaging, containerization, and deployment workflows. Automatically generates container images, pushes to ECR, and creates the agent runtime without custom Dockerfile builds.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 1 (The 4 Tiers of Operational Overhead) & Section 4 (Amazon Bedrock AgentCore Architecture)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Handling Peak-Period Throttling Cost-Effectively (Cross-Region Inference vs. Provisioned Throughput &amp; Prompt Routing)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Golden Rule 1 (Managed-First / Zero Additional Overhead)</strong>, <strong>Golden Rule 3 (100% Requirement Coverage — "must use the same FM")</strong>, and <strong>Section 7 (Caching, Inference Pricing &amp; Cost Optimization Table)</strong>, we eliminate A, B, and D and select <strong>Option C</strong> immediately.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-e583c2b0.png', 'Official AWS Skill Builder Question & Verified Explanations — Amazon Bedrock Cross-Region Inference')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-e583c2b0.png" alt="Skill Builder Question — Amazon Bedrock Cross-Region Inference vs Provisioned Throughput, Prompt Routing, and Custom Lambda Failover" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Cross-Region Inference</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 4291 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-e583c2b0.png', 'Official AWS Skill Builder Question & Verified Explanations — Amazon Bedrock Cross-Region Inference')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Handling Peak-Period Throttling Cost-Effectively (Cross-Region Inference vs. Provisioned Throughput & Prompt Routing)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">An ecommerce company has an application that uses Amazon Bedrock to generate product descriptions and recommendations. Currently, the application resides in a single AWS Region. When invoking a model in Amazon Bedrock during peak periods, the application receives an error. The error message says, "Too many requests, please wait before trying again."
+
+The company must increase the throughput for invocations during peak periods without introducing additional operational overhead. The company must maintain compatibility with the existing Amazon Bedrock API. The company must use the same FM.
+
+Which solution will meet these requirements in the MOST cost-effective way?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-e583c2b0.png', 'Official AWS Skill Builder Question Screenshot — Question 15')" title="Click to view full question">
+            <img src="screenshots/sb-e583c2b0.png" alt="Skill Builder Question — Mitigating Peak Throttling with Amazon Bedrock Cross-Region Inference" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option C</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Create an AWS Lambda function to invoke the model in Amazon Bedrock with the original Region as default. Configure the Lambda function to fall back to Amazon Bedrock in a secondary Region. Requires custom intermediary code, health checks, and retry logic, increasing cost and operational overhead.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use prompt routing to distribute traffic across multiple FMs from the same family. Prompt routing routes requests between different FMs; it requires at least two different models and cannot be used when the application must use the same FM.</li>
+          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT):</strong> Use cross-Region inference to distribute traffic across multiple Regions within a geographic area. Automatically distributes traffic across multiple Regions dynamically during peak bursts at zero extra cost and zero operational overhead.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Use provisioned throughput to provision a higher level of throughput for the FM. Provisioned throughput requires steady-state commitments, making it cost-ineffective for temporary peak periods.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Golden Rule 1 (Managed-First / Zero Additional Overhead) & Section 5 (Cross-Region Inference vs. Prompt Routing vs. Provisioned Throughput)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Pre-Ingestion PII Detection &amp; Redaction for Enterprise Search (Amazon Comprehend + Amazon Kendra vs. Macie &amp; System Prompts)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 6 (Bidirectional PII Defense)</strong> and <strong>Section 9 (<code>"Bidirectional PII defense"</code>)</strong>, we eliminate A (system prompt PII trap), B (Macie discovery-only trap), and D (DocumentDB database vs. enterprise search), leaving <strong>Option C</strong> as the winner.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-d749e2a8.png', 'Official AWS Skill Builder Question & Verified Explanations — Amazon Comprehend PII Redaction + Amazon Kendra Enterprise Search')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-d749e2a8.png" alt="Skill Builder Question — Amazon Comprehend PII Redaction and Amazon Kendra Enterprise Search vs Macie, Textract, and DocumentDB" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Comprehend PII Redaction + Kendra Search</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5506 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-d749e2a8.png', 'Official AWS Skill Builder Question & Verified Explanations — Amazon Comprehend PII Redaction + Amazon Kendra Enterprise Search')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Pre-Ingestion PII Detection & Redaction for Enterprise Search (Amazon Comprehend + Amazon Kendra vs. Macie & System Prompts)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A financial services company wants to develop a mobile app that will help users with account inquiries and general account information. The company has a large amount of email exchange data between customers and support staff to use as source material. The data is stored in an Amazon S3 bucket and contains personally identifiable information (PII) that should not appear in search results.
+
+Which solution will meet these requirements?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-d749e2a8.png', 'Official AWS Skill Builder Question Screenshot — Question 16')" title="Click to view full question">
+            <img src="screenshots/sb-d749e2a8.png" alt="Skill Builder Question — Pre-Ingestion PII Redaction with Amazon Comprehend and Amazon Kendra" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option C</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Use Amazon Kendra to enable enterprise search of the email data that is stored in Amazon S3. Integrate Amazon Kendra with an Amazon Bedrock FM. Use a system prompt to identify and remove PII during query processing. System prompts cannot reliably prevent sensitive financial data leakage and are susceptible to prompt injection/jailbreaking; unredacted PII remains stored in Kendra.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use Amazon Textract to extract text from email data. Use Amazon Macie to scan for PII in Amazon S3. Integrate Amazon Textract and Amazon S3 with Amazon Kendra. Textract is optimized for scanned documents/images, not raw email text; Macie alerts on sensitive data in S3 but does not perform inline redaction.</li>
+          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT):</strong> Use Amazon Comprehend to detect and redact PII from the email data that is stored in Amazon S3. Integrate Amazon Comprehend with Amazon Kendra to enable enterprise search of the processed data. Comprehend provides built-in PII detection and redaction, ensuring sanitized text is indexed into Kendra.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Use Amazon Comprehend to detect and redact PII from the email data stored in Amazon S3. Integrate Amazon Comprehend with Amazon DocumentDB to enable database queries. DocumentDB is a document database, not an enterprise natural-language search engine.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 6 (Bidirectional PII Defense & Pre-Ingestion Sanitization) & Section 8 (Amazon Comprehend + Amazon Kendra)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
       <div class="topic-title">SageMaker AI Inference Deployment Modes (On-Demand GPU + 50 MB Payload + 15-Minute Timeout)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Golden Rule 3 (100% Requirement Coverage)</strong>, <strong>Section 5 (Choose the Abstraction)</strong>, <strong>Section 8 (SageMaker AI Inference Modes Table)</strong>, and <strong>Section 9 (Scenario Triggers)</strong>, we check the 4 hard constraints (On-Demand, GPU, 50 MB payload, 15-minute response) against each SageMaker deployment mode and prove <strong>Option D</strong> is the only mode that satisfies all four.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-d209f4b3.png', 'Official AWS Skill Builder Question & Verified Explanations — SageMaker Asynchronous Inference')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-d209f4b3.png" alt="Skill Builder Question — SageMaker Asynchronous Inference vs Real-Time, Serverless, and Batch Transform" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — SageMaker Asynchronous Inference</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 4714 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-d209f4b3.png', 'Official AWS Skill Builder Question & Verified Explanations — SageMaker Asynchronous Inference')">🔍 Click to Enlarge Full Resolution</span>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A GenAI developer is implementing a solution to create images from text descriptions. The GenAI developer successfully tested a pre-trained Hugging Face model by using Amazon SageMaker JumpStart. Now, the GenAI developer needs to deploy the model so that users can generate images on demand.
+
+The solution must use GPUs for inference. The solution must be able to handle text datasets up to 50 MB with image descriptions. The solution requires responses within 15 minutes.
+
+Which deployment strategy will meet these requirements?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-d209f4b3.png', 'Official AWS Skill Builder Question Screenshot — Question 17')" title="Click to view full question">
+            <img src="screenshots/sb-d209f4b3.png" alt="Skill Builder Question — SageMaker Asynchronous Inference for Large Payloads and Long Processing Times" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option D</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Deploy a SageMaker Serverless Inference endpoint that uses a general purpose SageMaker AI instance type. Serverless endpoints do not support GPU acceleration, have a 4 MB payload limit, and max out at 200 seconds timeout.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Deploy a SageMaker Real-Time Inference endpoint that uses an accelerated computing SageMaker AI instance type. Real-Time endpoints have a 6 MB payload limit and 60-second maximum timeout; fails both the 50 MB payload and 15-minute response requirement.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Create a SageMaker AI batch transform job that uses an accelerated computing SageMaker AI instance type. Batch transform is designed for offline processing of large datasets in batches, not on-demand interactive single-job requests.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Deploy a SageMaker Asynchronous Inference endpoint that uses an accelerated computing SageMaker AI instance type. Create an AWS Lambda function for on-demand invocation of the SageMaker AI endpoint to manage image generation. Supports GPU compute, payloads up to 1 GB, execution times up to 15 minutes (900 seconds), and auto-scales to zero when idle.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Golden Rule 3 (100% Requirement Coverage) & Section 3 (SageMaker 4-Mode Hosting Decision Table)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
       <div class="topic-title">Improving RAG Relevance Ranking with Minimal Overhead (Hybrid Search + Bedrock Reranker Models — Select TWO)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 1 (The 4 Tiers of Operational Overhead)</strong>, <strong>Section 2 (Retrieval Candidate Gen + Reranking Pairing Pattern)</strong>, and <strong>Section 3 (Retrieval &amp; Vector Architecture Decision Table)</strong>, we eliminate B, D, and E for custom model/code overhead and lock in the managed pair <strong>A and C</strong>.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-2b96e4c3.png', 'Official AWS Skill Builder Question & Verified Explanations — Bedrock Knowledge Bases Hybrid Search & Reranker Models')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-2b96e4c3.png" alt="Skill Builder Question — Improving RAG Relevance Ranking with Knowledge Bases Hybrid Search and Bedrock Reranker Models" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Hybrid Search &amp; Reranker Models</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5914 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-2b96e4c3.png', 'Official AWS Skill Builder Question & Verified Explanations — Bedrock Knowledge Bases Hybrid Search & Reranker Models')">🔍 Click to Enlarge Full Resolution</span>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A company is developing a RAG application by using Amazon Bedrock. The application processes customer support documents. Initially, the application retrieves many relevant documents. However, users report that the most relevant information often appears lower in the results. The company wants to improve the relevance ranking of retrieved results to ensure that the most useful information appears first.
+
+Which combination of steps will improve the relevance of retrieved results with MINIMAL operational overhead?
+(Select TWO)</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-2b96e4c3.png', 'Official AWS Skill Builder Question Screenshot — Question 18')" title="Click to view full question">
+            <img src="screenshots/sb-2b96e4c3.png" alt="Skill Builder Question — Improving RAG Relevance with Bedrock Hybrid Search and Semantic Reranker Models" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option A and Option C</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Use Knowledge Bases with hybrid search capabilities and Amazon OpenSearch Serverless to combine vector embeddings with keyword matching. Combines vector semantic search with BM25 keyword matching to capture exact terms and technical keywords, improving initial retrieval relevance.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Create an Amazon Aurora PostgreSQL database with the pgvector extension to store document embeddings. Create a similarity scoring algorithm that combines vector distances with document metadata. Requires custom database management, schema creation, and custom ranking algorithm development.</li>
+          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT):</strong> Use Amazon Bedrock reranker models with Amazon OpenSearch Service to reorder retrieved results based on semantic relevance to the query. Managed cross-encoder reranker models score and reorder retrieved candidate chunks based on true query relevance with minimal operational overhead.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Use Amazon SageMaker JumpStart FMs with Amazon Kendra Intelligent Ranking to create custom relevancy scoring algorithms. SageMaker JumpStart requires custom model deployment and maintenance, adding high operational overhead.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option E (ELIMINATE):</strong> Configure Amazon OpenSearch Serverless with the Amazon Bedrock Knowledge Bases plugin. Use OpenSearch's Learning to Rank feature for relevance scoring. Learning to Rank requires collecting judgment lists and training custom ML ranking models.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 1 (The 4 Tiers of Operational Overhead) & Section 3 (Hybrid Search & Semantic Reranking)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Real-Time Web Article Editor with Style Guide &amp; Category Routing (Least Operational Overhead)</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 1 (The 4 Tiers of Operational Overhead)</strong>, <strong>Golden Rule 3 (100% Requirement Coverage)</strong>, and <strong>Section 5 (Real-Time Streaming Architectures &amp; API Gateway Setup)</strong>, we eliminate B, C, and D and lock in <strong>Option A</strong> immediately.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-1f64d9a2.png', 'Official AWS Skill Builder Question & Verified Explanations — Real-Time WebSocket Streaming & Bedrock Prompt Management')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-1f64d9a2.png" alt="Skill Builder Question — API Gateway WebSocket API, Lambda, Bedrock Prompt Management, and Streaming API" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — Real-Time WebSocket Streaming</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5308 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-1f64d9a2.png', 'Official AWS Skill Builder Question & Verified Explanations — Real-Time WebSocket Streaming & Bedrock Prompt Management')">🔍 Click to Enlarge Full Resolution</span>
+      <div class="topic-title">Real-Time Web Article Editor with Style Guide & Category Routing (Least Operational Overhead)</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A news media company wants to develop a content conformance tool that automatically reviews and adjusts articles to ensure compliance with a style guide. Journalists need a web-based article editor that provides real-time analysis of content upon request.
+
+When journalists click an "analyze" button, the system should immediately begin providing suggested revisions through the editor interface. Articles are tagged with content categories in the metadata. Examples of categories include news, sports, and editorial. The company wants to use an Amazon Bedrock FM to analyze content and provide immediate feedback through the web-based article editor interface.
+
+Which architecture will meet these requirements with the LEAST operational overhead?</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-1f64d9a2.png', 'Official AWS Skill Builder Question Screenshot — Question 19')" title="Click to view full question">
+            <img src="screenshots/sb-1f64d9a2.png" alt="Skill Builder Question — Real-Time Web Article Editor with API Gateway WebSocket, Bedrock Prompt Management, and Streaming" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Option A</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Deploy an Amazon API Gateway WebSocket API linked to an AWS Lambda function. Configure the function to read the content category from metadata and route content to the appropriate Amazon Bedrock model based on the category tag. Configure the function to use Amazon Bedrock Prompt Management to enforce style guide rules. Use the Amazon Bedrock streaming API to return suggestions in real time. Serverless bi-directional streaming provides immediate token suggestions with managed prompt governance at minimal operational overhead.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Create an Amazon API Gateway REST API with AWS Lambda function URLs to enable response streaming. Configure the Lambda function to process articles and stream suggestions using chunked transfer encoding. Function URLs with chunked transfer encoding lack unified WebSocket session management for interactive editing.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Configure an Application Load Balancer with Amazon ECS tasks that run custom containers. Implement content category routing logic and style guide checking within the containers. High operational overhead managing container tasks, cluster scaling, and custom WebSocket routing.</li>
+          <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Implement an Amazon SQS queue for article ingestion. Create AWS Step Functions workflows to process content. Use AWS Lambda functions to determine content category and invoke models. Storing in SQS introduces queue polling latency, failing the requirement for immediate real-time feedback.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 1 (The 4 Tiers of Operational Overhead), Golden Rule 1 (Tier 1/2 Serverless First), and Section 4 (Streaming APIs & Prompt Management)</strong>.
         </div>
       </div>
     </div>
 
     <div class="topic-card">
-      <div class="topic-title">Sequential Validation &amp; Ordering Workflow for Production FM Replacement</div>
-      <p><strong>How the Guide Solves This Question Without Hesitation:</strong> By applying <strong>Section 6 (Sequential Model Evaluation &amp; Production Replacement Workflow — 5-Step Ordering Rule)</strong>, we trace what each step <em>produces</em> and <em>consumes</em> so every step builds upon the validated outputs of the step immediately before it.</p>
-      
-      <div class="proof-screenshot-wrap">
-      <button type="button" class="proof-screenshot-btn" onclick="openLightbox('screenshots/sb-4a19f7d6.png', 'Official AWS Skill Builder Question & Verified Explanations — 5-Step Sequential Model Evaluation Workflow')" title="Click to view full-resolution screenshot">
-      <img src="screenshots/sb-4a19f7d6.png" alt="Skill Builder Question — Sequential Model Evaluation Ordering Workflow with Step Functions Quality Gates" class="proof-screenshot" />
-      </button>
-      <div class="proof-screenshot-info">
-      <div class="proof-screenshot-caption">Official AWS Skill Builder Question &amp; Verified Explanations — 5-Step Sequential Model Evaluation Workflow</div>
-      <div class="proof-screenshot-recommend"><strong>Recommended:</strong> Click the miniature thumbnail on the left to inspect the full-resolution screenshot (<code>3738 &times; 5635 px</code>) and read the official AWS Skill Builder question and option-by-option explanations for yourself. Click anywhere outside the full-size image (or press <code>Esc</code>) to return to the guide.</div>
-      <span class="proof-zoom-pill" onclick="openLightbox('screenshots/sb-4a19f7d6.png', 'Official AWS Skill Builder Question & Verified Explanations — 5-Step Sequential Model Evaluation Workflow')">🔍 Click to Enlarge Full Resolution</span>
-        <!-- ==================== TAB: 2. Pairing Techniques &amp; Multi-Select Mastery (Pick Two / Pick Three) ==================== -->
+      <div class="topic-title">Sequential Validation & Ordering Workflow for Production FM Replacement</div>
+
+      <div class="proof-question-box">
+        <div class="proof-question-label">Official AWS Skill Builder Question:</div>
+
+        <p class="proof-question-text">A company is implementing a systematic evaluation process for a newly deployed FM in Amazon Bedrock. The company wants to replace an existing model in production with a new model. The change to the new model is dependent on the new model demonstrating better performance than the existing model. The company must follow a sequential validation process. To ensure evaluation rigor, each step must be reviewed and approved before proceeding to the next step. Select and order each step from the following list to implement the evaluation workflow. Select each step one time.</p>
+
+        <div class="proof-thumb-preview">
+          <button type="button" class="proof-thumb-btn" onclick="openLightbox('screenshots/sb-4a19f7d6.png', 'Official AWS Skill Builder Question Screenshot — Question 20')" title="Click to view full question">
+            <img src="screenshots/sb-4a19f7d6.png" alt="Skill Builder Question — 5-Step Sequential Workflow for Replacing a Foundation Model in Production" class="proof-thumb-img" />
+            <span class="proof-thumb-caption">🔍 Click to view full question</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="proof-dissection-block">
+        <div class="proof-answer-line">
+          <strong>Official Verified Answer:</strong>
+          <span class="proof-pill-correct">Ordered Sequence (1 → 5)</span>
+        </div>
+
+        <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
+        <ul class="proof-options-list">
+          <li class="proof-option-item correct"><strong>✅ Step 1 (CORRECT):</strong> Define evaluation metrics for relevance, factual accuracy, and fluency. Establishes the quantitative evaluation criteria, ground-truth targets, and scoring rubric before any testing.</li>
+          <li class="proof-option-item correct"><strong>✅ Step 2 (CORRECT):</strong> Create a test dataset with diverse scenarios and edge cases. Curates the benchmark dataset of representative and adversarial prompts required to test the defined metrics.</li>
+          <li class="proof-option-item correct"><strong>✅ Step 3 (CORRECT):</strong> Conduct A/B testing to compare the new model against the existing production model. Runs both models side-by-side on the curated test dataset to generate comparative evaluation output.</li>
+          <li class="proof-option-item correct"><strong>✅ Step 4 (CORRECT):</strong> Implement automated quality gates by using AWS Step Functions. Enforces automated checkpoints that verify the A/B test outputs against predefined quality thresholds before reporting.</li>
+          <li class="proof-option-item correct"><strong>✅ Step 5 (CORRECT):</strong> Analyze the results and generate a comprehensive evaluation report. Synthesizes findings into the final validation report for review and executive approval before production cutover.</li>
+        </ul>
+
+        <div class="proof-rule-line">
+          <strong>How the Guide Proves This:</strong> By applying <strong>Section 6 (Sequential Model Evaluation & Production Replacement Pipeline) & Section 1B (Pattern 2: Lifecycle Timing & Data-Flow Dependency)</strong>.
         </div>
       </div>
     </div>
