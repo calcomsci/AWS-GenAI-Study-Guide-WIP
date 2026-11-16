@@ -389,25 +389,14 @@
       gap: 1.75rem;
     }
 
+    /* Uniform, Consistent Enclosing Border for Every Section (Matching Search Bar) */
     section {
       background: var(--panel);
-      border: 1px solid var(--border);
-      border-top: 5px solid #ff9900;
+      border: 2px solid #ff9900;
       border-radius: 10px;
       padding: 1.5rem;
       box-shadow: var(--shadow-card);
     }
-    /* Vibrant Amazon Card Accent Colors per Section */
-    section[data-section="strategy"] { border-top-color: #ff6200; }
-    section[data-section="pairing"]  { border-top-color: #e91e63; }
-    section[data-section="rag"]      { border-top-color: #008296; }
-    section[data-section="bedrock"]  { border-top-color: #067d62; }
-    section[data-section="orchestration"] { border-top-color: #7c3aed; }
-    section[data-section="security"] { border-top-color: #cc0c39; }
-    section[data-section="cost"]     { border-top-color: #d97706; }
-    section[data-section="services"] { border-top-color: #007185; }
-    section[data-section="matrix"]   { border-top-color: #db2777; }
-    section[data-section="heuristics"] { border-top-color: #059669; }
 
     section > h2 {
       font-size: 1.3rem;
