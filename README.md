@@ -8,6 +8,9 @@ https://calcomsci.github.io/AWS-GenAI-Study-Guide-WIP/
 The validity of the guide contents itself is in the verification phase. While I used generative AI extensively to generate the content in the guide, a human still needs to verify that its contents actually work. It took me about two months to prepare for the first mock exam, in which I passed. The bare minimum to pass the exam is 750/1000 score, or roughly 59-60 questions answered correctly. The exam contains 10 ungraded answers. That means out of the 75 questions, you must answer 59 answers correctly. To compensate for 10 ungraded questions, you must then assume that 10 of those questions are ungraded and won't positively or negatively affect your score. Since you are not supposed to know which of those 10 questions are ungraded, the bare minimum to pass a 75 question exam and be able to score a 750/1000 or more is mathematically 59 correct answers.  
 
 
+If you want to practice official exam questions on AWS Skill Builder, access the practice question set here:
+[http://skillbuilder.aws](https://skillbuilder.aws/assessments/en/24e217da-46f1-4341-92da-e81832f6231b/1?product_id=ZDANP82P4V%3A001.001.000&registration_id=ebd3c734-4882-5408-a364-ccaa6b88479f&referrer=https%3A%2F%2Fskillbuilder.aws%2Flearn%2FHSEKTD11NX%2Fofficial-practice-question-set-aws-certified--generative-ai-developer--professional-aipc01--english%2FZDANP82P4V%3FparentId%3D4SCMN2659K&navigation=digital&parentId=4SCMN2659K)
+
 If you want to prepare for the examination yourself, you can take the introductory content found at Skill Builder AWS site.
 https://skillbuilder.aws/learning-plan/9VXVGYT38G/exam-prep-plan-aws-certified-generative-ai-developer--professional-aipc01--english/4SCMN2659K
 

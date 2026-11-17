@@ -124,7 +124,7 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: "Helvetica Neue", Helvetica, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      font-family: "Amazon Ember", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.55;
@@ -133,6 +133,15 @@
     }
     button, input, select {
       font-family: inherit;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.15s ease;
+    }
+    a:hover {
+      color: var(--accent-bright);
     }
 
     /* Top Header (Theme-Aware: White w/ Black Text or Black w/ White Text) */
@@ -594,7 +603,7 @@
       color: var(--code-text);
       padding: 0.12rem 0.35rem;
       border-radius: 4px;
-      font-family: SFMono-Regular, Consolas, monospace;
+      font-family: "Amazon Ember Mono", SFMono-Regular, Consolas, monospace;
       font-size: 0.88em;
       font-weight: 600;
     }
@@ -967,7 +976,7 @@
   </div>
   <div class="last-updated-bar">
     <span class="last-updated-badge">Last Updated</span>
-    <span class="last-updated-text" id="lastUpdatedText"><strong id="lastUpdatedDate">November 16, 2026</strong> • <span id="lastUpdatedSummary">Added Section 1C: Proof This Guide Works (Official Skill Builder Question-by-Question Dissection)</span></span>
+    <span class="last-updated-text" id="lastUpdatedText"><strong id="lastUpdatedDate">November 16, 2026</strong> • <span id="lastUpdatedSummary">Added Section 11: Resources (Official Skill Builder Exam Practice Questions Link)</span></span>
   </div>
 </header>
 
@@ -988,6 +997,7 @@
         <option value="services">8. Services Reference</option>
         <option value="matrix">9. Elimination Tables</option>
         <option value="heuristics">10. Quick Rules &amp; Checklist</option>
+        <option value="resources">11. Resources</option>
       </select>
       <input type="text" id="searchInput" placeholder="Search concepts, services, distractors..." />
       <div class="amazon-search-badge" aria-hidden="true">🔍</div>
@@ -3338,6 +3348,23 @@ Which architecture will meet these requirements with the LEAST operational overh
               <li>Check freshness, access, quality, latency, and cost before committing.</li>
             </ol>
             <div class="warning"><span class="label">Answer discipline</span>Do not select the most familiar AWS service. Select the service whose primary purpose matches the strongest requirement keyword.</div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB: 11. Resources ==================== -->
+  <section data-section="resources" class="searchable-section">
+    <h2>11. Resources</h2>
+    <div class="topic-card">
+      <div class="topic-title">Official AWS Skill Builder Practice Questions</div>
+      <p>This resources section provides all the essential links needed so you can take and practice the official Skill Builder exam questions for the AWS Certified Generative AI Developer — Professional (AIP-C01) certification.</p>
+
+      <div class="fact" style="margin-top: 1rem;">
+        <span class="label">Official Practice Exam Assessment</span>
+        <p style="margin-bottom: 0.5rem;">Access the official practice question set directly through the AWS Skill Builder website to begin practicing:</p>
+        <p style="font-size: 1.05rem; font-weight: 600;">
+          <a href="https://skillbuilder.aws/assessments/en/24e217da-46f1-4341-92da-e81832f6231b/1?product_id=ZDANP82P4V%3A001.001.000&amp;registration_id=ebd3c734-4882-5408-a364-ccaa6b88479f&amp;referrer=https%3A%2F%2Fskillbuilder.aws%2Flearn%2FHSEKTD11NX%2Fofficial-practice-question-set-aws-certified--generative-ai-developer--professional-aipc01--english%2FZDANP82P4V%3FparentId%3D4SCMN2659K&amp;navigation=digital&amp;parentId=4SCMN2659K" target="_blank" rel="noopener noreferrer">http://skillbuilder.aws</a>
+        </p>
+      </div>
     </div>
   </section>
 </main>
