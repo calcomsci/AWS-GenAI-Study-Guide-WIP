@@ -7,16 +7,19 @@ https://calcomsci.github.io/AWS-GenAI-Study-Guide-WIP/
 
 The validity of the guide contents itself is in the verification phase. While I used generative AI extensively to generate the content in the guide, a human still needs to verify that its contents actually work. It took me about two months to prepare for the first mock exam, in which I passed. The bare minimum to pass the exam is 750/1000 score, or roughly 59-60 questions answered correctly. The exam contains 10 ungraded answers. That means out of the 75 questions, you must answer 59 answers correctly. To compensate for 10 ungraded questions, you must then assume that 10 of those questions are ungraded and won't positively or negatively affect your score. Since you are not supposed to know which of those 10 questions are ungraded, the bare minimum to pass a 75 question exam and be able to score a 750/1000 or more is mathematically 59 correct answers.  
 
+### ⚠️ Warning Regarding Unsupervised AI-Generated Content & Third-Party Quiz Apps
+
+**Never allow any AI to generate study material or content on your behalf without strict human guidance, proofreading, and ground-truth supervision.** Allowing an AI to generate content autonomously—without human verification—inevitably introduces **hallucinatory, misleading, and factually flawed material**.
+
+The evolution of this repository is absolute proof of that danger:
+* **Why Third-Party Quiz App Content Is Being Purged:** Earlier versions of this study guide were built by feeding screenshots from a third-party mobile quiz app into an AI. When compared side-by-side against official **AWS Skill Builder (`skillbuilder.aws`)** practice assessments, the third-party quiz app questions proved to be shallow, unrepresentative definition lookups surrounded by AI-hallucinated distractors (fabricated AWS behaviors that do not exist in reality) and random low-level trivia.
+* **Human-Supervised Verification Against Official AWS Sources Only:** Relying on unsupervised AI-generated quiz questions creates a false sense of security that will fail you on a Professional-level exam. Consequently, I am actively purging the quiz-app-derived content from this guide and restricting the study guide's knowledge base strictly to **human-reviewed, official AWS Skill Builder (`skillbuilder.aws`) practice questions and verified AWS architecture patterns**. Every rule and question dissection in **Section 1C (Proof This Guide Works)** is backed by full-resolution official Skill Builder screenshots so you can verify the source material for yourself.
+
+
 
 If you want to practice official exam questions on AWS Skill Builder, access the practice question set here:
 [http://skillbuilder.aws](https://skillbuilder.aws/assessments/en/24e217da-46f1-4341-92da-e81832f6231b/1?product_id=ZDANP82P4V%3A001.001.000&registration_id=ebd3c734-4882-5408-a364-ccaa6b88479f&referrer=https%3A%2F%2Fskillbuilder.aws%2Flearn%2FHSEKTD11NX%2Fofficial-practice-question-set-aws-certified--generative-ai-developer--professional-aipc01--english%2FZDANP82P4V%3FparentId%3D4SCMN2659K&navigation=digital&parentId=4SCMN2659K)
 
 If you want to prepare for the examination yourself, you can take the introductory content found at Skill Builder AWS site.
 https://skillbuilder.aws/learning-plan/9VXVGYT38G/exam-prep-plan-aws-certified-generative-ai-developer--professional-aipc01--english/4SCMN2659K
-
-If you want a mobile app to help you prepare for the AWS AIP-C01 exam, I suggest you download the app below:
-
-iOS: https://apps.apple.com/us/app/aws-ai-developer-exam-prep/id6760701090
-
-Android: https://play.google.com/store/apps/details?id=com.techprep.awsgenai&pli=1
 

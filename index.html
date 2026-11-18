@@ -245,6 +245,113 @@
     .last-updated-text strong {
       color: var(--updated-date-color);
     }
+    .update-history-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .update-history-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: var(--select-bg);
+      color: var(--header-text);
+      border: 1px solid var(--select-border);
+      padding: 0.16rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .update-history-btn:hover {
+      background: var(--select-hover-bg);
+      border-color: #ff9900;
+    }
+    .update-history-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: min(520px, 92vw);
+      max-height: 420px;
+      overflow-y: auto;
+      background: var(--panel);
+      border: 2px solid #ff9900;
+      border-radius: 10px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      z-index: 250;
+      text-align: left;
+      padding: 0.65rem 0.8rem;
+    }
+    .update-history-dropdown.open {
+      display: block;
+    }
+    .update-history-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--heading);
+      padding-bottom: 0.45rem;
+      margin-bottom: 0.45rem;
+      border-bottom: 1px solid var(--divider);
+    }
+    .update-history-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .update-history-item {
+      padding: 0.42rem 0.55rem;
+      border-radius: 6px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .update-history-item:first-child {
+      border-left: 3px solid var(--green);
+    }
+    .update-history-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+    .update-history-date {
+      font-weight: 700;
+      color: var(--heading);
+    }
+    .update-history-sha {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .update-history-sha:hover {
+      text-decoration: underline;
+    }
+    .update-history-msg {
+      color: var(--text);
+      word-break: break-word;
+    }
+    .update-history-footer {
+      margin-top: 0.5rem;
+      padding-top: 0.45rem;
+      border-top: 1px solid var(--divider);
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
 
     /* Sticky Menu Bar (Theme-Aware: White w/ Black Text or Black w/ White Text) */
     .sticky-toolbar {
@@ -973,7 +1080,63 @@
   </div>
   <div class="last-updated-bar">
     <span class="last-updated-badge">Last Updated</span>
-    <span class="last-updated-text" id="lastUpdatedText"><strong id="lastUpdatedDate">November 16, 2026</strong> • <span id="lastUpdatedSummary">Added Section 11: Resources (Official Skill Builder Exam Practice Questions Link)</span></span>
+    <span class="last-updated-text" id="lastUpdatedText"><strong id="lastUpdatedDate">November 17, 2026</strong> • <span id="lastUpdatedSummary">Added "Update History ▾" Dropdown Log (10 Most Recent Updates) &amp; Bolded Section 1C Verbatim Answers</span></span>
+    <div class="update-history-wrap" id="updateHistoryWrap">
+      <button type="button" class="update-history-btn" id="updateHistoryBtn" aria-expanded="false" onclick="toggleUpdateHistory(event)" title="View the 10 most recent updates to this study guide">
+        Update History ▾
+      </button>
+      <div class="update-history-dropdown" id="updateHistoryDropdown" role="region" aria-label="10 Most Recent Guide Updates">
+        <div class="update-history-header">
+          <span>10 Most Recent Updates (Version Control Log)</span>
+          <span style="font-weight: 500; color: var(--text-muted); font-size: 0.72rem;">Synced with GitHub</span>
+        </div>
+        <ol class="update-history-list" id="updateHistoryList">
+          <li class="update-history-item">
+            <div class="update-history-meta"><span class="update-history-date">November 17, 2026 (Latest Local Edit)</span><span class="update-history-sha">Working Copy</span></div>
+            <div class="update-history-msg">Added "Update History ▾" dropdown log (10 most recent updates), bolded verbatim official Skill Builder answers in Section 1C, moved 5-Step "Final Pass" recap to bottom of Section 1, and removed Quiz-App heuristics page.</div>
+          </li>
+          <li class="update-history-item">
+            <div class="update-history-meta"><span class="update-history-date">November 16, 2026 (6:49 PM)</span><a class="update-history-sha" href="https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commit/09f0915" target="_blank" rel="noopener noreferrer">09f0915</a></div>
+            <div class="update-history-msg">Removed the pointing finger on the link next to the AWS site.</div>
+          </li>
+          <li class="update-history-item">
+            <div class="update-history-meta"><span class="update-history-date">November 16, 2026 (6:47 PM)</span><a class="update-history-sha" href="https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commit/8456823" target="_blank" rel="noopener noreferrer">8456823</a></div>
+            <div class="update-history-msg">Refined wording ("understand") in Resources section.</div>
+          </li>
+          <li class="update-history-item">
+            <div class="update-history-meta"><span class="update-history-date">November 16, 2026 (6:41 PM)</span><a class="update-history-sha" href="https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commit/49b37a0" target="_blank" rel="noopener noreferrer">49b37a0</a></div>
+            <div class="update-history-msg">Updated links and typography across the guide.</div>
+          </li>
+          <li class="update-history-item">
+            <div class="update-history-meta"><span class="update-history-date">November 16, 2026 (6:36 PM)</span><a class="update-history-sha" href="https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commit/c5af306" target="_blank" rel="noopener noreferrer">c5af306</a></div>
+            <div class="update-history-msg">Resources and fonts — Added Resources page and updated font stack to closely match AWS documentation styling.</div>
+          </li>
+          <li class="update-history-item">
+            <div class="update-history-meta"><span class="update-history-date">November 16, 2026 (1:27 PM)</span><a class="update-history-sha" href="https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commit/741c413" target="_blank" rel="noopener noreferrer">741c413</a></div>
+            <div class="update-history-msg">Fixed borders — Applied uniform #ff9900 enclosing border across every Table of Contents section matching the search bar.</div>
+          </li>
+          <li class="update-history-item">
+            <div class="update-history-meta"><span class="update-history-date">November 16, 2026 (1:13 PM)</span><a class="update-history-sha" href="https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commit/df8a599" target="_blank" rel="noopener noreferrer">df8a599</a></div>
+            <div class="update-history-msg">Section 1C release — Streamlined Section 1C layout with verbatim question stems, fitted screenshot thumbnails, and full dissections.</div>
+          </li>
+          <li class="update-history-item">
+            <div class="update-history-meta"><span class="update-history-date">November 16, 2026 (12:50 PM)</span><a class="update-history-sha" href="https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commit/5e37ec2" target="_blank" rel="noopener noreferrer">5e37ec2</a></div>
+            <div class="update-history-msg">Stacks fixed in Section 1C — Restored full option-by-option explanations and fixed card stacking.</div>
+          </li>
+          <li class="update-history-item">
+            <div class="update-history-meta"><span class="update-history-date">November 16, 2026 (12:40 PM)</span><a class="update-history-sha" href="https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commit/8fbe23d" target="_blank" rel="noopener noreferrer">8fbe23d</a></div>
+            <div class="update-history-msg">Fixed the card div nesting issue in Section 1C.</div>
+          </li>
+          <li class="update-history-item">
+            <div class="update-history-meta"><span class="update-history-date">November 16, 2026 (12:35 PM)</span><a class="update-history-sha" href="https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commit/bbe8c2e" target="_blank" rel="noopener noreferrer">bbe8c2e</a></div>
+            <div class="update-history-msg">Proof This Guide Works update — Uploaded 20 unique official Skill Builder questions to verify that the guide works.</div>
+          </li>
+        </ol>
+        <div class="update-history-footer">
+          <a href="https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commits/main" target="_blank" rel="noopener noreferrer">View Full Commit History on GitHub ↗</a>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -993,8 +1156,7 @@
         <option value="cost">7. Cost Optimization</option>
         <option value="services">8. Services Reference</option>
         <option value="matrix">9. Elimination Tables</option>
-        <option value="heuristics">10. Quick Rules &amp; Checklist</option>
-        <option value="resources">11. Resources</option>
+        <option value="resources">10. Resources</option>
       </select>
       <input type="text" id="searchInput" placeholder="Search concepts, services, distractors..." />
       <div class="amazon-search-badge" aria-hidden="true">🔍</div>
@@ -1157,6 +1319,25 @@
             </ul>
             <div class="warning"><strong>Final rule:</strong> Common sense eliminates bad architecture; AWS service knowledge chooses the supported one. Preserve baselines during migrations, use canary or parallel telemetry when appropriate, and verify capability + configuration + workload fit before committing.</div>
     </div>
+    <div class="topic-card">
+      <div class="topic-title">Final Pass (Quick Summary of the "Cut the Crap" Method)</div>
+      <p>Use this 5-step recap at the end of Page 1 to lock in the method before moving into the question-dissection framework (<strong>Section 1B</strong>), the 20 official Skill Builder question dissections (<strong>Section 1C</strong>), and the architectural reference tables across the rest of the guide:</p>
+      <ol>
+        <li><strong>Read the final sentence and identify the constraint:</strong> Lock onto the binding condition first—for example, <em>"LEAST / MINIMAL operational overhead"</em> immediately filters your focus toward <strong>Tier 1 Native Bedrock capabilities</strong> and <strong>Tier 2 Serverless keywords</strong> (<code>AWS Lambda</code>, <code>Step Functions</code>, <code>API Gateway</code>, <code>SQS</code>, <code>S3</code>) while cutting heavy infrastructure.</li>
+        <li><strong>Classify the workload:</strong> Identify whether the problem lives in <strong>model, retrieval, state, security, cost, or operations</strong>.</li>
+        <li><strong>Choose the managed service that directly owns that capability:</strong> Default to the native AWS service built specifically for that job rather than a custom DIY workaround.</li>
+        <li><strong>Eliminate answers that add infrastructure, violate state boundaries, or solve a different problem:</strong> Use this filter to separate the 3 distractors from the actual working solution.</li>
+        <li><strong>Check freshness, access, quality, latency, and cost before committing:</strong> Verify that your chosen answer satisfies every secondary qualifier in the stem.</li>
+      </ol>
+      <div class="fact">
+        <span class="label">Final Prompt Rule</span>
+        Choose the simplest managed AWS capability that satisfies the requirement, then add only the controls needed for the data, risk, scale, and latency.
+      </div>
+      <div class="warning">
+        <span class="label">Answer Discipline</span>
+        Do not select the most familiar AWS service. Select the service whose primary purpose matches the strongest requirement keyword.
+      </div>
+    </div>
   </section>
 
   <!-- ==================== TAB: 1B. Self-Sufficient Question Dissection Framework ==================== -->
@@ -1286,11 +1467,11 @@ Which combination of steps will meet these requirements with the LEAST operation
 
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
-          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Tag FM outputs with metadata from the data source. Ensures direct egress lineage linkage between generated text and the exact source documents cited, enabling end-to-end auditability for credibility verification.</li>
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT): Tag FM outputs with metadata from the data source.</strong> Ensures direct egress lineage linkage between generated text and the exact source documents cited, enabling end-to-end auditability for credibility verification.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use AWS CloudTrail to log reviewer feedback actions. CloudTrail logs control-plane API calls, not data provenance or source lineage of generated content.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Use Amazon SageMaker Clarify to explain model predictions. Clarify is designed for model explainability and bias detection, not tracking data lineage across scraped and curated sources.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Enable Amazon Bedrock invocation logging and correlate the logs with the data source. Invocation logging captures prompts and token usage; manually correlating raw logs with scraped sources introduces substantial operational overhead without automated lineage.</li>
-          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT):</strong> Register the curated and scraped input datasets with AWS Glue Data Catalog. Provides centralized metadata cataloging, automated schema crawlers, and searchable data provenance tracking across all training and knowledge datasets.</li>
+          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT): Register the curated and scraped input datasets with AWS Glue Data Catalog.</strong> Provides centralized metadata cataloging, automated schema crawlers, and searchable data provenance tracking across all training and knowledge datasets.</li>
         </ul>
 
         <div class="proof-rule-line">
@@ -1328,7 +1509,7 @@ What is the cause of this issue?</p>
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> The Amazon Bedrock FM temperature parameter was increased. Temperature controls token generation randomness during output creation. The failure occurred during retrieval (returning 'no relevant information found') before generative completion.</li>
-          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT):</strong> The updated Lambda function uses a different version of the embedding model. When embedding model versions change, vector space geometry shifts (Embedding Drift). Query vectors no longer match pre-indexed document vectors, yielding zero cosine similarity matches while all infrastructure remains 100% healthy.</li>
+          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT): The updated Lambda function uses a different version of the embedding model.</strong> When embedding model versions change, vector space geometry shifts (Embedding Drift). Query vectors no longer match pre-indexed document vectors, yielding zero cosine similarity matches while all infrastructure remains 100% healthy.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> The document embeddings in OpenSearch Service were deleted during the application update and have not been re-indexed. Contradicted by stated telemetry—the OpenSearch Service cluster is explicitly reported as healthy with normal latency.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> The Lambda function's IAM role is missing the permission for bedrock:InvokeModel. Contradicted by stated telemetry—AWS X-Ray explicitly confirms successful FM invocation, and CloudWatch Logs show zero errors.</li>
         </ul>
@@ -1366,7 +1547,7 @@ Which solution will enforce guardrail compliance for the API calls in the MOST o
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Create an AWS Lambda function that validates and enforces guardrails before proxying requests to Amazon Bedrock. High operational overhead (Tier 3 custom compute), introduces latency bottlenecks, cold starts, and a single point of failure.</li>
-          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT):</strong> Configure IAM policies for the InvokeModel and Converse API calls with the bedrock:GuardrailIdentifier condition key. Apply the policies to all IAM roles that access the Amazon Bedrock FMs. Native Tier 1 IAM control plane enforcement. Denies any API call that does not pass the mandatory guardrail identifier at zero additional infrastructure overhead.</li>
+          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT): Configure IAM policies for the InvokeModel and Converse API calls with the bedrock:GuardrailIdentifier condition key. Apply the policies to all IAM roles that access the Amazon Bedrock FMs.</strong> Native Tier 1 IAM control plane enforcement. Denies any API call that does not pass the mandatory guardrail identifier at zero additional infrastructure overhead.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Store guardrail identifiers in AWS Systems Manager Parameter Store. Create an AWS Lambda function that retrieves the identifier before making calls. Multiplies operational complexity with redundant lookup hops and custom proxy code.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Configure IAM policies for the InvokeModel and Converse API calls with both bedrock:GuardrailIdentifier and bedrock:PromptRouterArn condition keys. Over-constrains policies by requiring prompt router validation when prompt router was never requested in the scenario (violates Golden Rule 3: Zero Unrequested Services).</li>
         </ul>
@@ -1403,7 +1584,7 @@ Which solution will meet these requirements?</p>
 
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
-          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Use the stop sequences parameter in the inference call to specify a trigger phrase. Stop sequences instruct the model to immediately halt token generation when the exact specified character sequence is produced.</li>
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT): Use the stop sequences parameter in the inference call to specify a trigger phrase.</strong> Stop sequences instruct the model to immediately halt token generation when the exact specified character sequence is produced.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use the temperature parameter in the inference call to control the likelihood of the phrase appearing. Temperature controls randomness in token probability distribution; it cannot halt generation at a specific trigger phrase.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Add the trigger phrase "stop at this phrase" in the user prompt. Prompt instructions rely on model obedience and can be ignored or hallucinated past; does not provide deterministic termination.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Use the top-k parameter to control the diversity of tokens in the model's output. Top-k limits sampling to the k highest-probability tokens; it does not stop generation upon a target phrase.</li>
@@ -1447,8 +1628,8 @@ Which combination of steps will meet these requirements?
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Use Amazon Q Developer to retrospectively analyze and document common integration patterns that are found across different business units' code bases. Purely retrospective documentation; fails to optimize active coding velocity or test generation.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use Amazon Q Developer to analyze code for security best practices and suggest compliance improvements. Implement a mandatory review process where all code changes must be manually approved by security teams before integration. Introduces a severe manual approval bottleneck, directly defeating developer acceleration.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Incorporate Amazon Q Developer to resolve coding issues that are identified during merge requests. Reserve most refactoring and optimization tasks for periodic manual review cycles. Self-incriminating delay clause; restricts optimization to infrequent manual cycles rather than continuous acceleration.</li>
-          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Configure Amazon Q Developer to automatically generate and refactor integration code snippets, provide targeted API usage guidance, and suggest performance optimizations for AI components. Directly accelerates coding workflows inside the developer IDE.</li>
-          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT):</strong> Integrate the Amazon Q Developer automated unit and integration test generation features into the team's CI/CD pipelines. Automatically synthesizes test suites and executes them continuously to catch regressions.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT): Configure Amazon Q Developer to automatically generate and refactor integration code snippets, provide targeted API usage guidance, and suggest performance optimizations for AI components. Apply the changes across the modular code base.</strong> Directly accelerates coding workflows inside the developer IDE.</li>
+          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT): Integrate the Amazon Q Developer automated unit and integration test generation features into the team's CI/CD pipelines.</strong> Automatically synthesizes test suites and executes them continuously to catch regressions.</li>
         </ul>
 
         <div class="proof-rule-line">
@@ -1486,9 +1667,9 @@ Which combination of steps can the GenAI developer take to improve resource util
 
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
-          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Reduce the model's maximum sequence length to provide a higher rolling batch size for each GPU. Decreasing max sequence length caps KV-cache memory allocation per request, freeing memory to process larger rolling batches in parallel.</li>
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT): Reduce the model's maximum sequence length to provide a higher rolling batch size for each GPU.</strong> Decreasing max sequence length caps KV-cache memory allocation per request, freeing memory to process larger rolling batches in parallel.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Split the model across all 8 GPUs by using a tensor parallelism degree of 8 to improve memory efficiency. Consuming all 8 GPUs for a model that fits in 4 leaves the instance underutilized with only 1 replica.</li>
-          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT):</strong> Use tensor parallelism with a degree of 4 to deploy two model replicas for each instance. Sharding the model across 4 GPUs leaves the remaining 4 GPUs available for a second replica (8 GPUs / 4 = 2 replicas), doubling concurrent serving capacity.</li>
+          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT): Use tensor parallelism with a degree of 4 to deploy two model replicas for each instance.</strong> Sharding the model across 4 GPUs leaves the remaining 4 GPUs available for a second replica (8 GPUs / 4 = 2 replicas), doubling concurrent serving capacity.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Enable speculative decoding to reduce response latency for each request. Speculative decoding improves single-request latency, not instance-level throughput or GPU memory overutilization.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option E (ELIMINATE):</strong> Increase the number of SageMaker AI instances and spread requests more evenly. Adding more instances increases costs rather than optimizing the existing 8-GPU instance configuration.</li>
         </ul>
@@ -1529,8 +1710,8 @@ Which solutions will meet these requirements?
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Configure an Amazon API Gateway Lambda authorizer to validate credentials against the company's LDAP server and issue signed JSON Web Tokens (JWTs). Custom token generation does not provide temporary AWS IAM credentials for Bedrock access.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Create an IAM role and configure federation by using AWS STS AssumeRole API calls. Store the application's IAM user credentials in the application configuration. Storing IAM user credentials in application configuration violates the requirement to eliminate long-lived credentials.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Create IAM users for each employee and rotate credentials using AWS Secrets Manager. Relies on persistent long-term credentials and does not integrate with the corporate IdP.</li>
-          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Implement an OpenID Connect (OIDC) integration with Amazon Cognito. Configure the integration to authenticate users through the IdP and exchange tokens for temporary AWS credentials. Configure the integration to allow the application to access Amazon Bedrock. Cognito Identity Pools exchange IdP tokens for short-lived AWS credentials with CloudTrail audit logging.</li>
-          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT):</strong> Deploy AWS IAM Identity Center with SAML federation to the IdP. Configure custom permission sets that grant access to Amazon Bedrock. Enables enterprise workforce federation and temporary credential assumption.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT): Implement an OpenID Connect (OIDC) integration with Amazon Cognito. Configure the integration to authenticate users through the IdP and exchange tokens for temporary AWS credentials. Configure the integration to allow the application to access Amazon Bedrock.</strong> Cognito Identity Pools exchange IdP tokens for short-lived AWS credentials with CloudTrail audit logging.</li>
+          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT): Deploy AWS IAM Identity Center with SAML federation to the IdP. Configure custom permission sets that grant access to Amazon Bedrock.</strong> Enables enterprise workforce federation and temporary credential assumption.</li>
         </ul>
 
         <div class="proof-rule-line">
@@ -1568,7 +1749,7 @@ Which configuration provides the MOST detailed analysis of guardrail decision-ma
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Enable Amazon Bedrock model invocation logging to capture full request and response data. Configure Amazon CloudWatch alarms on InvocationsIntervened metrics filtered by GuardrailContentSource dimensions. GuardrailContentSource only indicates WHERE the block occurred (INPUT or OUTPUT), not WHICH policy rule triggered.</li>
-          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT):</strong> Configure guardrail tracing with {"trace": "enabled"} in guardrailConfig. Monitor InvocationsIntervened metrics filtered by the GuardrailPolicyType dimensions: ContentPolicy, TopicPolicy, and SensitiveInformationPolicy. Matches the 3 specific policy categories listed in the scenario 1-to-1, providing granular policy-level diagnostics.</li>
+          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT): Configure guardrail tracing with {"trace": "enabled"} in guardrailConfig. Monitor InvocationsIntervened metrics filtered by the GuardrailPolicyType dimensions: ContentPolicy, TopicPolicy, and SensitiveInformationPolicy.</strong> Matches the 3 specific policy categories listed in the scenario 1-to-1, providing granular policy-level diagnostics.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Enable Amazon Bedrock model evaluation with automated evaluation jobs. Model evaluation jobs test prompts offline; they cannot trace or analyze live runtime customer interventions.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Configure guardrail tracing with {"trace": "enabled"} in guardrailConfig. Monitor InvocationsIntervened metrics filtered by the GuardrailContentSource dimension. ContentSource fails to distinguish between the prompt injection, sensitive info, and denied topic policies.</li>
         </ul>
@@ -1610,7 +1791,7 @@ Which solution will meet these requirements?</p>
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Configure S3 Event Notifications to invoke an AWS Lambda function on object-created and object-deleted events. Direct S3-to-Lambda invocation lacks message buffering; sudden bursts of document uploads cause Lambda concurrency throttling and unrecoverable lost events.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Configure Amazon EventBridge Scheduler to schedule a rule that runs every 5 minutes and invokes an AWS Lambda function. Polling every 5 minutes is NOT event-driven; incurs indexing delays and operational overhead.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Configure Amazon EventBridge Scheduler to schedule a rule that runs every 5 minutes to invoke StartIngestionJob. Re-syncs the entire knowledge base data source on a timer, causing massive API overhead and throttling.</li>
-          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Configure S3 Event Notifications to send object-created and object-deleted events to an Amazon SQS queue. Create an AWS Lambda function to poll the queue and invoke IngestKnowledgeBaseDocuments for new objects and DeleteKnowledgeBaseDocuments for deleted objects. SQS provides decoupled buffering and automatic retries, satisfying scalable, event-driven, and resilient requirements.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT): Configure S3 Event Notifications to send object-created and object-deleted events to an Amazon SQS queue. Create an AWS Lambda function to poll the queue and invoke IngestKnowledgeBaseDocuments for new objects and DeleteKnowledgeBaseDocuments for deleted objects.</strong> SQS provides decoupled buffering and automatic retries, satisfying scalable, event-driven, and resilient requirements.</li>
         </ul>
 
         <div class="proof-rule-line">
@@ -1648,7 +1829,7 @@ Which solution will meet these requirements MOST cost-effectively?</p>
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Use Amazon DynamoDB to store image vectors. Implement custom similarity search logic by using AWS Lambda functions. DynamoDB does not natively index vectors; custom Lambda distance calculations create high compute costs and latency.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Store image vectors in Amazon RDS for PostgreSQL with pgvector. Provisioned RDS DB instances incur continuous 24/7 compute and storage costs that remain underutilized for infrequent workloads.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Store image vectors in Amazon OpenSearch Serverless. OpenSearch Serverless charges minimum OCU compute unit baselines; less cost-effective when searches are sporadic.</li>
-          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Create an Amazon S3 vector bucket with vector indexes to store image embeddings and perform similarity searches. S3 Vectors is a fully managed, serverless capability of Amazon S3 that scales to billions of vectors with pay-per-query economics, ideal for infrequent searches at massive scale.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT): Create an Amazon S3 vector bucket with vector indexes to store image embeddings and perform similarity searches.</strong> S3 Vectors is a fully managed, serverless capability of Amazon S3 that scales to billions of vectors with pay-per-query economics, ideal for infrequent searches at massive scale.</li>
         </ul>
 
         <div class="proof-rule-line">
@@ -1683,7 +1864,7 @@ Which solution will meet these requirements to monitor knowledge base operations
 
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
-          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Configure knowledge base logging with Amazon CloudWatch Logs as the destination. Use CloudWatch Logs Insights to query for failed document processing. Knowledge Base logging captures detailed document-level ingestion, parsing, and chunking error records (e.g. INDEXING_FAILED, EMBEDDING_FAILED).</li>
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT): Configure knowledge base logging with Amazon CloudWatch Logs as the destination. Use CloudWatch Logs Insights to query for failed document processing.</strong> Knowledge Base logging captures detailed document-level ingestion, parsing, and chunking error records (e.g. INDEXING_FAILED, EMBEDDING_FAILED).</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Enable AWS CloudTrail to track all API calls that relate to knowledge base operations. CloudTrail records control-plane API calls (StartIngestionJob), but contains zero document-level parsing errors or payload data.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Implement Amazon Bedrock model invocation logging to capture detailed metrics about document processing. Model invocation logging captures inference prompts and completions (LLM runtime), not Knowledge Base ingestion pipelines.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Enable Amazon CloudWatch Application Signals to automatically detect and alert on knowledge base performance issues. Application Signals monitors application services and traces, not Knowledge Base document ingestion pipelines.</li>
@@ -1723,7 +1904,7 @@ Which solution will meet these requirements with the LEAST operational overhead?
         <ul class="proof-options-list">
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Use Amazon Rekognition Custom Labels to train a custom model for fashion trend analysis. Store results in Amazon DynamoDB. Create a dashboard using Amazon Managed Grafana with custom plugins. High operational overhead collecting training labels, maintaining custom models, and developing Grafana plugins.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use an Anthropic Claude model in Amazon Bedrock to analyze text descriptions from fashion show videos and photos. Store results in Amazon OpenSearch Service. Create a dashboard using Amazon Managed Grafana. Requires manual text descriptions instead of direct multimodal processing, plus managing OpenSearch and Grafana.</li>
-          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT):</strong> Use AWS Step Functions to process videos and photos from fashion shows by using Amazon Bedrock multimodal FMs. Store analysis results in Amazon S3. Use an Amazon QuickSight dashboard to visualize trends in the data. 100% serverless Tier 1/2 managed architecture with zero custom model training or infrastructure maintenance.</li>
+          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT): Use AWS Step Functions to process videos and photos from fashion shows by using Amazon Bedrock multimodal FMs. Store analysis results in Amazon S3. Use an Amazon QuickSight dashboard to visualize trends in the data.</strong> 100% serverless Tier 1/2 managed architecture with zero custom model training or infrastructure maintenance.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Use Amazon EventBridge to trigger AWS Lambda functions that use Amazon Quick Suite to analyze videos and photos. Quick Suite does not perform raw media analysis of video and photo files.</li>
         </ul>
 
@@ -1761,10 +1942,10 @@ Which combination of steps will meet these requirements with MINIMAL operational
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Store prompt templates in Amazon DynamoDB tables with composite keys partitioned by business units. Implement IAM policies that grant role-based access for template approval. Custom DynamoDB tables require custom code for approval workflows, increasing operational overhead compared to native Bedrock Prompt Management.</li>
-          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT):</strong> Use Amazon Bedrock Prompt Management with multi-stage approval workflows. Use IAM policies that require multi-party authorization. Native managed environment to create, parameterize, version, and govern prompt templates with built-in access controls.</li>
+          <li class="proof-option-item correct"><strong>✅ Option B (CORRECT): Use Amazon Bedrock Prompt Management with multi-stage approval workflows. Use IAM policies that require multi-party authorization.</strong> Native managed environment to create, parameterize, version, and govern prompt templates with built-in access controls.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Enable AWS CloudTrail data events for all Amazon Bedrock APIs. Deliver the logs to CloudTrail Lake with a 7-year retention setting. CloudTrail captures API metadata, but does not capture the actual prompt content and model responses needed for regulatory reconstruction.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Set up Amazon EventBridge rules to capture Amazon Bedrock model invocation events. Route events to CloudWatch Logs groups and export to S3. Adds unnecessary routing complexity and points of failure compared to direct Bedrock model invocation logging.</li>
-          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT):</strong> Enable Amazon Bedrock model invocation logging with Amazon S3 as the destination. Enable S3 Object Lock with compliance retention mode set to 7 years. Create separate prefixes for each business unit. Native built-in invocation logging directly to S3 with WORM compliance locking preventing any unauthorized deletion.</li>
+          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT): Enable Amazon Bedrock model invocation logging with Amazon S3 as the destination. Enable S3 Object Lock with compliance retention mode set to 7 years. Create separate prefixes for each business unit.</strong> Native built-in invocation logging directly to S3 with WORM compliance locking preventing any unauthorized deletion.</li>
         </ul>
 
         <div class="proof-rule-line">
@@ -1805,8 +1986,8 @@ Which deployment approaches will meet these requirements with MINIMAL operationa
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Implement a FastAPI server with a configuration of /invocations and /ping endpoints and container orchestration. A custom FastAPI server requires manual container builds, routing configuration, and deployment orchestration.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Deploy the agent on Amazon SageMaker AI real-time endpoints by using a custom inference container. Requires managing custom Docker images, inference servers, and auto-scaling policies.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Deploy the agent on Amazon ECS on AWS Fargate by using a custom container image that runs the AgentCore SDK application. Fargate eliminates server management but still requires task definitions, container builds, and lacks automated HTTP server/health setup.</li>
-          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Implement the AgentCore SDK with the @app.entrypoint decorator to automatically handle server setup and endpoint management. Automatically creates an HTTP server on port 8080, implements /invocations and /ping, and handles both quick lookups and streaming responses.</li>
-          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT):</strong> Deploy the agent by using the AgentCore starter toolkit for automated packaging, containerization, and deployment workflows. Automatically generates container images, pushes to ECR, and creates the agent runtime without custom Dockerfile builds.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT): Implement the AgentCore SDK with the @app.entrypoint decorator to automatically handle server setup and endpoint management.</strong> Automatically creates an HTTP server on port 8080, implements /invocations and /ping, and handles both quick lookups and streaming responses.</li>
+          <li class="proof-option-item correct"><strong>✅ Option E (CORRECT): Deploy the agent by using the AgentCore starter toolkit for automated packaging, containerization, and deployment workflows.</strong> Automatically generates container images, pushes to ECR, and creates the agent runtime without custom Dockerfile builds.</li>
         </ul>
 
         <div class="proof-rule-line">
@@ -1845,7 +2026,7 @@ Which solution will meet these requirements in the MOST cost-effective way?</p>
         <ul class="proof-options-list">
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Create an AWS Lambda function to invoke the model in Amazon Bedrock with the original Region as default. Configure the Lambda function to fall back to Amazon Bedrock in a secondary Region. Requires custom intermediary code, health checks, and retry logic, increasing cost and operational overhead.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use prompt routing to distribute traffic across multiple FMs from the same family. Prompt routing routes requests between different FMs; it requires at least two different models and cannot be used when the application must use the same FM.</li>
-          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT):</strong> Use cross-Region inference to distribute traffic across multiple Regions within a geographic area. Automatically distributes traffic across multiple Regions dynamically during peak bursts at zero extra cost and zero operational overhead.</li>
+          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT): Use cross-Region inference to distribute traffic across multiple Regions within a geographic area.</strong> Automatically distributes traffic across multiple Regions dynamically during peak bursts at zero extra cost and zero operational overhead.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Use provisioned throughput to provision a higher level of throughput for the FM. Provisioned throughput requires steady-state commitments, making it cost-ineffective for temporary peak periods.</li>
         </ul>
 
@@ -1883,7 +2064,7 @@ Which solution will meet these requirements?</p>
         <ul class="proof-options-list">
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Use Amazon Kendra to enable enterprise search of the email data that is stored in Amazon S3. Integrate Amazon Kendra with an Amazon Bedrock FM. Use a system prompt to identify and remove PII during query processing. System prompts cannot reliably prevent sensitive financial data leakage and are susceptible to prompt injection/jailbreaking; unredacted PII remains stored in Kendra.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Use Amazon Textract to extract text from email data. Use Amazon Macie to scan for PII in Amazon S3. Integrate Amazon Textract and Amazon S3 with Amazon Kendra. Textract is optimized for scanned documents/images, not raw email text; Macie alerts on sensitive data in S3 but does not perform inline redaction.</li>
-          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT):</strong> Use Amazon Comprehend to detect and redact PII from the email data that is stored in Amazon S3. Integrate Amazon Comprehend with Amazon Kendra to enable enterprise search of the processed data. Comprehend provides built-in PII detection and redaction, ensuring sanitized text is indexed into Kendra.</li>
+          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT): Use Amazon Comprehend to detect and redact PII from the email data that is stored in Amazon S3. Integrate Amazon Comprehend with Amazon Kendra to enable enterprise search of the processed data.</strong> Comprehend provides built-in PII detection and redaction, ensuring sanitized text is indexed into Kendra.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Use Amazon Comprehend to detect and redact PII from the email data stored in Amazon S3. Integrate Amazon Comprehend with Amazon DocumentDB to enable database queries. DocumentDB is a document database, not an enterprise natural-language search engine.</li>
         </ul>
 
@@ -1924,7 +2105,7 @@ Which deployment strategy will meet these requirements?</p>
           <li class="proof-option-item eliminate"><strong>❌ Option A (ELIMINATE):</strong> Deploy a SageMaker Serverless Inference endpoint that uses a general purpose SageMaker AI instance type. Serverless endpoints do not support GPU acceleration, have a 4 MB payload limit, and max out at 200 seconds timeout.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Deploy a SageMaker Real-Time Inference endpoint that uses an accelerated computing SageMaker AI instance type. Real-Time endpoints have a 6 MB payload limit and 60-second maximum timeout; fails both the 50 MB payload and 15-minute response requirement.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Create a SageMaker AI batch transform job that uses an accelerated computing SageMaker AI instance type. Batch transform is designed for offline processing of large datasets in batches, not on-demand interactive single-job requests.</li>
-          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT):</strong> Deploy a SageMaker Asynchronous Inference endpoint that uses an accelerated computing SageMaker AI instance type. Create an AWS Lambda function for on-demand invocation of the SageMaker AI endpoint to manage image generation. Supports GPU compute, payloads up to 1 GB, execution times up to 15 minutes (900 seconds), and auto-scales to zero when idle.</li>
+          <li class="proof-option-item correct"><strong>✅ Option D (CORRECT): Deploy a SageMaker Asynchronous Inference endpoint that uses an accelerated computing SageMaker AI instance type. Create an AWS Lambda function for on-demand invocation of the SageMaker AI endpoint to manage image generation.</strong> Supports GPU compute, payloads up to 1 GB, execution times up to 15 minutes (900 seconds), and auto-scales to zero when idle.</li>
         </ul>
 
         <div class="proof-rule-line">
@@ -1960,9 +2141,9 @@ Which combination of steps will improve the relevance of retrieved results with 
 
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
-          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Use Knowledge Bases with hybrid search capabilities and Amazon OpenSearch Serverless to combine vector embeddings with keyword matching. Combines vector semantic search with BM25 keyword matching to capture exact terms and technical keywords, improving initial retrieval relevance.</li>
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT): Use Knowledge Bases with hybrid search capabilities and Amazon OpenSearch Serverless to combine vector embeddings with keyword matching.</strong> Combines vector semantic search with BM25 keyword matching to capture exact terms and technical keywords, improving initial retrieval relevance.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Create an Amazon Aurora PostgreSQL database with the pgvector extension to store document embeddings. Create a similarity scoring algorithm that combines vector distances with document metadata. Requires custom database management, schema creation, and custom ranking algorithm development.</li>
-          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT):</strong> Use Amazon Bedrock reranker models with Amazon OpenSearch Service to reorder retrieved results based on semantic relevance to the query. Managed cross-encoder reranker models score and reorder retrieved candidate chunks based on true query relevance with minimal operational overhead.</li>
+          <li class="proof-option-item correct"><strong>✅ Option C (CORRECT): Use Amazon Bedrock reranker models with Amazon OpenSearch Service to reorder retrieved results based on semantic relevance to the query.</strong> Managed cross-encoder reranker models score and reorder retrieved candidate chunks based on true query relevance with minimal operational overhead.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Use Amazon SageMaker JumpStart FMs with Amazon Kendra Intelligent Ranking to create custom relevancy scoring algorithms. SageMaker JumpStart requires custom model deployment and maintenance, adding high operational overhead.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option E (ELIMINATE):</strong> Configure Amazon OpenSearch Serverless with the Amazon Bedrock Knowledge Bases plugin. Use OpenSearch's Learning to Rank feature for relevance scoring. Learning to Rank requires collecting judgment lists and training custom ML ranking models.</li>
         </ul>
@@ -2001,7 +2182,7 @@ Which architecture will meet these requirements with the LEAST operational overh
 
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
-          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT):</strong> Deploy an Amazon API Gateway WebSocket API linked to an AWS Lambda function. Configure the function to read the content category from metadata and route content to the appropriate Amazon Bedrock model based on the category tag. Configure the function to use Amazon Bedrock Prompt Management to enforce style guide rules. Use the Amazon Bedrock streaming API to return suggestions in real time. Serverless bi-directional streaming provides immediate token suggestions with managed prompt governance at minimal operational overhead.</li>
+          <li class="proof-option-item correct"><strong>✅ Option A (CORRECT): Deploy an Amazon API Gateway WebSocket API linked to an AWS Lambda function. Configure the function to read the content category from metadata and route content to the appropriate Amazon Bedrock model based on the category tag. Configure the function to use Amazon Bedrock Prompt Management to enforce style guide rules. Use the Amazon Bedrock streaming API to return suggestions in real time.</strong> Serverless bi-directional streaming provides immediate token suggestions with managed prompt governance at minimal operational overhead.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option B (ELIMINATE):</strong> Create an Amazon API Gateway REST API with AWS Lambda function URLs to enable response streaming. Configure the Lambda function to process articles and stream suggestions using chunked transfer encoding. Function URLs with chunked transfer encoding lack unified WebSocket session management for interactive editing.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option C (ELIMINATE):</strong> Configure an Application Load Balancer with Amazon ECS tasks that run custom containers. Implement content category routing logic and style guide checking within the containers. High operational overhead managing container tasks, cluster scaling, and custom WebSocket routing.</li>
           <li class="proof-option-item eliminate"><strong>❌ Option D (ELIMINATE):</strong> Implement an Amazon SQS queue for article ingestion. Create AWS Step Functions workflows to process content. Use AWS Lambda functions to determine content category and invoke models. Storing in SQS introduces queue polling latency, failing the requirement for immediate real-time feedback.</li>
@@ -2037,11 +2218,11 @@ Which architecture will meet these requirements with the LEAST operational overh
 
         <div class="proof-options-heading">Step-by-Step Systematic Option Dissection &amp; Elimination:</div>
         <ul class="proof-options-list">
-          <li class="proof-option-item correct"><strong>✅ Step 1 (CORRECT):</strong> Define evaluation metrics for relevance, factual accuracy, and fluency. Establishes the quantitative evaluation criteria, ground-truth targets, and scoring rubric before any testing.</li>
-          <li class="proof-option-item correct"><strong>✅ Step 2 (CORRECT):</strong> Create a test dataset with diverse scenarios and edge cases. Curates the benchmark dataset of representative and adversarial prompts required to test the defined metrics.</li>
-          <li class="proof-option-item correct"><strong>✅ Step 3 (CORRECT):</strong> Conduct A/B testing to compare the new model against the existing production model. Runs both models side-by-side on the curated test dataset to generate comparative evaluation output.</li>
-          <li class="proof-option-item correct"><strong>✅ Step 4 (CORRECT):</strong> Implement automated quality gates by using AWS Step Functions. Enforces automated checkpoints that verify the A/B test outputs against predefined quality thresholds before reporting.</li>
-          <li class="proof-option-item correct"><strong>✅ Step 5 (CORRECT):</strong> Analyze the results and generate a comprehensive evaluation report. Synthesizes findings into the final validation report for review and executive approval before production cutover.</li>
+          <li class="proof-option-item correct"><strong>✅ Step 1 (CORRECT): Define evaluation metrics for relevance, factual accuracy, and fluency.</strong> Establishes the quantitative evaluation criteria, ground-truth targets, and scoring rubric before any testing.</li>
+          <li class="proof-option-item correct"><strong>✅ Step 2 (CORRECT): Create a test dataset with diverse scenarios and edge cases.</strong> Curates the benchmark dataset of representative and adversarial prompts required to test the defined metrics.</li>
+          <li class="proof-option-item correct"><strong>✅ Step 3 (CORRECT): Conduct A/B testing to compare the new model against the existing production model.</strong> Runs both models side-by-side on the curated test dataset to generate comparative evaluation output.</li>
+          <li class="proof-option-item correct"><strong>✅ Step 4 (CORRECT): Implement automated quality gates by using AWS Step Functions.</strong> Enforces automated checkpoints that verify the A/B test outputs against predefined quality thresholds before reporting.</li>
+          <li class="proof-option-item correct"><strong>✅ Step 5 (CORRECT): Analyze the results and generate a comprehensive evaluation report.</strong> Synthesizes findings into the final validation report for review and executive approval before production cutover.</li>
         </ul>
 
         <div class="proof-rule-line">
@@ -3291,66 +3472,9 @@ Which architecture will meet these requirements with the LEAST operational overh
     </div>
   </section>
 
-  <!-- ==================== TAB: 10. Rapid Keyword Decision Sheet, One-Line Rules & Master Checklist ==================== -->
-  <section data-section="heuristics" class="searchable-section">
-    <h2>10. Rapid Keyword Decision Sheet, One-Line Rules &amp; Master Checklist</h2>
-    <div class="topic-card">
-      <div class="topic-title">Input, Retrieval, Output</div>
-      <table>
-              <thead><tr><th>Stage</th><th>Primary concern</th></tr></thead>
-              <tbody>
-                <tr><td>Input</td><td>Identity, schema, size, prompt injection, PII.</td></tr>
-                <tr><td>Retrieval</td><td>Authorization, chunking, embeddings, relevance, grounding.</td></tr>
-                <tr><td>Generation</td><td>Model fit, prompt, latency, token cost, temperature.</td></tr>
-                <tr><td>Output</td><td>Guardrails, citations, schema, human escalation.</td></tr>
-                <tr><td>Operations</td><td>CloudWatch, X-Ray, invocation logs, drift, alarms.</td></tr>
-              </tbody>
-            </table>
-    </div>
-    <div class="topic-card">
-      <div class="topic-title">One-Line Exam Rules</div>
-      <div class="formula">Graph relationships + vectors → GraphRAG / Neptune Analytics.</div>
-            <div class="formula">Embedding similarity + ANN → vector index / HNSW.</div>
-            <div class="formula">OpenSearch degraded search as index grows → Raise refresh interval (fewer segments/HNSW graphs); eliminate shard/replica tuning on Serverless (managed by OCUs).</div>
-            <div class="formula">k in k-NN → Higher k increases recall but degrades search latency/performance; lower k improves query speed.</div>
-            <div class="formula">Repeated prompt prefix → Prompt Caching.</div>
-            <div class="formula">Repeated finished answer → response cache.</div>
-            <div class="formula">Multi-step stateful process → Agents or Step Functions.</div>
-            <div class="formula">Custom model endpoint → SageMaker + ECR + S3.</div>
-            <div class="formula">System-prompt role definition → consistent persona, expertise, tone, and domain focus.</div>
-            <div class="formula">Temperature → output randomness, not IAM permissions, model architecture, or programming-language access.</div>
-            <div class="formula">RAG "no information found" + 0 CloudWatch errors + 200 OK X-Ray → Embedding Drift (query model != index model); clean telemetry eliminates data deletion and IAM errors.</div>
-            <div class="formula">Retrieval failure (missing docs) vs. Generation failure (hallucinations/randomness) → Temperature affects generation only, NEVER retrieval.</div>
-    </div>
-    <div class="topic-card">
-      <div class="topic-title">Exam Checklist</div>
-      <ul class="checklist">
-              <li>Managed or custom model?</li>
-              <li>What data is sensitive?</li>
-              <li>Who can invoke the model?</li>
-              <li>What happens on failure?</li>
-              <li>How is quality measured?</li>
-              <li>How is cost controlled?</li>
-            </ul>
-            <div class="warning"><span class="label">Final prompt</span>Choose the simplest managed AWS capability that satisfies the requirement, then add only the controls needed for the data, risk, scale, and latency.</div>
-            <div class="fact"><span class="label">Routing logic rule</span>Model cascading only works when the routing classifier reliably distinguishes simple queries from complex ones. If the classifier cannot separate them, it falls back to the larger model and the cost-saving routing logic is broken.</div>
-    </div>
-    <div class="topic-card">
-      <div class="topic-title">Final Pass</div>
-      <ol>
-              <li>Read the final sentence and identify the constraint.</li>
-              <li>Classify the workload: model, retrieval, state, security, cost, or operations.</li>
-              <li>Choose the managed service that directly owns that capability.</li>
-              <li>Eliminate answers that add infrastructure, violate state boundaries, or solve a different problem.</li>
-              <li>Check freshness, access, quality, latency, and cost before committing.</li>
-            </ol>
-            <div class="warning"><span class="label">Answer discipline</span>Do not select the most familiar AWS service. Select the service whose primary purpose matches the strongest requirement keyword.</div>
-    </div>
-  </section>
-
-  <!-- ==================== TAB: 11. Resources ==================== -->
+  <!-- ==================== TAB: 10. Resources ==================== -->
   <section data-section="resources" class="searchable-section">
-    <h2>11. Resources</h2>
+    <h2>10. Resources</h2>
 
     <div class="topic-card">
       <div class="topic-title">Official AWS Certification Overview, Benefits &amp; Exam Scheduling</div>
@@ -3509,40 +3633,148 @@ Which architecture will meet these requirements with the LEAST operational overh
     });
   });
 
+  function toggleUpdateHistory(event) {
+    if (event) event.stopPropagation();
+    const dropdown = document.getElementById('updateHistoryDropdown');
+    const btn = document.getElementById('updateHistoryBtn');
+    if (!dropdown) return;
+    const isOpen = dropdown.classList.toggle('open');
+    if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  document.addEventListener('click', function(event) {
+    const wrap = document.getElementById('updateHistoryWrap');
+    const dropdown = document.getElementById('updateHistoryDropdown');
+    const btn = document.getElementById('updateHistoryBtn');
+    if (dropdown && dropdown.classList.contains('open') && wrap && !wrap.contains(event.target)) {
+      dropdown.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
   (function updateLastModifiedBanner() {
     const dateEl = document.getElementById('lastUpdatedDate');
     const summaryEl = document.getElementById('lastUpdatedSummary');
+    const historyListEl = document.getElementById('updateHistoryList');
     if (!dateEl) return;
 
-    const formatDate = (d) => d.toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric'
-    });
+    const formatDateTime = (d) => {
+      const datePart = d.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      });
+      const timePart = d.toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: '2-digit'
+      });
+      return `${datePart} (${timePart})`;
+    };
 
+    const formatCommitMessage = (rawMessage) => {
+      const lines = (rawMessage || '').split('\n').map(l => l.trim()).filter(Boolean);
+      if (!lines.length) return 'Updated study guide';
+      if (/^update index\.html$/i.test(lines[0]) && lines.length > 1) {
+        return lines.slice(1).join(' — ');
+      }
+      if (lines.length > 1) {
+        return `${lines[0]} — ${lines.slice(1).join(' ')}`;
+      }
+      return lines[0];
+    };
+
+    let localModTime = 0;
+    const initialLocalSummary = summaryEl ? summaryEl.textContent.trim() : '';
     if (document.lastModified) {
       const localMod = new Date(document.lastModified);
       if (!isNaN(localMod.getTime())) {
-        dateEl.textContent = formatDate(localMod);
+        localModTime = localMod.getTime();
+        dateEl.textContent = formatDateTime(localMod);
       }
     }
 
-    fetch('https://api.github.com/repos/calcomsci/AWS-GenAI-Study-Guide-WIP/commits/main', {
+    fetch('https://api.github.com/repos/calcomsci/AWS-GenAI-Study-Guide-WIP/commits?per_page=10', {
       headers: { 'Accept': 'application/vnd.github.v3+json' }
     })
       .then(res => res.ok ? res.json() : null)
-      .then(data => {
-        if (!data || !data.commit) return;
-        const commitDateStr = data.commit.committer?.date || data.commit.author?.date;
-        if (commitDateStr) {
-          const commitDate = new Date(commitDateStr);
-          if (!isNaN(commitDate.getTime())) {
-            dateEl.textContent = formatDate(commitDate);
+      .then(commits => {
+        if (!Array.isArray(commits) || !commits.length) return;
+        const latest = commits[0];
+        const latestDateStr = latest.commit?.committer?.date || latest.commit?.author?.date;
+        let latestCommitTime = 0;
+        if (latestDateStr) {
+          const parsed = new Date(latestDateStr);
+          if (!isNaN(parsed.getTime())) latestCommitTime = parsed.getTime();
+        }
+
+        const hasNewerLocalEdit = localModTime > latestCommitTime + 60000;
+        if (!hasNewerLocalEdit && latestCommitTime) {
+          dateEl.textContent = formatDateTime(new Date(latestCommitTime));
+          if (summaryEl) {
+            summaryEl.textContent = formatCommitMessage(latest.commit?.message);
           }
         }
-        const rawMsg = (data.commit.message || '').split('\n')[0].trim();
-        if (rawMsg && summaryEl) {
-          summaryEl.textContent = rawMsg;
+
+        if (historyListEl) {
+          const items = [];
+          if (hasNewerLocalEdit && initialLocalSummary) {
+            items.push({
+              dateLabel: `${formatDateTime(new Date(localModTime))} • Local Working Copy`,
+              sha: 'unpushed',
+              url: '',
+              msg: initialLocalSummary
+            });
+          }
+          for (const c of commits) {
+            if (items.length >= 10) break;
+            const cDateStr = c.commit?.committer?.date || c.commit?.author?.date;
+            const cDate = cDateStr ? new Date(cDateStr) : null;
+            const dateLabel = cDate && !isNaN(cDate.getTime()) ? formatDateTime(cDate) : 'Recent Commit';
+            const shortSha = (c.sha || '').slice(0, 7);
+            items.push({
+              dateLabel,
+              sha: shortSha,
+              url: c.html_url || `https://github.com/calcomsci/AWS-GenAI-Study-Guide-WIP/commit/${shortSha}`,
+              msg: formatCommitMessage(c.commit?.message)
+            });
+          }
+
+          historyListEl.innerHTML = '';
+          items.forEach(item => {
+            const li = document.createElement('li');
+            li.className = 'update-history-item';
+
+            const meta = document.createElement('div');
+            meta.className = 'update-history-meta';
+
+            const dSpan = document.createElement('span');
+            dSpan.className = 'update-history-date';
+            dSpan.textContent = item.dateLabel;
+            meta.appendChild(dSpan);
+
+            if (item.url) {
+              const a = document.createElement('a');
+              a.className = 'update-history-sha';
+              a.href = item.url;
+              a.target = '_blank';
+              a.rel = 'noopener noreferrer';
+              a.textContent = item.sha;
+              meta.appendChild(a);
+            } else {
+              const sSpan = document.createElement('span');
+              sSpan.className = 'update-history-sha';
+              sSpan.textContent = item.sha;
+              meta.appendChild(sSpan);
+            }
+
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'update-history-msg';
+            msgDiv.textContent = item.msg;
+
+            li.appendChild(meta);
+            li.appendChild(msgDiv);
+            historyListEl.appendChild(li);
+          });
         }
       })
       .catch(() => {});
